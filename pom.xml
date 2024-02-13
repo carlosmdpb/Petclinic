@@ -12,6 +12,14 @@
 	</parent>
 	<name>PetClinic React</name>
 
+	<developers>
+		<developer>
+		  <id>davblamor</id>
+		  <name>David Blanco</name>
+		  <email>davblamor@alum.us.es</email>
+		</developer>
+	</developers>
+
 	<properties>
 
 		<!-- Generic properties -->
