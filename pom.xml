@@ -17,6 +17,11 @@
           <name>Jun</name>
           <email>junyao@alum.us.es</email>
         </developer>
+		<developer>
+          <id>LidiaJim</id>
+          <name>Lidia</name>
+          <email>lidjimsor@alum.us.es</email>
+        </developer>
     </developers>
 	<properties>
 
