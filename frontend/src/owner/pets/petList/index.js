@@ -114,7 +114,7 @@ export default function OwnerPetList() {
           <Link
             to="/myPets/new"
             className="auth-button"
-            style={{ textDecoration: "none", marginBottom: "2rem" }}
+            style={{ textDecoration: "none", marginBottom: "2rem", color: "brown"}}
           >
             Add Pet
           </Link>
@@ -136,13 +136,14 @@ export default function OwnerPetList() {
                   <Link
                     to={"/myPets/" + pet.id}
                     className="auth-button blue"
-                    style={{ textDecoration: "none" }}
+                    style={{ textDecoration: "none", color: "saddlebrown" }}
                   >
                     Edit
                   </Link>
                   <button
                     onClick={() => removePet(pet.id)}
                     className="auth-button danger"
+                    style={{color: "burlywood" }}
                   >
                     Delete
                   </button>
@@ -178,7 +179,7 @@ export default function OwnerPetList() {
                               <Link
                                 to={`/myPets/${pet.id}/visits/${visit.id}`}
                                 className="edit-visit-button"
-                                style={{ textDecoration: "none" }}
+                                style={{ textDecoration: "none", color: "rosybrown" }}
                               >
                                 Edit
                               </Link>
@@ -193,7 +194,7 @@ export default function OwnerPetList() {
                   <Link
                     to={`/myPets/${pet.id}/visits/new`}
                     className="auth-button blue"
-                    style={{ textDecoration: "none", marginTop: "20px" }}
+                    style={{ textDecoration: "none", marginTop: "20px", color: "peru" }}
                   >
                     Add Visit
                   </Link>
