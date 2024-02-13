@@ -1,7 +1,9 @@
 import React from "react";
 import { BsDot, BsFillRocketTakeoffFill } from "react-icons/bs";
-import { FaCheck, FaPaperPlane, FaTimes } from "react-icons/fa";
-import { ImAirplane } from "react-icons/im";
+import { FaCheck, FaPaperPlane, FaTimes, FaCarrot } from "react-icons/fa";
+import { GiOrangeSlice } from "react-icons/gi";
+import { LuBanana } from "react-icons/lu";
+import { CiApple } from "react-icons/ci";
 import "../../static/css/pricing/pricingPage.css";
 
 export default function PlanList() {
@@ -16,7 +18,7 @@ export default function PlanList() {
             <div className="pricing-card text-center">
               <div className="title">
                 <div className="icon">
-                  <FaPaperPlane color="white" />
+                  <FaCarrot color="white" />
                 </div>
                 <h2>BASIC</h2>
               </div>
@@ -53,7 +55,7 @@ export default function PlanList() {
             <div className="pricing-card text-center">
               <div className="title">
                 <div className="icon">
-                  <ImAirplane color="white" />
+                  <GiOrangeSlice color="white" />
                 </div>
                 <h2>GOLD</h2>
               </div>
@@ -92,7 +94,7 @@ export default function PlanList() {
             <div className="pricing-card text-center">
               <div className="title" style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                 <div className="icon">
-                  <BsFillRocketTakeoffFill color="white" />
+                  <CiApple color="white" />
                 </div>
                 <h2>PLATINUM</h2>
               </div>
