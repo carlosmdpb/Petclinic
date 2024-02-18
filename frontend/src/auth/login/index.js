@@ -28,8 +28,11 @@ export default function Login() {
         tokenService.updateLocalAccessToken(data.token);
         window.location.href = "/dashboard";
       })
-      .catch((error) => {         
+      .catch((error) => {    
         setMessage(error);
+        setTimeout(() => {
+          window.location.reload(); 
+        }, 2000)
       });            
   }
 

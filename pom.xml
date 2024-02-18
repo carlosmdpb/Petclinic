@@ -27,6 +27,11 @@
 		  <name>David Blanco</name>
 		  <email>davblamor@alum.us.es</email>
 		</developer>
+		<developer>
+          <id>gongarlam</id>
+          <name>Gonzalo</name>
+          <email>gongarlam@alum.us.es</email>
+        </developer>
 	</developers>
 
 	<properties>
