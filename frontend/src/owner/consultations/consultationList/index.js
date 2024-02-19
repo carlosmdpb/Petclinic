@@ -88,28 +88,29 @@ export default function OwnerConsultationList() {
     });
   }
 
-  function handleFilter(event) {
+  function handleChange(event) {
     const value = event.target.value;
     let filteredConsultations;
 
     if (value === "") {
-      if (search !== "")
-        filteredConsultations = [...consultations].filter((i) =>
-          i.pet.name.toLowerCase().includes(search)
+      if (filter !== "")
+        filteredConsultations = [...consultations].filter(
+          (i) => i.status === filter
         );
       else filteredConsultations = [...consultations];
     } else {
-      if (search !== "")
+      if (filter !== "")
         filteredConsultations = [...consultations].filter(
-          (i) => i.status === value && i.pet.name.toLowerCase().includes(search)
+          (i) => i.status === filter && i.pet.name.toLowerCase().includes(value)
         );
       else
-        filteredConsultations = [...consultations].filter(
-          (i) => i.status === value
+        filteredConsultations = [...consultations].filter((i) =>
+          i.pet.name.toLowerCase().includes(value)
         );
     }
+
     setFiltered(filteredConsultations);
-    setFilter(value);
+    setSearch(value);
   }
 
   async function setUp() {
@@ -144,7 +145,6 @@ export default function OwnerConsultationList() {
   return (
     <div>
       <Container style={{ marginTop: "15px" }} fluid>
-        <h1 className="text-center">Consultations</h1>
         <h1 className="text-center table-header">Consultations</h1>
 
         <Row className="row-cols-auto g-3 align-items-center">
