@@ -52,6 +52,14 @@ public class ConsultationService {
 		return this.consultationRepository.findAllByClinicOwnerUserId(userId);
 	}
 
+	public List<Consultation> findAllByClinicIdAndIsComment(int clinicId, boolean isComment) {
+		return consultationRepository.findAllByClinicIdAndIsComment(clinicId, isComment);
+	}
+	
+	public List<Consultation> findAllByClinicOwnerUserIdAndIsComment(int userId, boolean isComment) {
+		return consultationRepository.findAllByClinicOwnerUserIdAndIsComment(userId, isComment);
+	}
+
 	@Transactional(readOnly = true)
 	public List<Consultation> findAllByClinicId(int clinicId) throws DataAccessException {
 		System.out.println("LLEGA AL SERVICE");

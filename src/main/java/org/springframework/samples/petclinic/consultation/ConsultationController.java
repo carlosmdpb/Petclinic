@@ -65,10 +65,10 @@ public class ConsultationController {
 		if (user.hasAnyAuthority(ADMIN_AUTH).equals(true)) {
 			res = (List<Consultation>) consultationService.findAll();
 		} else if (user.hasAnyAuthority(CLINIC_OWNER_AUTH).equals(true) && userId != null) {
-			res = (List<Consultation>) consultationService.findAllByClinicOwnerUserId(userId);
+			res = (List<Consultation>) consultationService.findAllByClinicOwnerUserIdAndIsComment(userId,true);
 		} else if (user.hasAnyAuthority(VET_AUTH).equals(true) && userId != null) {
 			Vet vet = userService.findVetByUser(userId);
-			res = consultationService.findAllByClinicId(vet.getClinic().getId());
+			res = consultationService.findAllByClinicIdAndIsComment(vet.getClinic().getId(),false);
 		} else {
 			if (userId == null) {
 				Owner owner = userService.findOwnerByUser(user.getId());
