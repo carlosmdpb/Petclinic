@@ -141,12 +141,12 @@ export default function OwnerConsultationList() {
   }, []);
 
   useEffect(() => { }, [filtered]);
-
   return (
     <div>
       <Container style={{ marginTop: "15px" }} fluid>
         <h1 className="text-center">Consultations</h1>
         <h1 className="text-center table-header">Consultations</h1>
+
         <Row className="row-cols-auto g-3 align-items-center">
           <Col>
             {plan === "PLATINUM" ? (
