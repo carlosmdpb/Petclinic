@@ -88,29 +88,55 @@ export default function OwnerConsultationList() {
     });
   }
 
-  function handleChange(event) {
+  function handleFilter(event) {
     const value = event.target.value;
     let filteredConsultations;
-
+  
     if (value === "") {
-      if (filter !== "")
-        filteredConsultations = [...consultations].filter(
-          (i) => i.status === filter
-        );
-      else filteredConsultations = [...consultations];
+      if (search !== "") {
+        if (userType === "clinicOwner") {
+          filteredConsultations = [...consultations].filter(
+            (i) => i.commentsFromClinic && i.owner.user.username.toLowerCase().includes(search)
+          );
+        } else if (userType === "vet") {
+          filteredConsultations = [...consultations].filter(
+            (i) => !i.commentsFromClinic && i.owner.user.username.toLowerCase().includes(search)
+          );
+        } else {
+          filteredConsultations = [...consultations].filter(
+            (i) => i.pet.name.toLowerCase().includes(search)
+          );
+        }
+      } else {
+        filteredConsultations = [...consultations];
+      }
     } else {
-      if (filter !== "")
-        filteredConsultations = [...consultations].filter(
-          (i) => i.status === filter && i.pet.name.toLowerCase().includes(value)
-        );
-      else
-        filteredConsultations = [...consultations].filter((i) =>
-          i.pet.name.toLowerCase().includes(value)
-        );
+      if (search !== "") {
+        if (userType === "clinicOwner") {
+          filteredConsultations = [...consultations].filter(
+            (i) => i.status === value && i.commentsFromClinic && i.owner.user.username.toLowerCase().includes(search)
+          );
+        } else if (userType === "vet") {
+          filteredConsultations = [...consultations].filter(
+            (i) => i.status === value && !i.commentsFromClinic && i.owner.user.username.toLowerCase().includes(search)
+          );
+        } else {
+          filteredConsultations = [...consultations].filter(
+            (i) => i.status === value && i.pet.name.toLowerCase().includes(search)
+          );
+        }
+      } else {
+        if (userType === "clinicOwner") {
+          filteredConsultations = [...consultations].filter((i) => i.status === value && i.commentsFromClinic);
+        } else if (userType === "vet") {
+          filteredConsultations = [...consultations].filter((i) => i.status === value && !i.commentsFromClinic);
+        } else {
+          filteredConsultations = [...consultations].filter((i) => i.status === value);
+        }
+      }
     }
-
     setFiltered(filteredConsultations);
-    setSearch(value);
+    setFilter(value);
   }
 
   async function setUp() {

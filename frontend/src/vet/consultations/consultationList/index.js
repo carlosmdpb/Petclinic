@@ -94,7 +94,8 @@ export default function VetConsultationList() {
     setSearch(value);
   }
 
-  async function setUp() {
+  async function setUp(userType) {
+    let userRole;
     const consultations = await (
       await fetch(`/api/v1/consultations?userId=${user.id}`, {
         headers: {
@@ -103,6 +104,19 @@ export default function VetConsultationList() {
         },
       })
     ).json();
+    
+    if (userType === 'clinicOwner') {
+      userRole = 'clinicOwner';
+    } else if (userType === 'vet') {
+      userRole = 'vet';
+    } else {
+      // Handle other user types or default to a specific role
+    }
+    if (userRole === 'clinicOwner') {
+      consultations = consultations.filter(c => c.isCommentForClinic);
+    } else if (userRole === 'vet') {
+      consultations = consultations.filter(c => !c.isCommentForClinic);
+    }
 
     setConsultations(consultations);
     setFiltered(consultations);
