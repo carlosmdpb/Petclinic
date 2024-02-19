@@ -1,5 +1,5 @@
-.tabla-header {
-  background-color: lightgreen;
+.table-header{
+background-color: 
 }
 
 .consultation-checkbox-container{
@@ -8,7 +8,6 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
-    background-color: none;
 }
 
 .consultation-checkbox-container > div{
