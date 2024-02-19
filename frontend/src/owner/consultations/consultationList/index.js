@@ -94,6 +94,7 @@ export default function OwnerConsultationList() {
 
     if (value === "") {
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (filter !== "")
         filteredConsultations = [...consultations].filter(
           (i) => i.status === filter
@@ -114,6 +115,14 @@ export default function OwnerConsultationList() {
         );
       else filteredConsultations = [...consultations];
     } else {
+=======
+      if (search !== "")
+        filteredConsultations = [...consultations].filter((i) =>
+          i.pet.name.toLowerCase().includes(search)
+        );
+      else filteredConsultations = [...consultations];
+    } else {
+>>>>>>> ff6d941 (A1.3-g done)
       if (search !== "")
         filteredConsultations = [...consultations].filter(
           (i) => i.status === value && i.pet.name.toLowerCase().includes(search)
@@ -121,6 +130,9 @@ export default function OwnerConsultationList() {
       else
         filteredConsultations = [...consultations].filter(
           (i) => i.status === value
+<<<<<<< HEAD
+>>>>>>> ff6d941 (A1.3-g done)
+=======
 >>>>>>> ff6d941 (A1.3-g done)
         );
     }
@@ -159,18 +171,24 @@ export default function OwnerConsultationList() {
 
   useEffect(() => { }, [filtered]);
 <<<<<<< HEAD
+<<<<<<< HEAD
   return (
     <div>
       <Container style={{ marginTop: "15px" }} fluid>
         <h1 className="text-center table-header">Consultations</h1>
 
 =======
+=======
+>>>>>>> ff6d941 (A1.3-g done)
 
   return (
     <div>
       <Container style={{ marginTop: "15px" }} fluid>
         <h1 className="text-center">Consultations</h1>
         <h1 className="text-center table-header">Consultations</h1>
+<<<<<<< HEAD
+>>>>>>> ff6d941 (A1.3-g done)
+=======
 >>>>>>> ff6d941 (A1.3-g done)
         <Row className="row-cols-auto g-3 align-items-center">
           <Col>
