@@ -91,49 +91,22 @@ export default function OwnerConsultationList() {
   function handleFilter(event) {
     const value = event.target.value;
     let filteredConsultations;
-  
+
     if (value === "") {
-      if (search !== "") {
-        if (userType === "clinicOwner") {
-          filteredConsultations = [...consultations].filter(
-            (i) => i.commentsFromClinic && i.owner.user.username.toLowerCase().includes(search)
-          );
-        } else if (userType === "vet") {
-          filteredConsultations = [...consultations].filter(
-            (i) => !i.commentsFromClinic && i.owner.user.username.toLowerCase().includes(search)
-          );
-        } else {
-          filteredConsultations = [...consultations].filter(
-            (i) => i.pet.name.toLowerCase().includes(search)
-          );
-        }
-      } else {
-        filteredConsultations = [...consultations];
-      }
+      if (search !== "")
+        filteredConsultations = [...consultations].filter((i) =>
+          i.pet.name.toLowerCase().includes(search)
+        );
+      else filteredConsultations = [...consultations];
     } else {
-      if (search !== "") {
-        if (userType === "clinicOwner") {
-          filteredConsultations = [...consultations].filter(
-            (i) => i.status === value && i.commentsFromClinic && i.owner.user.username.toLowerCase().includes(search)
-          );
-        } else if (userType === "vet") {
-          filteredConsultations = [...consultations].filter(
-            (i) => i.status === value && !i.commentsFromClinic && i.owner.user.username.toLowerCase().includes(search)
-          );
-        } else {
-          filteredConsultations = [...consultations].filter(
-            (i) => i.status === value && i.pet.name.toLowerCase().includes(search)
-          );
-        }
-      } else {
-        if (userType === "clinicOwner") {
-          filteredConsultations = [...consultations].filter((i) => i.status === value && i.commentsFromClinic);
-        } else if (userType === "vet") {
-          filteredConsultations = [...consultations].filter((i) => i.status === value && !i.commentsFromClinic);
-        } else {
-          filteredConsultations = [...consultations].filter((i) => i.status === value);
-        }
-      }
+      if (search !== "")
+        filteredConsultations = [...consultations].filter(
+          (i) => i.status === value && i.pet.name.toLowerCase().includes(search)
+        );
+      else
+        filteredConsultations = [...consultations].filter(
+          (i) => i.status === value
+        );
     }
     setFiltered(filteredConsultations);
     setFilter(value);
@@ -167,12 +140,13 @@ export default function OwnerConsultationList() {
     setUp();
   }, []);
 
-  useEffect(() => {}, [filtered]);
-
+  
+  useEffect(() => {}, [filetered]);
   return (
     <div>
       <Container style={{ marginTop: "15px" }} fluid>
         <h1 className="text-center">Consultations</h1>
+        <h1 className="text-center tabla-header">Consultations</h1>
         <Row className="row-cols-auto g-3 align-items-center">
           <Col>
             {plan === "PLATINUM" ? (
