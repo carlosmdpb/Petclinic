@@ -95,6 +95,7 @@ export default function OwnerConsultationList() {
     if (value === "") {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       if (filter !== "")
         filteredConsultations = [...consultations].filter(
           (i) => i.status === filter
@@ -124,16 +125,30 @@ export default function OwnerConsultationList() {
     } else {
 >>>>>>> ff6d941 (A1.3-g done)
       if (search !== "")
+=======
+      if (filter !== "")
         filteredConsultations = [...consultations].filter(
-          (i) => i.status === value && i.pet.name.toLowerCase().includes(search)
+          (i) => i.status === filter
+        );
+      else filteredConsultations = [...consultations];
+    } else {
+      if (filter !== "")
+>>>>>>> 8a51e48 (modificaciones de a1.3-g rectificadas)
+        filteredConsultations = [...consultations].filter(
+          (i) => i.status === filter && i.pet.name.toLowerCase().includes(value)
         );
       else
+<<<<<<< HEAD
         filteredConsultations = [...consultations].filter(
           (i) => i.status === value
 <<<<<<< HEAD
 >>>>>>> ff6d941 (A1.3-g done)
 =======
 >>>>>>> ff6d941 (A1.3-g done)
+=======
+        filteredConsultations = [...consultations].filter((i) =>
+          i.pet.name.toLowerCase().includes(value)
+>>>>>>> 8a51e48 (modificaciones de a1.3-g rectificadas)
         );
     }
 
@@ -184,7 +199,6 @@ export default function OwnerConsultationList() {
   return (
     <div>
       <Container style={{ marginTop: "15px" }} fluid>
-        <h1 className="text-center">Consultations</h1>
         <h1 className="text-center table-header">Consultations</h1>
 <<<<<<< HEAD
 >>>>>>> ff6d941 (A1.3-g done)
