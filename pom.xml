@@ -37,6 +37,11 @@
           <name>Juan</name>
           <email>juanunsan2@alum.us.es</email>
         </developer>
+		<developer>
+          <id>carmarbar9</id>
+          <name>Carlos</name>
+          <email>carmarbar9@alum.us.es</email>
+        </developer>
 	</developers>
 
 	<properties>
