@@ -71,7 +71,7 @@ export default function OwnerListAdmin() {
   return (
     <div>
       <div className="admin-page-container">
-        <h1 className="text-center">Owners</h1>
+        <h1 className="text-center table-header">Owners</h1>
         {alerts.map((a) => a.alert)}
         {modal}
         <div className="float-right">

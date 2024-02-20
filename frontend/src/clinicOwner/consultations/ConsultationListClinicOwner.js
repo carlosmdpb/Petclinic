@@ -72,7 +72,7 @@ export default function ConsultationListClinicOwner() {
     return (
         <div>
             <Container fluid style={{ marginTop: "15px" }}>
-                <h1 className="text-center">Consultations</h1>
+                <h1 className="text-center table-header">Consultations</h1>
                 {alerts.map((a) => a.alert)}
                 {modal}
                 <Row className="row-cols-auto g-3 align-items-center">
