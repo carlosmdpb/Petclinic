@@ -32,6 +32,11 @@
           <name>Gonzalo</name>
           <email>gongarlam@alum.us.es</email>
         </developer>
+		<developer>
+          <id>juanunsan2</id>
+          <name>Juan</name>
+          <email>juanunsan2@alum.us.es</email>
+        </developer>
 	</developers>
 
 	<properties>
