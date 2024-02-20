@@ -7,8 +7,8 @@ export default function Home(){
         <div className="home-page-container">
             <div className="hero-div">
                 <h1>Petclinic</h1>
-                <h3>---</h3>
-                <h3>Find the best vet for your pet</h3>                
+                <h3>.===.</h3>
+                <h3>Your Pet’s Health, Our Passion</h3>                
             </div>
         </div>
     );
