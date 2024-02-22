@@ -2,6 +2,10 @@
 background-color: lightgreen;
 }
 
+.table-header2{
+  background-color: #d2b48c;
+}
+
 .consultation-checkbox-container{
     display: flex;
     flex-direction: column;

@@ -69,7 +69,7 @@ export default function VisitListAdmin() {
 
   return (
     <div className="admin-page-container">
-      <h1 className="text-center">Visits</h1>
+      <h1 className="text-center table-header2">Visits</h1>
       {alerts.map((a) => a.alert)}
       {modal}
       <div className="float-right">
