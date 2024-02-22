@@ -117,7 +117,7 @@ export default function VetConsultationList() {
   return (
     <div>
       <Container style={{ marginTop: "15px" }} fluid>
-        <h1 className="text-center table-header">Consultations</h1>
+        <h1 className="text-center table-header2">Consultations</h1>
         <Row className="row-cols-auto g-3 align-items-center">
           <Col>
             <Button color="link" onClick={handleFilter} value="PENDING">

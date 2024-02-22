@@ -71,7 +71,7 @@ export default function VetListAdmin() {
 
   return (
     <div className="admin-page-container">
-      <h1 className="text-center table-header">Vets</h1>
+      <h1 className="text-center table-header2">Vets</h1>
       {alerts.map((a) => a.alert)}
       {modal}
       <div className="float-right">

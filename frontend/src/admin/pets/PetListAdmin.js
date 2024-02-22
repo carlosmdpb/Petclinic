@@ -75,7 +75,7 @@ export default function PetListAdmin() {
 
   return (
       <div className="admin-page-container">
-        <h1 className="text-center table-header">Pets</h1>
+        <h1 className="text-center table-header2">Pets</h1>
         {alerts.map((a) => a.alert)}
         {modal}
         <Button color="success" tag={Link} to="/pets/new">
