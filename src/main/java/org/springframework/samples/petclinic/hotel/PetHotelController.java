@@ -23,9 +23,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/hotel")
 @SecurityRequirement(name = "bearerAuth")
-public class HotelController {
+public class PetHotelController {
     @Autowired
-    private HotelService hotelService;
+    private PetHotelService hotelService;
     @Autowired
     private UserService userService;
 	private static final String ADMIN_AUTH = "ADMIN";
@@ -33,28 +33,28 @@ public class HotelController {
 
     @PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Hotel> create(@RequestBody @Valid Hotel hotel)throws DataAccessException {
+	public ResponseEntity<PetHotelRoom> create(@RequestBody @Valid PetHotelRoom hotel)throws DataAccessException {
         User user = userService.findCurrentUser();
-        Hotel newHotel = new Hotel();
-		Hotel savedHotel;
+        PetHotelRoom newHotel = new PetHotelRoom();
+		PetHotelRoom savedHotel;
         BeanUtils.copyProperties(hotel, newHotel, "id");
         if (user.hasAnyAuthority(CLINIC_OWNER_AUTH).equals(true) || user.hasAnyAuthority(ADMIN_AUTH).equals(true)) {
             savedHotel = hotelService.crearHotel(newHotel);
             
         }else{
-            throw new AccessDeniedException("No tienes permisos para realizar esta acción");
+            throw new AccessDeniedException("You don't have permissions to perform this action");
         }
 		return new ResponseEntity<>(savedHotel, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<Hotel>> getAll() {       
+    public ResponseEntity<List<PetHotelRoom>> getAll() {       
         User user = userService.findCurrentUser();
- 		List<Hotel> res = null;
+ 		List<PetHotelRoom> res = null;
          if (user.hasAnyAuthority(ADMIN_AUTH).equals(true) || user.hasAnyAuthority(CLINIC_OWNER_AUTH).equals(true)) {
             res= hotelService.findAllHotel();
          }else {
-            throw new AccessDeniedException("No tienes permisos para realizar esta acción");
+            throw new AccessDeniedException("You don't have permissions to perform this action");
         }
 		return new ResponseEntity<>(res, HttpStatus.OK);
     }

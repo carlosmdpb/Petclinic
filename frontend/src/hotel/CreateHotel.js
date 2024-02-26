@@ -35,9 +35,9 @@ export function CreateHotel() {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             navigate('/hotel');
-            console.log('Hotel creado');
+            console.log('Hotel created');
         } catch (error) {
-            console.error('Error al crear el hotel:', error);
+            console.error('Error creating the hotel:', error);
         }
     };
 

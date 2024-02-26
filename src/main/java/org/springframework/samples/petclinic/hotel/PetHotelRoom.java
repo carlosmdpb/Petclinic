@@ -23,7 +23,7 @@ import lombok.Setter;
 
 
 
-public class Hotel extends BaseEntity{
+public class PetHotelRoom extends BaseEntity{
     //solo los clinic owner en security, crear un pet hotel room
     
 	@Column(name = "room_name")

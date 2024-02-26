@@ -49,7 +49,7 @@ export function GetAllHoteles() {
                                 );
                             })
                         ) : (
-                            <p>No hay hoteles disponibles.</p>)
+                            <p>There are no hotels available.</p>)
                     }
                     </tbody>
                 </Table>

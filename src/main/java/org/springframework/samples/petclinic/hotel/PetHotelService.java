@@ -11,18 +11,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 @Service
-public class HotelService {
+public class PetHotelService {
     @Autowired
-    private HotelRepository hotelRepository;
+    private PetHotelRepository hotelRepository;
     @Autowired
     private ClinicRepository clinicRepository;
     @Autowired
     private ClinicService clinicService;
  
-    public Hotel crearHotel(Hotel hotel) {
+    public PetHotelRoom crearHotel(PetHotelRoom hotel) {
         Clinic clinic = clinicService.findClinicById(hotel.getClinic().getId());
         if (clinic == null) {
-            throw new RuntimeException("Clínica no encontrada para el ID proporcionado: " + hotel.getClinic().getId());
+            throw new RuntimeException("Clinic Not Found for ID Provided: " + hotel.getClinic().getId());
         }
         hotel.setRoomName(hotel.getRoomName());
         hotel.setAllowedPetType(hotel.getAllowedPetType());
@@ -33,8 +33,8 @@ public class HotelService {
         }
 
     @Transactional(readOnly = true)
-    public List<Hotel> findAllHotel() {
-        List<Hotel> hoteles= new ArrayList<Hotel>();
+    public List<PetHotelRoom> findAllHotel() {
+        List<PetHotelRoom> hoteles= new ArrayList<PetHotelRoom>();
         hotelRepository.findAll().forEach(hoteles::add);
         return hoteles;
     }

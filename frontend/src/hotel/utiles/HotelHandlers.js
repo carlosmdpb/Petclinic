@@ -4,7 +4,7 @@ const handleTypeChange = (types, setHotel, hotel) => (event) => {
     const alreadySelected = hotel.allowedPetType.some(petType => selectedTypeNames.includes(petType.name));
 
     if (alreadySelected) {
-        window.alert('Este tipo de mascota ya ha sido seleccionado.');
+        window.alert('This type of mascot has already been selected.');
     } else {
         setHotel(prevHotel => ({ ...prevHotel, allowedPetType: [...prevHotel.allowedPetType, ...selectedTypes] }));
     }
