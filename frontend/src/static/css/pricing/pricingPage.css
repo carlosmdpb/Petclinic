@@ -57,7 +57,7 @@
   }
   .pricing-container .pricing-card:nth-child(2),
   .pricing-container .pricing-card:nth-child(2) .title .icon {
-    background: linear-gradient(-45deg, #f7e770, #dec800);
+    background: linear-gradient(-45deg, #552706, #a75e1a);
   }
   
   .pricing-container .pricing-card:nth-child(2) {
@@ -71,7 +71,7 @@
   
   .pricing-container .pricing-card:nth-child(3),
   .pricing-container .pricing-card:nth-child(3) .title .icon {
-    background: linear-gradient(-45deg, #99cdec, #0d2e3a);
+    background: linear-gradient(-45deg, #361502, #754207);
   }
   .pricing-card::before {
     content: "";
