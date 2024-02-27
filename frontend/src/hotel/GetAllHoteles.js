@@ -25,7 +25,7 @@ export function GetAllHoteles() {
         <div >
             <Container style={{ marginTop: "15px" }} fluid>
 
-                <h1 className="text-center">Hotel Rooms</h1>
+                <h1 className="text-center table-header2">Hotel Rooms</h1>
                 <Button color="success" href="/createhotel">Create Hotel</Button>
                 <Table className="mt-4">
                     <thead>
