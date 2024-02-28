@@ -51,11 +51,13 @@ public class ConsultationService {
 	public List<Consultation> findAllByClinicOwnerUserId(int userId) throws DataAccessException {
 		return this.consultationRepository.findAllByClinicOwnerUserId(userId);
 	}
-
+	
+	@Transactional(readOnly = true)
 	public List<Consultation> findAllByClinicIdAndIsComment(int clinicId, boolean isComment) {
 		return consultationRepository.findAllByClinicIdAndIsComment(clinicId, isComment);
 	}
-	
+
+	@Transactional(readOnly = true)
 	public List<Consultation> findAllByClinicOwnerUserIdAndIsComment(int userId, boolean isComment) {
 		return consultationRepository.findAllByClinicOwnerUserIdAndIsComment(userId, isComment);
 	}
