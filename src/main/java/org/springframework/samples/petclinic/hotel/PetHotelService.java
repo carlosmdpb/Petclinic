@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.clinic.Clinic;
 import org.springframework.samples.petclinic.clinic.ClinicRepository;
 import org.springframework.samples.petclinic.clinic.ClinicService;
+import org.springframework.samples.petclinic.exceptions.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +38,28 @@ public class PetHotelService {
         List<PetHotelRoom> hoteles= new ArrayList<PetHotelRoom>();
         hotelRepository.findAll().forEach(hoteles::add);
         return hoteles;
+    }
+
+    @Transactional
+    public void deleteHotel(Integer hotelId) {
+        PetHotelRoom hotel = hotelRepository.findById(hotelId)
+            .orElseThrow(() -> new ResourceNotFoundException("Hotel not found with id: " + hotelId));
+        
+        hotelRepository.delete(hotel);
+    }
+
+    @Transactional
+    public void updateHotel(Integer hotelId, PetHotelRoom updatedHotel) {
+        PetHotelRoom hotel = hotelRepository.findById(hotelId)
+            .orElseThrow(() -> new ResourceNotFoundException("Hotel not found with id: " + hotelId));
+        
+        hotel.setRoomName(updatedHotel.getRoomName());
+        hotel.setSize(updatedHotel.getSize());
+        hotel.setAllowedPetType(updatedHotel.getAllowedPetType());
+        hotel.setClinic(updatedHotel.getClinic());
+
+
+        hotelRepository.save(hotel);
     }
 
     
