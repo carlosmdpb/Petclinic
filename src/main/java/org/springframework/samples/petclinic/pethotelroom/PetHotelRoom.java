@@ -1,7 +1,4 @@
-package org.springframework.samples.petclinic.hotel;
-
-import java.util.List;
-
+package org.springframework.samples.petclinic.pethotelroom;
 
 import org.springframework.samples.petclinic.clinic.Clinic;
 import org.springframework.samples.petclinic.model.BaseEntity;
@@ -11,31 +8,32 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "hotel")
+@Table(name = "pet_hotel_rooms")
+public class PetHotelRoom extends BaseEntity {
 
+    @Column(name = "name")
+    @NotBlank
+    private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private PetType allowedPetType;
 
-public class PetHotelRoom extends BaseEntity{
-    //solo los clinic owner en security, crear un pet hotel room
-    
-	@Column(name = "room_name")
-    private String roomName;
-
-    @OneToMany
-    private List<PetType> allowedPetType;
-
-	@ManyToOne
-	@JoinColumn(name = "clinics_id", referencedColumnName = "id")
+    @Valid
+    @ManyToOne
+    @JoinColumn(name = "clinic_id")
     private Clinic clinic;
 
     @Column(name = "size")
     private Integer size;
+
 }
