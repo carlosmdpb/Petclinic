@@ -55,18 +55,38 @@ function AppNavbar() {
         }
         if (role === "OWNER") {
             ownerLinks = (
-                <>
-                    <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/myPets">My Pets</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/consultations">Consultations</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/plan">Plan</NavLink>
-                    </NavItem>
-                </>
-            )
+              <>
+                <NavItem>
+                  <NavLink style={{ color: "white" }} tag={Link} to="/myPets">
+                    My Pets
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    style={{ color: "white" }}
+                    tag={Link}
+                    to="/consultations"
+                  >
+                    Consultations
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink style={{ color: "white" }} tag={Link} to="/plan">
+                    Plan
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink style={{ color: "white" }} tag={Link} to="/offer/sent">
+                    Offer Sent
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink style={{ color: "white" }} tag={Link} to="/offer/received">
+                    Offer Received
+                  </NavLink>
+                </NavItem>
+              </>
+            );
         }
         if (role === "VET") {
             ownerLinks = (
@@ -94,7 +114,7 @@ function AppNavbar() {
                         <NavLink style={{ color: "white" }} tag={Link} to="/vets">Vets</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/hotel">Pet Room</NavLink>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/petHotelRoom">PetHotel Rooms</NavLink>
                     </NavItem>
                 </>
             )
