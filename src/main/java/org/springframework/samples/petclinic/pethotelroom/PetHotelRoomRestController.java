@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.pethotelroom;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -76,5 +77,14 @@ public class PetHotelRoomRestController {
         return new ResponseEntity<>(new MessageResponse("Pet Hotel Room deleted!"),
                 HttpStatus.OK);
     }
-
+     @PostMapping(value = "{petHotelRoomId}/bookings")
+     public ResponseEntity<MessageResponse> bookRoom(@PathVariable("petHotelRoomId") int petHotelRoomId,
+                                                     @RequestParam int petId,
+                                                     @RequestParam String startDate,
+                                                     @RequestParam String endDate) {
+        LocalDate start = LocalDate.parse(startDate);
+        LocalDate end = LocalDate.parse(endDate);
+        petHotelRoomService.bookRoom(petHotelRoomId, petId, start, end);
+        return new ResponseEntity<>(new MessageResponse("Room booked successfully!"), HttpStatus.OK);
+    }
 }

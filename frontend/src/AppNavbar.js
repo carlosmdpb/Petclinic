@@ -76,15 +76,11 @@ function AppNavbar() {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink style={{ color: "white" }} tag={Link} to="/offer/sent">
-                    Offer Sent
-                  </NavLink>
+                <NavLink 
+                 style={{ color: "white" }} tag={Link} to="/bookings/create">Create Booking
+                 </NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink style={{ color: "white" }} tag={Link} to="/offer/received">
-                    Offer Received
-                  </NavLink>
-                </NavItem>
+
               </>
             );
         }

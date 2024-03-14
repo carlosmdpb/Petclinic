@@ -111,3 +111,15 @@ INSERT INTO consultation_tickets(id,description,creation_date, user_id, consulta
 INSERT INTO consultation_tickets(id,description,creation_date, user_id, consultation_id) VALUES (6, 'Try to give him some tuna to check if he eats that.', '2023-04-11 15:20', 15, 3);
 INSERT INTO consultation_tickets(id,description,creation_date, user_id, consultation_id) VALUES (7, 'My lovebird doesn''t sing as my neighbour''s one.', '2023-02-24 12:30', 5, 4);
 INSERT INTO consultation_tickets(id,description,creation_date, user_id, consultation_id) VALUES (8, 'Lovebirds do not sing.', '2023-02-24 18:30', 16, 4);
+
+
+INSERT INTO pet_hotel_rooms(id, name, type_id, clinic_id, size) VALUES (1, 'Room 1', 1, 1, 20);
+INSERT INTO pet_hotel_rooms(id, name, type_id, clinic_id, size) VALUES (2, 'Room 2', 2, 1, 25);
+INSERT INTO pet_hotel_rooms(id, name, type_id, clinic_id, size) VALUES (3, 'Room 3', 1, 2, 30);
+INSERT INTO pet_hotel_rooms(id, name, type_id, clinic_id, size) VALUES (4, 'Room 4', 3, 2, 22);
+INSERT INTO pet_hotel_rooms(id, name, type_id, clinic_id, size) VALUES (5, 'Room 5', 2, 3, 18);
+INSERT INTO pet_hotel_rooms(id, name, type_id, clinic_id, size) VALUES (6, 'Room 6', 1, 3, 26);
+
+INSERT INTO bookings(id, start_date, end_date, pet_id, room_id) VALUES (1, '2024-03-15', '2024-03-20', 1, 1);
+INSERT INTO bookings(id, start_date, end_date, pet_id, room_id) VALUES (2, '2024-03-18', '2024-03-25', 2, 2);
+INSERT INTO bookings(id, start_date, end_date, pet_id, room_id) VALUES (3, '2024-03-20', '2024-03-28', 3, 3);
