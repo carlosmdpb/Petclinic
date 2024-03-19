@@ -13,7 +13,7 @@ Curso 2023 – 2024
 
 | **Fecha**  | **Versión** |
 |------------|-------------|
-| 04/03/2024 | v1r0        |
+| 19/03/2024 | v1r0        |
 
 | **Grupo de prácticas: G5-54**    |               |                        |
 |----------------------------------|---------------|------------------------|
@@ -48,16 +48,15 @@ reunión debe estar gestionada y controlada por el Scrum Master.
 # 2. Contenido
 Se han discutido los siguientes puntos respecto al Sprint 2:
 
-\- Realización de Poker Planning.
+\- Estado actual de la progresión del proyecto.
 
-\- Reparto de tareas.
+\- Resolución de dudas.
 
-\- Asignación de tareas en ZenHub.
+\- Posibilidad de cambio de reparto de tareas.
 
 \- Consulta de dudas sobre el proyecto con el profesor.
 
 # 3. Asistentes a la reunión
-\- Gonzalo García Lama (Scrum Master)
 
 \- David Blanco Mora (Desarrollador)
 
@@ -67,7 +66,7 @@ Se han discutido los siguientes puntos respecto al Sprint 2:
 
 \- Jun Yao (Desarrollador)
 
-\- Lidia Jiménez Soriano (Desarrollador)
+
 
 # 4. Conclusión
-Tras la primera reunión del grupo se han resuelto las dudas de comprensión de las tareas para así poder llevarlas a cabo de manera eficiente y ordenada. Además, todos los integrantes estamos de acuerdo con las asignaciones, que tratan de ser lo más equitativas posibles.
+Tras la tercera reunión del grupo se han resuelto las dudas de comprensión de las tareas. Además, se ha considerado un cambio en el reparto de tareas debido a que había un integrante del grupo que no poseía de tareas de código. Se ha realizado una reorganización para solucionarlo. 
