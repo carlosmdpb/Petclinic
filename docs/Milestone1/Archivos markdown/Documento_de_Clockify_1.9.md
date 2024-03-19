@@ -4,7 +4,7 @@ Universidad de Sevilla
 
 **Documentación de la entrega M01**
 
-![](media/1d056a58b6b08c44e147e29dbe8d45ba.png)**Documento de Clockify**
+**Documento de Clockify**![http://recursoshumanos.us.es/images/marca-dos-tintas_300.gif](media/3490fac9907787381d76ea6e20c541f4.gif)
 
 ### Grado en Ingeniería Informática – Ingeniería del Software Proceso y Gestión Software 2
 
