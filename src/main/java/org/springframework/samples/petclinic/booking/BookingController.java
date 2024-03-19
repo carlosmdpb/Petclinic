@@ -1,6 +1,8 @@
 package org.springframework.samples.petclinic.booking;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +36,10 @@ public class BookingController {
 
     private static final String OWNER = "OWNER";
 
+    /*
     @GetMapping
     public ResponseEntity<Iterable<Booking>> getAllBookings() throws DataAccessException {
+        
         User user = userService.findCurrentUser();
         Iterable<Booking> res = null;
         if(user.hasAnyAuthority(OWNER).equals(true)){
@@ -45,6 +49,34 @@ public class BookingController {
         }
         return new ResponseEntity<Iterable<Booking>>(res, HttpStatus.OK);
     }
+    */
+    @GetMapping
+    public ResponseEntity<Iterable<BookingDTO>> getAllBookings() throws DataAccessException {
+        User user = userService.findCurrentUser();
+        Iterable<Booking> bookings = null;
+        if(user.hasAnyAuthority(OWNER).equals(true)){
+            bookings = bookingService.findAllBookings();
+        }else{
+            throw new AccessDeniedException("No tienes permisos para realizar esta acción");
+        }
+    
+        List<BookingDTO> bookingDTOs = StreamSupport.stream(bookings.spliterator(), false)
+            .map(this::convertToDTO)
+            .collect(Collectors.toList());
+    
+        return new ResponseEntity<>(bookingDTOs, HttpStatus.OK);
+    }
+
+
+    private BookingDTO convertToDTO(Booking booking) {
+        BookingDTO dto = new BookingDTO();
+        dto.setStartDate(booking.getStartDate());
+        dto.setEndDate(booking.getEndDate());
+        dto.setPet(booking.getPet().getName());
+        dto.setHotel(booking.getRoom().getName());
+        return dto;
+    }
+
 
     @GetMapping("/rooms")
     public ResponseEntity<List<PetHotelRoom>> getAllRooms() throws DataAccessException {

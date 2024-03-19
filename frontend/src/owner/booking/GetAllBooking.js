@@ -10,22 +10,30 @@ export function GetAllBooking() {
         return new Date(date).toLocaleDateString('en-EN', options);
     }
     useEffect(() => {
-        async function setUp() {
-        const data = await (
-          await fetch("/api/v1/booking", {
-            headers: {
-              Authorization: `Bearer ${jwt}`,
-              "Content-Type": "application/json",
-            },
-          })
-        ).json();
-        setBooking(data);    
-      }
-        setUp();
-    }, []);
+    async function setUp() {
+        try {
+            const response = await fetch("/api/v1/booking", {
+                headers: {
+                    Authorization: `Bearer ${jwt}`,
+                    "Content-Type": "application/json",
+                },
+            });
+            if (!response.ok) {
+                throw new Error('Error al obtener los datos de la reserva');
+            }
+            const data = await response.json();
+            setBooking(data);
+        } catch (error) {
+            console.error('Error al obtener los datos de la reserva:', error);
+            // Manejar el error adecuadamente, por ejemplo, establecer un estado de error para mostrar un mensaje al usuario.
+        }
+    }
+    setUp();
+}, []);
+
     
     return (
-        <div >
+        <div>
             <Container style={{ marginTop: "15px" }} fluid>
 
                 <h1 className="text-center">Booking Rooms</h1>
@@ -40,21 +48,24 @@ export function GetAllBooking() {
                         </tr>
                     </thead>
                     <tbody>
-                    {booking.length > 0 ? (
+                        {booking.length > 0 ? (
                             booking.map((b) => {
                                 return (
                                     <tr key={b.id}>
                                     <td>{formatDate(b.startDate)}</td>
                                     <td>{formatDate(b.endDate)}</td>   
-                                    <td>{b.pet.name}</td>
-                                    <td>{b.hotel.roomName}</td>
+                                    <td>{b.pet}</td>
+                                    <td>{b.hotel}</td>
                                     </tr>
                                 );
                             })
                         ) : (
-                            <p>No hay bookings disponibles.</p>)
-                    }
-                    </tbody>
+        <tr>
+            <td colSpan="4">No hay bookings disponibles.</td>
+        </tr>
+    )}
+</tbody>
+
                 </Table>
 
             </Container>
