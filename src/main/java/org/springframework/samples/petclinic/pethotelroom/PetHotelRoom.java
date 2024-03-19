@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import org.springframework.samples.petclinic.booking.Booking;
 import org.springframework.samples.petclinic.clinic.Clinic;
 import org.springframework.samples.petclinic.model.BaseEntity;
 import org.springframework.samples.petclinic.pet.PetType;

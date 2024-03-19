@@ -1,0 +1,57 @@
+.containerStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.formContainerStyle {
+    width: 100%;
+    max-width: 400px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formItemStyle {
+    margin-bottom: 10px; 
+}
+
+.buttonStyle {
+    margin-top: 25px; 
+    margin-bottom: 10px;
+}
+
+.labelStyle {
+    display: flex;
+    flex-direction: column;
+}
+
+.formPets {
+    justify-content: center;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.inputStyle {
+    margin-top: 5px; 
+}
+
+.inputWithButton {
+    display: flex;
+    align-items: center;
+  }
+  
+  .inputWithButton .inputStyle {
+    flex: 1; 
+  }
+  
+  .inputWithButton .info-button {
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 5px; 
+  }

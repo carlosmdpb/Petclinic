@@ -49,7 +49,8 @@ import VetListClinicOwner from "./clinicOwner/vets/VetListClinicOwner";
 import VetEditClinicOwner from "./clinicOwner/vets/VetEditClinicOwner";
 import PetHotelRoomsList from "./clinicOwner/petHotelRoomList";
 import EditPetHotelRoom from "./clinicOwner/petHotelRoomEdit";
-import BookingCreate from "./owner/booking/bookingCreate"
+import { CreateBooking } from "./owner/booking/CreateBooking";
+import { GetAllBooking } from "./owner/booking/GetAllBooking";
 
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
@@ -330,12 +331,12 @@ function App() {
                 <OwnerConsultationTickets />
               </PrivateRoute>
             }
-            />
-            <Route path="/bookings/create" exact={true} component={BookingCreate} />
-
+          />
+          <Route path="/post/booking" exact={true} element={<PrivateRoute><CreateBooking /></PrivateRoute>} />
+          <Route path="/bookings" exact={true} element={<PrivateRoute><GetAllBooking /></PrivateRoute>} />
           /
         </>
-        
+
       );
     }
     if (role === "VET") {

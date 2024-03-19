@@ -1,0 +1,23 @@
+.containerStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.box {
+    background-color: #6e6c6c79;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.centrarBoton {
+    display: flex;
+    justify-content: center;
+}
+

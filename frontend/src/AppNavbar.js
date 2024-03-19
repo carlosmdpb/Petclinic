@@ -55,33 +55,33 @@ function AppNavbar() {
         }
         if (role === "OWNER") {
             ownerLinks = (
-              <>
-                <NavItem>
-                  <NavLink style={{ color: "white" }} tag={Link} to="/myPets">
-                    My Pets
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    style={{ color: "white" }}
-                    tag={Link}
-                    to="/consultations"
-                  >
-                    Consultations
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink style={{ color: "white" }} tag={Link} to="/plan">
-                    Plan
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                <NavLink 
-                 style={{ color: "white" }} tag={Link} to="/bookings/create">Create Booking
-                 </NavLink>
-                </NavItem>
+                <>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/myPets">
+                            My Pets
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink
+                            style={{ color: "white" }}
+                            tag={Link}
+                            to="/consultations"
+                        >
+                            Consultations
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/plan">
+                            Plan
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavItem>
+                            <NavLink style={{ color: "white" }} tag={Link} to="/bookings">Bookings</NavLink>
+                        </NavItem>
+                    </NavItem>
 
-              </>
+                </>
             );
         }
         if (role === "VET") {
