@@ -47,6 +47,10 @@ import ConsultationListClinicOwner from "./clinicOwner/consultations/Consultatio
 import ConsultationEditClinicOwner from "./clinicOwner/consultations/ConsultationEditClinicOwner";
 import VetListClinicOwner from "./clinicOwner/vets/VetListClinicOwner";
 import VetEditClinicOwner from "./clinicOwner/vets/VetEditClinicOwner";
+import AdoptionList from "./owner/adoptions/adoptionList";
+import AdoptionOffer from "./owner/adoptions/adoptionOffer";
+import ReceivedOffers from "./owner/adoptions/offer/receivedOffers";
+import OffersSent from "./owner/adoptions/offer/offersSent";
 import {GetAllHoteles} from "./hotel/GetAllHoteles"
 import {CreateHotel} from "./hotel/CreateHotel"
 
@@ -110,6 +114,10 @@ function App() {
           <Route path="/myPets" exact={true} element={<PrivateRoute><OwnerPetList /></PrivateRoute>} />
           <Route path="/myPets/:id" exact={true} element={<PrivateRoute><OwnerPetEdit /></PrivateRoute>} />
           <Route path="/myPets/:id/visits/:id" exact={true} element={<PrivateRoute><OwnerVisitEdit /></PrivateRoute>} />
+          <Route path="/offer" exact={true} element={ <PrivateRoute> <AdoptionList /> </PrivateRoute>} />
+          <Route path="/offer/:id" exact={true} element={ <PrivateRoute> <AdoptionOffer /> </PrivateRoute>} />
+          <Route path="/offer/received" exact={true} element={ <PrivateRoute> <ReceivedOffers /> </PrivateRoute> } />
+          <Route path="/offer/sent" exact={true} element={ <PrivateRoute> <OffersSent /> </PrivateRoute> } />
           <Route path="/consultations" exact={true} element={<PrivateRoute><OwnerConsultationList /></PrivateRoute>} />
           <Route path="/consultations/:consultationId" exact={true} element={<PrivateRoute><OwnerConsultationEdit /></PrivateRoute>} />
           <Route path="/consultations/:consultationId/tickets" exact={true} element={<PrivateRoute><OwnerConsultationTickets /></PrivateRoute>} />

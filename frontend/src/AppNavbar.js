@@ -65,8 +65,17 @@ function AppNavbar() {
                     <NavItem>
                         <NavLink style={{ color: "white" }} tag={Link} to="/plan">Plan</NavLink>
                     </NavItem>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/offer"> Adoptions </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/offer/sent"> Offer Sent </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/offer/received"> Offer Received </NavLink>
+                    </NavItem>
                 </>
-            )
+            );
         }
         if (role === "VET") {
             ownerLinks = (
