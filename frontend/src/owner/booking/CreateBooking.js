@@ -9,28 +9,38 @@ export function CreateBooking() {
   const [booking, setBooking] = useState({
     startDate: moment().format('YYYY-MM-DD'),
     endDate: moment().format('YYYY-MM-DD'),
-    pet: {},
-    room: {}
+    pet: '',
+    room: ''
   });
 
   const [showPetError, setShowPetError] = useState(false);
   const [showRoomInfo, setShowRoomInfo] = useState(false);
   const jwt = JSON.parse(window.localStorage.getItem('jwt'));
   const navigate = useNavigate();
-  const { pet, room } = useBookingData();
+  const { pet, rooms } = useBookingData();
 
   const onRemovePet = (petToRemove) => handleRemovePet(petToRemove, setBooking, booking, setShowPetError);
   const onPetChange = handlePetChange(pet, setBooking, booking, setShowPetError);
-  const onRoomChange = handleRoomChange(room, setBooking, booking);
+  const onRoomChange = handleRoomChange(rooms, setBooking, booking);
   const onInputChange = handleInputChange(setBooking, booking);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (booking.pet == null) {
-      setShowPetError(true);
+
+    console.log("Booking room:", booking.room);
+    console.log("Rooms:", rooms);
+    
+
+    if (!booking.room || Object.keys(booking.room).length === 0) {
+      window.alert('Please select a room before creating the booking.');
       return;
     }
-    let selectedRoom = room.find(r => r.id === booking.room.id);
+    let selectedRoom = rooms.find(r => r.id === booking.room.id);
+    if (!selectedRoom) {
+      window.alert("Selected room does not exist");
+      return;
+    }
+
     let allowedPetTypes = selectedRoom.allowedPetTypes.map(petType => petType.name);
     let selectedPetType = booking.pet.petType.name;
     let intersect = allowedPetTypes.includes(selectedPetType);
@@ -91,48 +101,22 @@ export function CreateBooking() {
                 </select>
               )}
             </label>
-            {showPetError && <p className="error">Debe seleccionar al menos una mascota.</p>}
-            {booking.pet && (
-              <button className="formPets" onClick={() => onRemovePet(booking.pet)}>
-                {booking.pet.name}
-              </button>
-            )}
+
           </div>
           <div className="formItemStyle">
             <label className="labelStyle">
-              <div>Room Hotel:</div>
-              <div className="inputWithButton">
-                {room && (
-                  <select name="hotel" className="inputStyle" onChange={onRoomChange}>
-                    <option value="">Select a room hotel</option>
-                    {room.map((h, index) => (
-                      <option key={index} value={h.value}>{h.roomName}</option>
-                    ))}
-                  </select>
-                )}
-                <button type="button" className="info-button" onClick={handleHotelInfo}>ℹ️</button>
-              </div>
-              {showRoomInfo && (
-                <div>
-                  <h2>Not Allowed Pets</h2>
-                  {room.map((hotel, index) => (
-                    <div key={index}>
-                      <h3>{hotel.roomName}</h3>
-                      {hotel.allowedPetType.length > 0 ? (
-                        <ul>
-                          {hotel.allowedPetType.map((petType, index) => (
-                            <li key={index}>{petType.name}</li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p>All pet types are allowed</p>
-                      )}
-                    </div>
+              <div>Hotel Room:</div>
+              {rooms && (
+                <select name="room" className="inputStyle" required onChange={onRoomChange}>
+                  <option value="">Select a room</option>
+                  {rooms.map((option, index) => (
+                    <option key={index} value={option.id}>{option.name}</option>
                   ))}
-                </div>
+                </select>
               )}
             </label>
           </div>
+
           <div className='centrarBoton'>
             <button className="auth-button" type="submit">Create Hotel</button>
           </div>

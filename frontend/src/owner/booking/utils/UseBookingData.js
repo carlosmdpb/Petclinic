@@ -4,7 +4,7 @@ const useBookingData = () => {
     const user = TokenService.getUser();
     const token = TokenService.getLocalAccessToken();
     const [pet, setPets] = useState([]);
-    const [hotels, setHotel] = useState([]);
+    const [rooms, setRoom] = useState([]);
 
     //Pets
     useEffect(() => {
@@ -35,14 +35,14 @@ const useBookingData = () => {
         .then(response => response.json())
         .then(data => {
             console.log(data); 
-            setHotel(data);
+            setRoom(data);
         })
         .catch(error => console.error('Error fetching hotel:', error));
     }, []);
     
 
 
-   return { pet, hotels };
+   return { pet, rooms };
  };
 
 export default useBookingData;

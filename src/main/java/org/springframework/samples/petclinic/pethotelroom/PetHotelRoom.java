@@ -9,6 +9,8 @@ import org.springframework.samples.petclinic.clinic.Clinic;
 import org.springframework.samples.petclinic.model.BaseEntity;
 import org.springframework.samples.petclinic.pet.PetType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,6 +39,7 @@ public class PetHotelRoom extends BaseEntity {
 
     @Valid
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "clinic_id")
     private Clinic clinic;
 
@@ -45,6 +48,7 @@ public class PetHotelRoom extends BaseEntity {
 
     // Inside PetHotelRoom class
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Booking> bookings = new ArrayList<>();
 
 }
