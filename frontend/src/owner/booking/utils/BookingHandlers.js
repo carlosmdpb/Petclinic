@@ -1,7 +1,6 @@
-const handlePetChange = (petOptions, setBooking, booking) => (event) => {
+const handlePetChange = (petOptions, setBooking) => (event) => {
   const selectedPetValue = event.target.value;
-  const selectedPet = petOptions.find(pet => pet.value === selectedPetValue);
-  console.log("Selected pet:", selectedPet);
+  const selectedPet = petOptions.find(pet => pet.name === selectedPetValue);
   if (selectedPet) {
       setBooking(prevBooking => ({ ...prevBooking, pet: selectedPet }));
   } else {
@@ -14,10 +13,14 @@ const handleInputChange = (setBooking, booking) => (event) => {
     setBooking({ ...booking, [name]: value });
 };
 
-const handleRoomChange = (rooms, setBooking, booking) => (event) => {
-    const room = rooms.find(r => r.name === event.target.value);
-    console.log("Selected room:", room);
-    setBooking({ ...booking, room });
+const handleRoomChange = (roomOption, setBooking, booking) => (event) => {
+    const selectedRoomValue = parseInt(event.target.value);
+    const selectedRoom = roomOption.find(r => r.id === selectedRoomValue);
+    if (selectedRoom) {
+        setBooking(prevBooking => ({ ...prevBooking, room: selectedRoom }));
+    } else {
+        console.error('Selected room is undefined');
+    }
 };
 
 const handleRemovePet = (petToRemove,setBooking) => {

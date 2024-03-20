@@ -30,20 +30,22 @@ export function CreateBooking() {
     console.log("Booking room:", booking.room);
     console.log("Rooms:", rooms);
     
-
+    
     if (!booking.room || Object.keys(booking.room).length === 0) {
       window.alert('Please select a room before creating the booking.');
       return;
     }
     let selectedRoom = rooms.find(r => r.id === booking.room.id);
+    console.log("Selected create:", selectedRoom);
     if (!selectedRoom) {
       window.alert("Selected room does not exist");
       return;
     }
-
-    let allowedPetTypes = selectedRoom.allowedPetTypes.map(petType => petType.name);
-    let selectedPetType = booking.pet.petType.name;
-    let intersect = allowedPetTypes.includes(selectedPetType);
+    let allowedPetTypes = selectedRoom.allowedPetType.name;
+    let selectedPetType = booking.pet.type.name;
+    console.log("Allowed pet types:", allowedPetTypes);
+    console.log("Selected pet type:", selectedPetType);
+    let intersect = allowedPetTypes === selectedPetType;
     if (!intersect) {
       window.alert("Selected room does not allow this pet type");
       return;
