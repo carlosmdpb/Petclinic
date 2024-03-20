@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './utils/bookingForm.css';
 import useBookingData from './utils/UseBookingData';
-import { handlePetChange, handleInputChange, handleRemovePet, handleRoomChange } from './utils/BookingHandlers';
+import { handlePetChange, handleInputChange, handleRoomChange } from './utils/BookingHandlers';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
@@ -9,47 +9,31 @@ export function CreateBooking() {
   const [booking, setBooking] = useState({
     startDate: moment().format('YYYY-MM-DD'),
     endDate: moment().format('YYYY-MM-DD'),
-    pet: '',
-    room: ''
+    pet: {},
+    room: {}
   });
 
-  const [showPetError, setShowPetError] = useState(false);
   const [showRoomInfo, setShowRoomInfo] = useState(false);
   const jwt = JSON.parse(window.localStorage.getItem('jwt'));
   const navigate = useNavigate();
   const { pet, rooms } = useBookingData();
 
-  const onRemovePet = (petToRemove) => handleRemovePet(petToRemove, setBooking, booking, setShowPetError);
-  const onPetChange = handlePetChange(pet, setBooking, booking, setShowPetError);
+  const onPetChange = handlePetChange(pet, setBooking, booking);
   const onRoomChange = handleRoomChange(rooms, setBooking, booking);
   const onInputChange = handleInputChange(setBooking, booking);
-
+  
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    console.log("Booking room:", booking.room);
-    console.log("Rooms:", rooms);
-    
-    
-    if (!booking.room || Object.keys(booking.room).length === 0) {
-      window.alert('Please select a room before creating the booking.');
-      return;
-    }
+    e.preventDefault();  
     let selectedRoom = rooms.find(r => r.id === booking.room.id);
-    console.log("Selected create:", selectedRoom);
-    if (!selectedRoom) {
-      window.alert("Selected room does not exist");
-      return;
-    }
     let allowedPetTypes = selectedRoom.allowedPetType.name;
     let selectedPetType = booking.pet.type.name;
-    console.log("Allowed pet types:", allowedPetTypes);
-    console.log("Selected pet type:", selectedPetType);
     let intersect = allowedPetTypes === selectedPetType;
-    if (!intersect) {
+    if (intersect) {
       window.alert("Selected room does not allow this pet type");
       return;
     }
+   
+
 
     try {
       const response = await fetch('/api/v1/booking', {

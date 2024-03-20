@@ -27,9 +27,11 @@ public class Booking extends BaseEntity {
     private LocalDate endDate;
 
     @ManyToOne
+    @NotNull
     private Pet pet;
 
     @ManyToOne
+    @NotNull
     @JoinColumn(name = "room_id", referencedColumnName = "id")
     private PetHotelRoom room;
 }
