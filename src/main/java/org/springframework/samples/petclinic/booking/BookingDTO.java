@@ -2,8 +2,6 @@ package org.springframework.samples.petclinic.booking;
 
 import java.time.LocalDate;
 
-import org.springframework.samples.petclinic.pethotelroom.PetHotelRoomDTO;
-
 import lombok.Getter;
 import lombok.Setter;
 
