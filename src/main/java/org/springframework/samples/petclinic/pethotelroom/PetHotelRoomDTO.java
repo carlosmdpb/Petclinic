@@ -14,4 +14,11 @@ public class PetHotelRoomDTO {
     public PetHotelRoomDTO() {
 
     }
+
+    public PetHotelRoomDTO(String name, String type, String clinic, Integer size) {
+        this.name = name;
+        this.type = type;
+        this.clinic = clinic;
+        this.size = size;
+    }
 }

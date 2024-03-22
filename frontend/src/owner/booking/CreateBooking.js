@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './utils/bookingForm.css';
 import useBookingData from './utils/UseBookingData';
-import { handlePetChange, handleInputChange, handleRemovePet, handleRoomChange } from './utils/BookingHandlers';
+import { handlePetChange, handleInputChange, handleRoomChange } from './utils/BookingHandlers';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
@@ -13,31 +13,27 @@ export function CreateBooking() {
     room: {}
   });
 
-  const [showPetError, setShowPetError] = useState(false);
   const [showRoomInfo, setShowRoomInfo] = useState(false);
   const jwt = JSON.parse(window.localStorage.getItem('jwt'));
   const navigate = useNavigate();
-  const { pet, room } = useBookingData();
+  const { pet, rooms } = useBookingData();
 
-  const onRemovePet = (petToRemove) => handleRemovePet(petToRemove, setBooking, booking, setShowPetError);
-  const onPetChange = handlePetChange(pet, setBooking, booking, setShowPetError);
-  const onRoomChange = handleRoomChange(room, setBooking, booking);
+  const onPetChange = handlePetChange(pet, setBooking, booking);
+  const onRoomChange = handleRoomChange(rooms, setBooking, booking);
   const onInputChange = handleInputChange(setBooking, booking);
-
+  
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (booking.pet == null) {
-      setShowPetError(true);
-      return;
-    }
-    let selectedRoom = room.find(r => r.id === booking.room.id);
-    let allowedPetTypes = selectedRoom.allowedPetTypes.map(petType => petType.name);
-    let selectedPetType = booking.pet.petType.name;
-    let intersect = allowedPetTypes.includes(selectedPetType);
-    if (!intersect) {
+    e.preventDefault();  
+    let selectedRoom = rooms.find(r => r.id === booking.room.id);
+    let allowedPetTypes = selectedRoom.allowedPetType.name;
+    let selectedPetType = booking.pet.type.name;
+    let intersect = allowedPetTypes === selectedPetType;
+    if (intersect) {
       window.alert("Selected room does not allow this pet type");
       return;
     }
+   
+
 
     try {
       const response = await fetch('/api/v1/booking', {
@@ -91,45 +87,18 @@ export function CreateBooking() {
                 </select>
               )}
             </label>
-            {showPetError && <p className="error">Debe seleccionar al menos una mascota.</p>}
-            {booking.pet && (
-              <button className="formPets" onClick={() => onRemovePet(booking.pet)}>
-                {booking.pet.name}
-              </button>
-            )}
+
           </div>
           <div className="formItemStyle">
             <label className="labelStyle">
-              <div>Room Hotel:</div>
-              <div className="inputWithButton">
-                {room && (
-                  <select name="hotel" className="inputStyle" onChange={onRoomChange}>
-                    <option value="">Select a room hotel</option>
-                    {room.map((h, index) => (
-                      <option key={index} value={h.value}>{h.roomName}</option>
-                    ))}
-                  </select>
-                )}
-                <button type="button" className="info-button" onClick={handleHotelInfo}>ℹ️</button>
-              </div>
-              {showRoomInfo && (
-                <div>
-                  <h2>Not Allowed Pets</h2>
-                  {room.map((hotel, index) => (
-                    <div key={index}>
-                      <h3>{hotel.roomName}</h3>
-                      {hotel.allowedPetType.length > 0 ? (
-                        <ul>
-                          {hotel.allowedPetType.map((petType, index) => (
-                            <li key={index}>{petType.name}</li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p>All pet types are allowed</p>
-                      )}
-                    </div>
+              <div>Hotel Room:</div>
+              {rooms && (
+                <select name="room" className="inputStyle" required onChange={onRoomChange}>
+                  <option value="">Select a room</option>
+                  {rooms.map((option, index) => (
+                    <option key={index} value={option.id}>{option.name}</option>
                   ))}
-                </div>
+                </select>
               )}
             </label>
           </div>
@@ -137,6 +106,20 @@ export function CreateBooking() {
             <button className="auth-button" type="submit">Create Hotel</button>
           </div>
         </form>
+        <div className="infoButtonContainer">
+        <button onClick={handleHotelInfo} className="auth-button-rounded">{showRoomInfo ? "Hide Room Info" : "Show Room Info"}</button>
+      </div>
+
+      {showRoomInfo && (
+        <div className="roomInfoPanel">
+          {booking.room.id && rooms && (
+            <div>
+              <h3>{booking.room.name} Information</h3>
+              <p>Allowed Pet Type: {rooms.find(room => room.id === booking.room.id).allowedPetType.name}</p>
+            </div>
+          )}
+        </div>
+      )}
       </div>
     </div>
   );
