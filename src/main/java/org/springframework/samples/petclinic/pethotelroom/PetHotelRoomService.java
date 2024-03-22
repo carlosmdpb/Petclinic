@@ -1,12 +1,16 @@
 package org.springframework.samples.petclinic.pethotelroom;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.exceptions.ResourceNotFoundException;
+import org.springframework.samples.petclinic.booking.Booking;
 import org.springframework.samples.petclinic.clinic.Clinic;
+import org.springframework.samples.petclinic.clinic.ClinicService;
+import org.springframework.samples.petclinic.pet.Pet;
 import org.springframework.samples.petclinic.clinic.ClinicService;
 import org.springframework.samples.petclinic.pet.PetService;
 import org.springframework.samples.petclinic.pet.PetType;
@@ -96,6 +100,21 @@ public class PetHotelRoomService {
         }
 
         return res;
+    }
+    @Transactional
+    public Booking bookRoom(int petHotelRoomId, int petId, LocalDate startDate, LocalDate endDate) {
+        PetHotelRoom room = findPetHotelRoomById(petHotelRoomId);
+        Pet pet = petService.findPetById(petId);
+
+        Booking booking = new Booking();
+        booking.setStartDate(startDate);
+        booking.setEndDate(endDate);
+        booking.setPet(pet);
+        booking.setRoom(room);
+
+        room.getBookings().add(booking);
+
+        return booking;
     }
 
 }
