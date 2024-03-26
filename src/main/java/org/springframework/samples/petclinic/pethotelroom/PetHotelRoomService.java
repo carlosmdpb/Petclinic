@@ -106,6 +106,8 @@ public class PetHotelRoomService {
         PetHotelRoom room = findPetHotelRoomById(petHotelRoomId);
         Pet pet = petService.findPetById(petId);
 
+    
+
         Booking booking = new Booking();
         booking.setStartDate(startDate);
         booking.setEndDate(endDate);

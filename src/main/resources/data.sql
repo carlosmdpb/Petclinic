@@ -120,6 +120,6 @@ INSERT INTO pet_hotel_rooms(id, name, type_id, clinic_id, size) VALUES (4, 'Room
 INSERT INTO pet_hotel_rooms(id, name, type_id, clinic_id, size) VALUES (5, 'Room 5', 2, 3, 18);
 INSERT INTO pet_hotel_rooms(id, name, type_id, clinic_id, size) VALUES (6, 'Room 6', 1, 3, 26);
 
-INSERT INTO booking(id, start_date, end_date, pet_id, room_id) VALUES (1, '2024-03-15', '2024-03-20', 1, 4);
-INSERT INTO booking(id, start_date, end_date, pet_id, room_id) VALUES (2, '2024-03-18', '2024-03-25', 2, 6);
+INSERT INTO booking(id, start_date, end_date, pet_id, room_id) VALUES (1, '2024-03-15', '2024-03-20', 1, 1);
+INSERT INTO booking(id, start_date, end_date, pet_id, room_id) VALUES (2, '2024-03-18', '2024-03-25', 2, 2);
 INSERT INTO booking(id, start_date, end_date, pet_id, room_id) VALUES (3, '2024-03-20', '2024-03-28', 3, 3);

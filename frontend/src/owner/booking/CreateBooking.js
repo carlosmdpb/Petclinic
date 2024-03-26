@@ -102,24 +102,11 @@ export function CreateBooking() {
               )}
             </label>
           </div>
+
           <div className='centrarBoton'>
             <button className="auth-button" type="submit">Create Hotel</button>
           </div>
         </form>
-        <div className="infoButtonContainer">
-        <button onClick={handleHotelInfo} className="auth-button-rounded">{showRoomInfo ? "Hide Room Info" : "Show Room Info"}</button>
-      </div>
-
-      {showRoomInfo && (
-        <div className="roomInfoPanel">
-          {booking.room.id && rooms && (
-            <div>
-              <h3>{booking.room.name} Information</h3>
-              <p>Allowed Pet Type: {rooms.find(room => room.id === booking.room.id).allowedPetType.name}</p>
-            </div>
-          )}
-        </div>
-      )}
       </div>
     </div>
   );
