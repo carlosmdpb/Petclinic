@@ -39,16 +39,12 @@ public class PetHotelRoom extends BaseEntity {
 
     @Valid
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "clinic_id")
     private Clinic clinic;
 
     @Column(name = "size")
     private Integer size;
 
-    // Inside PetHotelRoom class
-    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Booking> bookings = new ArrayList<>();
+
 
 }

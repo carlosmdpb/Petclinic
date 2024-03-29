@@ -36,8 +36,14 @@ public class BookingService {
         return rooms;
     }
 
+    @Transactional(readOnly = true)
+    public PetHotelRoom findRoomByName(String name) throws DataAccessException {
+        return bookingRepository.findRoomByName(name);
+    }
+    
     @Transactional
     public Booking createBooking(Booking booking) throws DataAccessException {
+
         //Validar fechas
         if(booking.getStartDate().isAfter(booking.getEndDate())){
             throw new IllegalArgumentException("La fecha de inicio no puede ser posterior a la fecha de fin");

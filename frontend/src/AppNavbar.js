@@ -63,10 +63,7 @@ function AppNavbar() {
                     </NavItem>
                     <NavItem>
                         <NavLink
-                            style={{ color: "white" }}
-                            tag={Link}
-                            to="/consultations"
-                        >
+                            style={{ color: "white" }} tag={Link} to="/consultations">
                             Consultations
                         </NavLink>
                     </NavItem>
@@ -75,15 +72,40 @@ function AppNavbar() {
                             Plan
                         </NavLink>
                     </NavItem>
-                    <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/offer"> Adoptions </NavLink>
+                    <>
+                     <NavItem>
+                        <NavLink
+                            style={{ color: "white" }} tag={Link} to="/consultations">
+                        Consultations
+                        </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/offer/sent"> Offer Sent </NavLink>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/plan">
+                        Plan
+                        </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/offer/received"> Offer Received </NavLink>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/bookings">
+                    Bookings
+                        </NavLink>
                     </NavItem>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/offer">
+                    Adoptions
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/offer/sent">
+                    Offer Sent
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/offer/received">
+                    Offer Received
+                        </NavLink>
+                    </NavItem>
+                </>
+
                 </>
             );
         }

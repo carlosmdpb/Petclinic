@@ -21,7 +21,6 @@ import org.springframework.samples.petclinic.pet.PetType;
 import org.springframework.samples.petclinic.pethotelroom.PetHotelRoom;
 import org.springframework.samples.petclinic.pethotelroom.PetHotelRoomRepository;
 
-
 public class BookingServiceTest {
 
     @Mock
@@ -88,8 +87,6 @@ public class BookingServiceTest {
         assertEquals(bookings, foundBookings);
     }
 
-    
-
     @Test
     public void testFindAllHotelRooms() {
         // Arrange
@@ -104,7 +101,6 @@ public class BookingServiceTest {
         assertNotNull(foundRooms);
         assertEquals(rooms, foundRooms);
     }
-
 
     @Test
     public void testCreateBooking_Failure_StartDateAfterEndDate() {
@@ -129,9 +125,7 @@ public class BookingServiceTest {
         booking.setEndDate(LocalDate.now().plusDays(1));
         booking.setRoom(new PetHotelRoom()); // Assuming PetHotelRoom has a no-arg constructor or you have another way to instantiate it.
         booking.setPet(new Pet()); // Assuming
-
         Booking savedBooking = bookingService.createBooking(booking);
-        
         assertNotNull(savedBooking);
         verify(bookingRepository).save(any(Booking.class));
     }
@@ -169,7 +163,6 @@ public class BookingServiceTest {
         });
     }
 
-
     @Test
     public void createBooking_PetTypeNotAllowed() {
         // Arrange
@@ -193,6 +186,4 @@ public class BookingServiceTest {
         // Assert
         verify(bookingRepository, times(1)).delete(booking);
     }
-
-   
 }

@@ -24,8 +24,8 @@ export function CreateBooking() {
   
   const handleSubmit = async (e) => {
     e.preventDefault();  
-    let selectedRoom = rooms.find(r => r.id === booking.room.id);
-    let allowedPetTypes = selectedRoom.allowedPetType.name;
+    let selectedRoom = rooms.find(r => r.name === booking.room.name);
+    let allowedPetTypes = selectedRoom.type;
     let selectedPetType = booking.pet.type.name;
     let intersect = allowedPetTypes === selectedPetType;
     if (intersect) {
@@ -33,16 +33,26 @@ export function CreateBooking() {
       return;
     }
    
-
+    const selectedRoomName = rooms.find(r => r.name === booking.room.name).name;
 
     try {
+      const res = await fetch(`/api/v1/booking/rooms/${selectedRoomName}`,{
+        headers: {
+          Authorization: `Bearer ${jwt}`
+        }
+      });
+    if (!res.ok) {
+      throw new Error('Error fetching room information');
+    }
+    const roomEntity = await res.json();
+    const bookingWithRoomEntity = { ...booking, room: roomEntity };
       const response = await fetch('/api/v1/booking', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${jwt}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(booking)
+        body: JSON.stringify(bookingWithRoomEntity)
       });
       if (!response.ok) {
         throw new Error('Error creating booking');
@@ -112,10 +122,10 @@ export function CreateBooking() {
 
       {showRoomInfo && (
         <div className="roomInfoPanel">
-          {booking.room.id && rooms && (
+          {booking.room.name && rooms && (
             <div>
               <h3>{booking.room.name} Information</h3>
-              <p>Allowed Pet Type: {rooms.find(room => room.id === booking.room.id).allowedPetType.name}</p>
+              <p>Allowed Pet Type: {rooms.find(room => room.name === booking.room.name).type}</p>
             </div>
           )}
         </div>

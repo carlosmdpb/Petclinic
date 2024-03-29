@@ -11,8 +11,8 @@ const handleInputChange = (setBooking, booking) => (event) => {
 };
 
 const handleRoomChange = (roomOption, setBooking, booking) => (event) => {
-    const selectedRoomValue = parseInt(event.target.value);
-    const selectedRoom = roomOption.find(r => r.id === selectedRoomValue);
+    const selectedRoomValue = event.target.value;
+    const selectedRoom = roomOption.find(r => r.name === selectedRoomValue);
     if (selectedRoom) {
         setBooking(prevBooking => ({ ...prevBooking, room: selectedRoom }));
     } else {
