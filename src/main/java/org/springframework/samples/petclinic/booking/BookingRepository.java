@@ -21,4 +21,7 @@ public boolean checkPetBookingOverlap(Pet pet, LocalDate startDate, LocalDate en
 @Query("SELECT b FROM Booking b WHERE b.pet = :pet")
 public List<Booking> findByPet(Pet pet);
 
+@Query("SELECT r FROM PetHotelRoom r WHERE r.name = :name")
+public PetHotelRoom findRoomByName(String name);
+
 }

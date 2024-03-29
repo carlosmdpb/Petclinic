@@ -27,7 +27,7 @@ const useBookingData = () => {
     //Hotel
     
     useEffect(() => {
-        fetch('/api/v1/booking/rooms', {
+        fetch('/api/v1/booking/rooms/dto', {
             headers: {
                 'Authorization': `Bearer ${token}` 
             }

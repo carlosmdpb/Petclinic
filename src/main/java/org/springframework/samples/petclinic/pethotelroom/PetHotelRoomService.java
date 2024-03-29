@@ -112,8 +112,6 @@ public class PetHotelRoomService {
         booking.setPet(pet);
         booking.setRoom(room);
 
-        room.getBookings().add(booking);
-
         return booking;
     }
 
