@@ -27,11 +27,7 @@ export function CreateBooking() {
     let selectedRoom = rooms.find(r => r.name === booking.room.name);
     let allowedPetTypes = selectedRoom.type;
     let selectedPetType = booking.pet.type.name;
-    console.log("SelectedRoom: ", selectedRoom);
-    console.log("AllowedPetTypes: ", allowedPetTypes);
-    console.log("SelectedPetType: ", selectedPetType);
     let intersect = allowedPetTypes === selectedPetType;
-    console.log("Intersect: ", intersect);
     if (intersect) {
       window.alert("Selected room does not allow this pet type");
       return;
