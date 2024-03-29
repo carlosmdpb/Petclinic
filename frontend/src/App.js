@@ -51,7 +51,10 @@ import PetHotelRoomsList from "./clinicOwner/petHotelRoomList";
 import EditPetHotelRoom from "./clinicOwner/petHotelRoomEdit";
 import { CreateBooking } from "./owner/booking/CreateBooking";
 import { GetAllBooking } from "./owner/booking/GetAllBooking";
-
+import AdoptionList from "./owner/adoptions/adoptionList";
+import AdoptionOffer from "./owner/adoptions/adoptionOffer";
+import ReceivedOffers from "./owner/adoptions/offer/receivedOffers";
+import OffersSent from "./owner/adoptions/offer/offersSent";
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
@@ -323,6 +326,10 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/offer" exact={true} element={ <PrivateRoute> <AdoptionList /> </PrivateRoute>} />
+          <Route path="/offer/:id" exact={true} element={ <PrivateRoute> <AdoptionOffer /> </PrivateRoute>} />
+          <Route path="/offer/received" exact={true} element={ <PrivateRoute> <ReceivedOffers /> </PrivateRoute> } />
+          <Route path="/offer/sent" exact={true} element={ <PrivateRoute> <OffersSent /> </PrivateRoute> } />
           <Route
             path="/consultations/:consultationId/tickets"
             exact={true}
