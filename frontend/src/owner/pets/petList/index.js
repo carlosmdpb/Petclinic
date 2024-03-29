@@ -11,6 +11,8 @@ export default function OwnerPetList() {
   let [pets, setPets] = useState([]);
   let [message, setMessage] = useState(null);
   let [modalShow, setModalShow] = useState(false);
+  const [adoptedPetsIds, setAdoptedPetsIds] = useState([]);
+
 
   const user = tokenService.getUser();
   const jwt = tokenService.getLocalAccessToken();
@@ -35,6 +37,27 @@ export default function OwnerPetList() {
         setMessage(data.message);
         setModalShow(true);
       });
+  }
+  async function newAdopt(petId) {
+    await fetch(`/api/v1/adoption/${petId}`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }).then(updateAdoptedPetsIds);
+  }
+
+  async function deleteAdopt(petId) {
+    await fetch(`/api/v1/offer/${petId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }).then(updateAdoptedPetsIds);
   }
 
   async function removeVisit(petId, visitId) {
@@ -100,9 +123,21 @@ export default function OwnerPetList() {
       setPets(pets);
     }
   }
+  const updateAdoptedPetsIds = async () => {
+    let PetsIds = await (
+      await fetch(`/api/v1/adoption/petsIds`, {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+          "Content-Type": "application/json",
+        },
+      })
+    ).json();
+    setAdoptedPetsIds(PetsIds);
+  };
 
   useEffect(() => {
     setUp();
+    updateAdoptedPetsIds();
   }, []);
 
   return (
@@ -147,6 +182,21 @@ export default function OwnerPetList() {
                   >
                     Delete
                   </button>
+                  {!adoptedPetsIds.includes(pet.id) ? (
+                    <button
+                      onClick={() => newAdopt(pet.id)}
+                      className="auth-button"
+                    >
+                      Adopt out
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => deleteAdopt(pet.id)}
+                      className="auth-button-red"
+                    >
+                      Stop adopt
+                    </button>
+                  )}
                 </div>
                 <div className="pet-visits">
                   {pet.visits && pet.visits.length > 0 ? (

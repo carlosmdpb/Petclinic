@@ -27,7 +27,8 @@
     flex-direction: column;
 }
 
-.formPets {
+.formPet {
+    justify-content: center;
     margin: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -37,3 +38,30 @@
 .inputStyle {
     margin-top: 5px; 
 }
+
+.inputWithButton {
+    display: flex;
+    align-items: center;
+  }
+  
+  .inputWithButton .inputStyle {
+    flex: 1; 
+  }
+  
+  .inputWithButton .info-button {
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 5px; 
+  }
+
+    .inputWithButton .info-button-rounded {
+        border: none;
+        cursor: pointer;
+        border-radius: 30px;
+        padding: 5px;
+        margin-left: 5px; 
+    }
+
+  
