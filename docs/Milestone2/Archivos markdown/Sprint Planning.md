@@ -50,13 +50,15 @@ En el presente documento, se detallan las tareas a realizar en este sprint, así
 
 | **Índice**  | **Historia**                                                                                                           | **Responsables**                             | **Estimación Poker** |
 |-------------|------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|----------------------|
-| A2.2-a      | Add the Booking functionality for the pet hotel rooms                                                             | Jun, David, Gonzalo    | 8   |
-| A2.2-b      | Create an Adoptions functionality                                                             | Carlos, Juan, Lidia    | 8   |                                   
+| A2.2-a      | Add the Booking functionality for the pet hotel rooms                                                             | Lidia*    | 8   |
+| A2.2-b      | Create an Adoptions functionality                                                             | Carlos, Juan*    | 8   |                                   
 | A2.2-c      | Develop a comprehensive suite of unit tests                                                             | Gonzalo    | 3   |
 | A2.3        | Prepare a release of the Petclinic project                                                             | Gonzalo    | 5   |
 | A2.4        | Create a technical report (in Spanish) entitled “Métricas de Proceso Ágil y Recursos”                                                             | Lidia, Juan, Carlos, Jun, David, Gonzalo    | 8   |
-| A2.5-a      | A screenshot of the SonarQube dashboard for the analysis of your project and a description of the metrics provided in the dashboard and their values                                                             | Juan    | 3   |
+| A2.5-a      | A screenshot of the SonarQube dashboard for the analysis of your project and a description of the metrics provided in the dashboard and their values                                                             | Gonzalo*    | 3   |
 | A2.5-b      | Description and analyses of the potential bugs found in the repository                                                             | David    | 3   |
-| A2.5-c      | Description and analysis of the different types code smells found in the analyses                                                             | Jun, Lidia    | 5   |
+| A2.5-c      | Description and analysis of the different types code smells found in the analyses                                                             | Jun, David*    | 5   |
 | A2.5-d      | Conclusions about the results of the analyses                                                             | Carlos    | 1   |
 | A2.6        | Reports regarding meeting minutes                                                             | Lidia, Juan, Carlos, Jun, David, Gonzalo    | 8   |
+
+*Las tareas en las que aparece un asterisco en la columna 'Responsables', se debe a un cambio en el reparto de las tareas iniciales*.
