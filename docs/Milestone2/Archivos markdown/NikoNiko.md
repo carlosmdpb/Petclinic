@@ -34,8 +34,8 @@ In the retrospective meeting, the team has a discussion about those results.
 
 | Day           | David         | Gonzalo        | Jun            | Lidia          | Juan           | Carlos         |
 | ------------- | ------------- | -------------- | -------------  | -------------  | -------------  | -------------  |
-| Sprint 1      | :smiley:       |     :smiley:           |       :smiley:         |       :smiley:         |                | :smiley:       |
-| Sprint 2      |               |    :smile:     |                |                |                | :smiley:       |
-| Sprint 3      |               |    :worried:   |                |                |                | :neutral_face: |
-| Sprint 4      | :neutral_face:|                |                |                |                | :worried:      |
-| Sprint 5      |               |                |                |                |                |                |
+| Sprint 1      | :smiley:       | :smiley:               |        :smiley:        |           :smiley:     |       :smiley:         | :smiley:       |
+| Sprint 2      |       :smiley:        |    :smile:     |         :smiley:       |       :smiley:         |      :smiley:          | :smiley:       |
+| Sprint 3      |       :neutral_face:        |    :worried:   |     :worried:           |     :worried:           |        :neutral_face:        | :neutral_face: |
+| Sprint 4      | :neutral_face:|          :worried:      |           :worried:     |         :neutral_face:       |     :neutral_face:           | :worried:      |
+| Sprint 5      |       :worried:        |        :worried:        |           :worried:     |        :worried:        |        :worried:        |  :worried:              |
