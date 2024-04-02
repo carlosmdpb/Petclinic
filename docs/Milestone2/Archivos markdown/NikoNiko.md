@@ -38,4 +38,4 @@ In the retrospective meeting, the team has a discussion about those results.
 | Sprint 2      |       :smiley:        |    :smile:     |         :smiley:       |       :smiley:         |      :smiley:          | :smiley:       |
 | Sprint 3      |       :neutral_face:        |    :worried:   |     :worried:           |     :worried:           |        :neutral_face:        | :neutral_face: |
 | Sprint 4      | :neutral_face:|          :worried:      |           :worried:     |         :neutral_face:       |     :neutral_face:           | :worried:      |
-| Sprint 5      |        :neutral_face:         |        :smile:         |           :smile:     |        :worried:        |        :neutral_face:       |  :neutral_face:            |
+| Sprint 5      |        :neutral_face:         |        :smile:         |           :smile:     |        :smile:       |        :neutral_face:       |  :neutral_face:            |
