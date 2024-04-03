@@ -13,7 +13,7 @@ Curso 2023 – 2024
 
 | **Fecha**  | **Versión** |
 |------------|-------------|
-| 04/03/2024 | v1r0        |
+| 26/03/2024 | v1r0        |
 
 | **Grupo de prácticas: G5-54**    |               |                        |
 |----------------------------------|---------------|------------------------|
@@ -48,28 +48,29 @@ reunión debe estar gestionada y controlada por el Scrum Master.
 # 2. Contenido
 Se han discutido, en general, los siguientes puntos respecto al Sprint 2:
 
-\- Realización de Poker Planning.
+\- Estado actual de la progresión del proyecto.
 
-\- Reparto de tareas.
+\- Resolución de dudas.
 
-\- Asignación de tareas en ZenHub.
+\- Cambio de reparto de tareas.
 
-\- Consulta de dudas sobre el proyecto con el profesor.
+\- Problemas a solucionar.
 
 # 3. Asistentes a la reunión
-\- Gonzalo García Lama (Scrum Master)
 
-\- David Blanco Mora (Desarrollador)
+\- David Blanco Mora (Desarrollador): Ha acordado un cambio en el reparto de tareas con Jun y Lidia.
 
-\- Carlos Martín de Prado Barragán (Desarrollador)
+\- Carlos Martín de Prado Barragán (Desarrollador): Ha resuelto dudas junto con Juan sobre una parte de su tarea.
 
-\- Juan Núñez Sánchez (Desarrollador)
+\- Juan Núñez Sánchez (Desarrollador): Ha resuelto dudas junto con Carlos sobre una parte de su tarea.
 
-\- Jun Yao (Desarrollador)
+\- Jun Yao (Desarrollador): Ha acordado un cambio en el reparto de tareas con David y Lidia.
 
-\- Lidia Jiménez Soriano (Desarrollador)
+\- Lidia Jiménez Soriano (Desarrollador): Ha acordado un cambio en el reparto de tareas con David y Jun.
 
-*En este Daily Stand Up Meeting no se menciona, como en los demás, lo que ha realizado cada integrante ya que todos se han encargado de todas las tareas mencionadas*
+\- Gonzalo García Lama (Scrum Master): Ha hablado sobre como estamos progresando como grupo en el poryecto durante este Sprint.
+
+
 
 # 4. Conclusión
-Tras la primera reunión del grupo se han resuelto las dudas de comprensión de las tareas para así poder llevarlas a cabo de manera eficiente y ordenada. Además, todos los integrantes estamos de acuerdo con las asignaciones, que tratan de ser lo más equitativas posibles.
+Tras la cuarta reunión del grupo se han resuelto las dudas de comprensión de las tareas y se ha discutido sobre como solucionar los problemas. Además, se ha realizado un cambio en el reparto de tres tareas debido al tiempo disponible de cada integrante. Dichas tareas aparecerán con un asterisco en el Sprint Planning.

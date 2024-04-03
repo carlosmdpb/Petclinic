@@ -13,7 +13,7 @@ Curso 2023 – 2024
 
 | **Fecha**  | **Versión** |
 |------------|-------------|
-| 04/03/2024 | v1r0        |
+| 19/03/2024 | v1r0        |
 
 | **Grupo de prácticas: G5-54**    |               |                        |
 |----------------------------------|---------------|------------------------|
@@ -48,28 +48,25 @@ reunión debe estar gestionada y controlada por el Scrum Master.
 # 2. Contenido
 Se han discutido, en general, los siguientes puntos respecto al Sprint 2:
 
-\- Realización de Poker Planning.
+\- Estado actual de la progresión del proyecto.
 
-\- Reparto de tareas.
+\- Resolución de dudas.
 
-\- Asignación de tareas en ZenHub.
+\- Posibilidad de cambio de reparto de tareas.
 
 \- Consulta de dudas sobre el proyecto con el profesor.
 
 # 3. Asistentes a la reunión
-\- Gonzalo García Lama (Scrum Master)
 
-\- David Blanco Mora (Desarrollador)
+\- David Blanco Mora (Desarrollador): Ha hablado sobre la progresión del proyecto y ha consultado dudas con el grupo.
 
-\- Carlos Martín de Prado Barragán (Desarrollador)
+\- Carlos Martín de Prado Barragán (Desarrollador): Ha consultado dudas con el profesor sobre algunos avances en su tarea.
 
-\- Juan Núñez Sánchez (Desarrollador)
+\- Juan Núñez Sánchez (Desarrollador): Ha propuesto la posibilidad de un cambio en el reparto de tareas.
 
-\- Jun Yao (Desarrollador)
+\- Jun Yao (Desarrollador): Ha consultado dudas sobre su tarea con el grupo.
 
-\- Lidia Jiménez Soriano (Desarrollador)
 
-*En este Daily Stand Up Meeting no se menciona, como en los demás, lo que ha realizado cada integrante ya que todos se han encargado de todas las tareas mencionadas*
 
 # 4. Conclusión
-Tras la primera reunión del grupo se han resuelto las dudas de comprensión de las tareas para así poder llevarlas a cabo de manera eficiente y ordenada. Además, todos los integrantes estamos de acuerdo con las asignaciones, que tratan de ser lo más equitativas posibles.
+Tras la tercera reunión del grupo se han resuelto las dudas de comprensión de las tareas. Además, se ha considerado un cambio en el reparto de tareas debido a que había un integrante del grupo que no poseía de tareas de código. Se ha realizado una reorganización para solucionarlo. 

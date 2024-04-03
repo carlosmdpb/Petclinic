@@ -13,7 +13,7 @@ Curso 2023 – 2024
 
 | **Fecha**  | **Versión** |
 |------------|-------------|
-| 04/03/2024 | v1r0        |
+| 02/04/2024 | v1r0        |
 
 | **Grupo de prácticas: G5-54**    |               |                        |
 |----------------------------------|---------------|------------------------|
@@ -48,28 +48,29 @@ reunión debe estar gestionada y controlada por el Scrum Master.
 # 2. Contenido
 Se han discutido, en general, los siguientes puntos respecto al Sprint 2:
 
-\- Realización de Poker Planning.
+\- Estado actual de la progresión del proyecto.
 
-\- Reparto de tareas.
+\- Revisión de tareas.
 
-\- Asignación de tareas en ZenHub.
+\- Problemas a solucionar.
 
-\- Consulta de dudas sobre el proyecto con el profesor.
+\- Preparación de entrega.
 
 # 3. Asistentes a la reunión
-\- Gonzalo García Lama (Scrum Master)
 
-\- David Blanco Mora (Desarrollador)
+\- David Blanco Mora (Desarrollador): Ha expuesto algunos problemas a solucionar antes de la entrega junto con Jun.
 
-\- Carlos Martín de Prado Barragán (Desarrollador)
+\- Carlos Martín de Prado Barragán (Desarrollador): Ha hablado sobre como vamos a preparar la entrega.
 
-\- Juan Núñez Sánchez (Desarrollador)
+\- Juan Núñez Sánchez (Desarrollador): Ha revisado algunas tareas junto con Lidia.
 
-\- Jun Yao (Desarrollador)
+\- Jun Yao (Desarrollador): Ha expuesto algunos problemas a solucionar antes de la entrega junto con David.
 
-\- Lidia Jiménez Soriano (Desarrollador)
+\- Lidia Jiménez Soriano (Desarrollador): Ha revisado algunas tareas junto con Juan.
 
-*En este Daily Stand Up Meeting no se menciona, como en los demás, lo que ha realizado cada integrante ya que todos se han encargado de todas las tareas mencionadas*
+\- Gonzalo García Lama (Scrum Master): Ha organizado el grupo para el ultimo Sprint y ha hablado sobre la progesión del proyecto.
+
+
 
 # 4. Conclusión
-Tras la primera reunión del grupo se han resuelto las dudas de comprensión de las tareas para así poder llevarlas a cabo de manera eficiente y ordenada. Además, todos los integrantes estamos de acuerdo con las asignaciones, que tratan de ser lo más equitativas posibles.
+Tras la quinta reunión del grupo, nos hemos puesto al día sobre el estado actual del proyecto, se han revisado las tareas y se ha discutido sobre como solucionar algunos problemas finales. Además, se han discutido los ultimos retoques del proyecto para la entrega.

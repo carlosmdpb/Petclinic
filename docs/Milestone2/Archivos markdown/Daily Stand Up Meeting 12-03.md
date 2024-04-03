@@ -13,7 +13,7 @@ Curso 2023 – 2024
 
 | **Fecha**  | **Versión** |
 |------------|-------------|
-| 04/03/2024 | v1r0        |
+| 12/03/2024 | v1r0        |
 
 | **Grupo de prácticas: G5-54**    |               |                        |
 |----------------------------------|---------------|------------------------|
@@ -48,28 +48,21 @@ reunión debe estar gestionada y controlada por el Scrum Master.
 # 2. Contenido
 Se han discutido, en general, los siguientes puntos respecto al Sprint 2:
 
-\- Realización de Poker Planning.
+\- Grado de conformidad con las tareas repartidas.
 
-\- Reparto de tareas.
-
-\- Asignación de tareas en ZenHub.
+\- Dificultades encontradas.
 
 \- Consulta de dudas sobre el proyecto con el profesor.
 
 # 3. Asistentes a la reunión
-\- Gonzalo García Lama (Scrum Master)
+\- Gonzalo García Lama (Scrum Master): Ha preguntado dudas al profesor y ha organizado el grupo para la clase.
 
-\- David Blanco Mora (Desarrollador)
+\- Carlos Martín de Prado Barragán (Desarrollador): Ha expuesto, junto con Juan, los avances en su tarea de código.
 
-\- Carlos Martín de Prado Barragán (Desarrollador)
+\- Juan Núñez Sánchez (Desarrollador): Ha expuesto, junto con Carlos, los avances en su tarea de código.
 
-\- Juan Núñez Sánchez (Desarrollador)
+\- Jun Yao (Desarrollador): Ha buscado ayuda con sus compañeros sobre algunas dificultades que ha encontrado en su tarea.
 
-\- Jun Yao (Desarrollador)
-
-\- Lidia Jiménez Soriano (Desarrollador)
-
-*En este Daily Stand Up Meeting no se menciona, como en los demás, lo que ha realizado cada integrante ya que todos se han encargado de todas las tareas mencionadas*
 
 # 4. Conclusión
-Tras la primera reunión del grupo se han resuelto las dudas de comprensión de las tareas para así poder llevarlas a cabo de manera eficiente y ordenada. Además, todos los integrantes estamos de acuerdo con las asignaciones, que tratan de ser lo más equitativas posibles.
+Tras la segunda reunión del grupo se han resuelto las dudas de comprensión de las tareas, así como las dificultades encontradas a lo largo de la semana. Se continúa avanzando como se espera durante la semana.
