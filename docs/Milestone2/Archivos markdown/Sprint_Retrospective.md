@@ -50,7 +50,7 @@ En el presente documento, a raíz de lo realizado en el segundo Sprint, se han p
 | **Fecha**  | **Versión** | **Descripción**                        |
 |------------|-------------|----------------------------------------|
 | 02/04/2024 | v1r0        | Primera versión del documento          |
-| 03/04/2024 | v1r1        | Adición del contenido punto 3          |
+| 03/04/2024 | v1r1        | Adición del contenido punto 3, 4 y 5   |
 
 # 3. Evaluaciones![](media/restropectiva.png)
 
@@ -67,13 +67,13 @@ En el presente documento, a raíz de lo realizado en el segundo Sprint, se han p
 |                                  | Sprint |      |      |      |      |       |                     |
 |----------------------------------|--------|------|------|------|------|-------|---------------------|
 | Miembro del Equipo               | S1     | S2   | S3   | S4   | S5   | Total | Media Entregable D2 |
-| Blanco Mora, David               |        |      |      |      |      |       |                     |
-| García Lama, Gonzalo             |        |      |      |      |      |       |                     |
-| Martín de Prado Barragán, Carlos |        |      |      |      |      |       |                     |
-| Núñez Sánchez, Juan              |        |      |      |      |      |       |                     |
-| Jiménez Soriano, Lidia           |        |      |      |      |      |       |                     |
-| Yao, Jun                         |        |      |      |      |      |       |                     |
-| Total                            |        |      |      |      |      |       |                     |
+| Blanco Mora, David               | 5      | 5    | 4,75 | 4,75 | 5    | 24,5  | 4,9                 |
+| García Lama, Gonzalo             | 5      | 5    | 5,15 | 5,2  | 5,25 | 25,6  | 5,12                |
+| Martín de Prado Barragán, Carlos | 5      | 5    | 5    | 5    | 5    | 25    | 5                   |
+| Núñez Sánchez, Juan              | 5      | 5    | 5    | 5    | 5    | 25    | 5                   |
+| Jiménez Soriano, Lidia           | 5      | 5    | 5,1  | 5,3  | 5    | 25,4  | 5,08                |
+| Yao, Jun                         | 5      | 5    | 5    | 4,75 | 4,75 | 24,5  | 4,9                 |
+| Total                            | 30     | 30   | 30   | 30   | 30   | 150   | 30                  |
 
 ## 
 
@@ -81,10 +81,18 @@ En el presente documento, a raíz de lo realizado en el segundo Sprint, se han p
 
 ## 4.1 Aspecto de mejoras:
 
+Hemos elaborado las notas de esta forma en función al nivel de compromiso y los trabajos realizados con el grupo. Durante este segundo Sprint, hemos notado una mejoría en la comunicación entre todos los integrantes del equipo, hemos sabido equilibrar correctamente las cargas de trabajo y ha habido un buen compromiso por parte de todos los integrantes. A pesar de esto, hubo un cambio en la organización de las tareas, pero no debido al compromiso, sino al tiempo disponible de cada uno.
+
+Con respecto a Clockify se ha mejorado el compromiso, aunque algún integrante olvidó iniciar el cronómetro al iniciar algunas tareas que le correspondían, por lo que este tiempo tuvo que ser añadido de manera manual.
 
 
 # 5. Conclusión
 
+En general, durante este Sprint 2 se ha trabajado de manera eficiente y coordinada. Los integrantes del grupo han resuelto las dudas que surgían entre ellos y han proporcionado ayuda a quien la necesitaba, por lo que la comunicación y el trabajo en equipo han resultado excelentes. 
+
+A pesar de haber trabajo bien como equipo, hay varias cosas a mejorar para los siguientes Sprints, como puede ser, sobre todo, el seguimiento del Sprint desde Zenhub, ya que el tablero no se utilizó correctamente en varias ocasiones y dió lugar a gráficos mediocres.
+
+Para los próximos Sprints se intentará mejorar lo mencionado anteriormente, ya que nos ayudará a seguir nuestras tareas de una manera más ordenada.
 
 
 # 
