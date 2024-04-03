@@ -52,7 +52,7 @@ En el presente documento, a raíz de lo realizado en el segundo Sprint, se han p
 | 02/04/2024 | v1r0        | Primera versión del documento          |
 | 03/04/2024 | v1r1        | Adición del contenido punto 3          |
 
-# 3. Evaluaciones![](media/8489e3d47082a8bc410e60ce85a6d6b2.png)
+# 3. Evaluaciones![](media/restropectiva.png)
 
 # 
 
