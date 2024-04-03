@@ -46,7 +46,7 @@ estar de pie. Cada persona debe decir lo que ha realizado. Toda la
 reunión debe estar gestionada y controlada por el Scrum Master.
 
 # 2. Contenido
-Se han discutido los siguientes puntos respecto al Sprint 2:
+Se han discutido, en general, los siguientes puntos respecto al Sprint 2:
 
 \- Estado actual de la progresión del proyecto.
 
@@ -58,13 +58,13 @@ Se han discutido los siguientes puntos respecto al Sprint 2:
 
 # 3. Asistentes a la reunión
 
-\- David Blanco Mora (Desarrollador)
+\- David Blanco Mora (Desarrollador): Ha hablado sobre la progresión del proyecto y ha consultado dudas con el grupo.
 
-\- Carlos Martín de Prado Barragán (Desarrollador)
+\- Carlos Martín de Prado Barragán (Desarrollador): Ha consultado dudas con el profesor sobre algunos avances en su tarea.
 
-\- Juan Núñez Sánchez (Desarrollador)
+\- Juan Núñez Sánchez (Desarrollador): Ha propuesto la posibilidad de un cambio en el reparto de tareas.
 
-\- Jun Yao (Desarrollador)
+\- Jun Yao (Desarrollador): Ha consultado dudas sobre su tarea con el grupo.
 
 
 

@@ -13,7 +13,7 @@ Curso 2023 – 2024
 
 | **Fecha**  | **Versión** |
 |------------|-------------|
-| 12/03/2024 | v1r0        |
+| 02/04/2024 | v1r0        |
 
 | **Grupo de prácticas: G5-54**    |               |                        |
 |----------------------------------|---------------|------------------------|
@@ -48,21 +48,29 @@ reunión debe estar gestionada y controlada por el Scrum Master.
 # 2. Contenido
 Se han discutido, en general, los siguientes puntos respecto al Sprint 2:
 
-\- Grado de conformidad con las tareas repartidas.
+\- Estado actual de la progresión del proyecto.
 
-\- Dificultades encontradas.
+\- Revisión de tareas.
 
-\- Consulta de dudas sobre el proyecto con el profesor.
+\- Problemas a solucionar.
+
+\- Preparación de entrega.
 
 # 3. Asistentes a la reunión
-\- Gonzalo García Lama (Scrum Master): Ha preguntado dudas al profesor y ha organizado el grupo para la clase.
 
-\- Carlos Martín de Prado Barragán (Desarrollador): Ha expuesto, junto con Juan, los avances en su tarea de código.
+\- David Blanco Mora (Desarrollador): Ha expuesto algunos problemas a solucionar antes de la entrega junto con Jun.
 
-\- Juan Núñez Sánchez (Desarrollador): Ha expuesto, junto con Carlos, los avances en su tarea de código.
+\- Carlos Martín de Prado Barragán (Desarrollador): Ha hablado sobre como vamos a preparar la entrega.
 
-\- Jun Yao (Desarrollador): Ha buscado ayuda con sus compañeros sobre algunas dificultades que ha encontrado en su tarea.
+\- Juan Núñez Sánchez (Desarrollador): Ha revisado algunas tareas junto con Lidia.
+
+\- Jun Yao (Desarrollador): Ha expuesto algunos problemas a solucionar antes de la entrega junto con David.
+
+\- Lidia Jiménez Soriano (Desarrollador): Ha revisado algunas tareas junto con Juan.
+
+\- Gonzalo García Lama (Scrum Master): Ha organizado el grupo para el ultimo Sprint y ha hablado sobre la progesión del proyecto.
+
 
 
 # 4. Conclusión
-Tras la segunda reunión del grupo se han resuelto las dudas de comprensión de las tareas, así como las dificultades encontradas a lo largo de la semana. Se continúa avanzando como se espera durante la semana.
+Tras la quinta reunión del grupo, nos hemos puesto al día sobre el estado actual del proyecto, se han revisado las tareas y se ha discutido sobre como solucionar algunos problemas finales. Además, se han discutido los ultimos retoques del proyecto para la entrega.

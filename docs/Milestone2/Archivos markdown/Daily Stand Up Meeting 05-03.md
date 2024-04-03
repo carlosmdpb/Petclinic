@@ -46,7 +46,7 @@ estar de pie. Cada persona debe decir lo que ha realizado. Toda la
 reunión debe estar gestionada y controlada por el Scrum Master.
 
 # 2. Contenido
-Se han discutido los siguientes puntos respecto al Sprint 2:
+Se han discutido, en general, los siguientes puntos respecto al Sprint 2:
 
 \- Realización de Poker Planning.
 
@@ -68,6 +68,8 @@ Se han discutido los siguientes puntos respecto al Sprint 2:
 \- Jun Yao (Desarrollador)
 
 \- Lidia Jiménez Soriano (Desarrollador)
+
+*En este Daily Stand Up Meeting no se menciona, como en los demás, lo que ha realizado cada integrante ya que todos se han encargado de todas las tareas mencionadas*
 
 # 4. Conclusión
 Tras la primera reunión del grupo se han resuelto las dudas de comprensión de las tareas para así poder llevarlas a cabo de manera eficiente y ordenada. Además, todos los integrantes estamos de acuerdo con las asignaciones, que tratan de ser lo más equitativas posibles.
