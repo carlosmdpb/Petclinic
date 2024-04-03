@@ -82,9 +82,7 @@ export default function Register() {
         .then(function (response) {
           if (response.status === 200) {
             return response.json();
-          } else {
-            return response.json();
-          }
+          } 
         })
         .then(function (data) {
           setClinics(data);
