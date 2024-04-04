@@ -39,7 +39,7 @@ public class AdoptationController {
         List<Adoptation> adoptations = adoptationService.findAll();
         List<Integer> petIds = new ArrayList<>();
         for (Adoptation adoptation : adoptations) {
-            if(adoptation.getIsAccepted() == false){
+            if(!adoptation.getIsAccepted()){
                 Integer id = adoptation.getPet().getId();
                 petIds.add(id);
             }

@@ -3,8 +3,6 @@ package org.springframework.samples.petclinic.adoptions;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
-import org.springframework.samples.petclinic.owner.Owner;
-import org.springframework.samples.petclinic.pet.Pet;
 import org.springframework.samples.petclinic.pet.PetService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,9 +37,9 @@ public class AdoptationService {
 
     @Transactional
     public Adoptation createAdoptation(Integer petId) throws DataAccessException {
-        Adoptation adoptation = new Adoptation();
-        Pet pet = petService.findPetById(petId);
-        Owner owner = pet.getOwner();
+        var adoptation = new Adoptation();
+        var pet = petService.findPetById(petId);
+        var owner = pet.getOwner();
         adoptation.setOwner(owner);
         adoptation.setPet(pet);
         adoptation.setIsAccepted(false);

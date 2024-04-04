@@ -53,7 +53,7 @@ public class OfferController {
 
     @PutMapping("/update/{offerId}")
     public ResponseEntity<Offer> updateOffer(@RequestBody String status, @PathVariable("offerId") Integer offerId) {
-        Offer offer = offerService.updateOffer(status, offerId);
+        var offer = offerService.updateOffer(status, offerId);
         return new ResponseEntity<>(offer,HttpStatus.OK);
     }
 
@@ -61,7 +61,7 @@ public class OfferController {
     public ResponseEntity<Adoptation> deleteAdoptation(@PathVariable("petId") Integer petId) {
         List<Adoptation> adoptations = adoptationService.findAdoptationByPetId(petId);
         for(Adoptation adoptation : adoptations){
-            if(adoptation.getIsAccepted() == false){
+            if(!adoptation.getIsAccepted()){
                 adoptationService.deleteAdoptation(adoptation);
             }
         }
