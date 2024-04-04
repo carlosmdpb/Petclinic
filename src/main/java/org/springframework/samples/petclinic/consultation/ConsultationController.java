@@ -59,7 +59,7 @@ public class ConsultationController {
 	@GetMapping
 	public ResponseEntity<List<Consultation>> findAllConsultations(@RequestParam(required = false) Integer userId) {
 
-		User user = userService.findCurrentUser();
+		var user = userService.findCurrentUser();
 
 		List<Consultation> res = null;
 		if (user.hasAnyAuthority(ADMIN_AUTH).equals(true)) {

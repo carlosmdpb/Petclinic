@@ -31,6 +31,8 @@ import jakarta.validation.Valid;
 @SecurityRequirement(name = "bearerAuth")
 public class BookingController {
 
+    private static final String NOT_ALLOWED = "No tienes permisos para realizar esta acción";
+
     @Autowired
     private BookingService bookingService;
 
@@ -60,7 +62,7 @@ public class BookingController {
         if(user.hasAnyAuthority(OWNER).equals(true)){
             bookings = bookingService.findAllBookings();
         }else{
-            throw new AccessDeniedException("No tienes permisos para realizar esta acción");
+            throw new AccessDeniedException(NOT_ALLOWED);
         }
     
         List<BookingDTO> bookingDTOs = StreamSupport.stream(bookings.spliterator(), false)
@@ -100,7 +102,7 @@ public class BookingController {
         if(user.hasAnyAuthority(OWNER).equals(true)){
             rooms = bookingService.findAllHotelRooms();
         }else{
-            throw new AccessDeniedException("No tienes permisos para realizar esta acción");
+            throw new AccessDeniedException(NOT_ALLOWED);
         }
         List<PetHotelRoomDTO> roomDTOs = rooms.stream()
             .map(this::convertToDTO)
@@ -125,7 +127,7 @@ public class BookingController {
         if(user.hasAnyAuthority(OWNER).equals(true)){
             savedBooking = bookingService.createBooking(newBooking);
         }else{
-            throw new AccessDeniedException("No tienes permisos para realizar esta acción");
+            throw new AccessDeniedException(NOT_ALLOWED);
         }
         return new ResponseEntity<Booking>(savedBooking, HttpStatus.CREATED);
     }

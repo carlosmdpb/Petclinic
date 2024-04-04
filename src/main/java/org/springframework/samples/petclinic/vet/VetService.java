@@ -118,27 +118,7 @@ public class VetService {
 		specialtyRepository.delete(toDelete);
 	}
 
-//	@Transactional
-//	public Vet addSpecialty(Vet vet, Specialty specialty) {
-//		List<Specialty> specialties = vet.getSpecialties();
-//		if(!specialties.contains(specialty)) {
-//			specialties.add(specialty);
-//			vet.setSpecialties(specialties);
-//			vetRepository.save(vet);
-//		}
-//		return vet;
-//	}
-//
-//	public Vet removeSpecialty(Vet vet, Specialty specialty) {
-////		List<Specialty> specialties = vet.getSpecialties();
-////		if(specialties.contains(specialty)) {
-////			specialties.remove(specialty);
-////			vet.setSpecialties(specialties);
-////			vetRepository.save(vet);
-////		}
-//		vet.removeSpecialty(specialty);
-//		return vet;
-//	}
+
 
 	public Map<String, Object> getVetsStats() {
 		Map<String, Object> res = new HashMap<>();

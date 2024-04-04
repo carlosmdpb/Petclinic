@@ -36,14 +36,12 @@ public class UserService {
 
 	private UserRepository userRepository;
 
-//	private OwnerService ownerService;
-//
+
 	private VetService vetService;
 
 	@Autowired
 	public UserService(UserRepository userRepository, VetService vetService) {
 		this.userRepository = userRepository;
-//		this.ownerService = ownerService;
 		this.vetService = vetService;
 	}
 
@@ -117,17 +115,14 @@ public class UserService {
 	public void deleteUser(Integer id) {
 		User toDelete = findUser(id);
 		deleteRelations(id, toDelete.getAuthority().getAuthority());
-//		this.userRepository.deleteOwnerRelation(id);
-//		this.userRepository.deleteVetRelation(id);
+
 		this.userRepository.delete(toDelete);
 	}
 
 	private void deleteRelations(Integer id, String auth) {
 		switch (auth) {
 		case "OWNER":
-//			Optional<Owner> owner = ownerService.optFindOwnerByUser(id);
-//			if (owner.isPresent())
-//				ownerService.deleteOwner(owner.get().getId());
+
 			this.userRepository.deleteOwnerRelation(id);
 			break;
 		case "VET":
@@ -137,7 +132,6 @@ public class UserService {
 			}
 			break;
 		default:
-			// The only relations that have user are Owner and Vet
 			break;
 		}
 
