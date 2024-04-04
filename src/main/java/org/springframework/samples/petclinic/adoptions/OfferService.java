@@ -1,8 +1,11 @@
 package org.springframework.samples.petclinic.adoptions;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.owner.Owner;
 import org.springframework.samples.petclinic.owner.OwnerService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,8 +28,14 @@ public class OfferService {
 
     @Transactional(readOnly = true)
     public Offer findOfferById(int offerId) throws DataAccessException {
-        return offerRepository.findById(offerId).get();
+    Optional<Offer> offerOptional = offerRepository.findById(offerId);
+    
+    if (offerOptional.isPresent()) {
+        return offerOptional.get();
+    } else {
+        throw new NoSuchElementException("Offer not found for ID: " + offerId);
     }
+}
 
 
     @Transactional
@@ -39,13 +48,13 @@ public class OfferService {
         List<Adoptation> all = adoptationService.findAll();
         List<Offer> allOffers = offerRepository.findAll();
         for(Offer offer : allOffers){
-            if(offer.getOfferingOwner().getUser().getId() == userId){
+            if(offer.getOfferingOwner().getUser().getId().equals(userId)){
                 all.remove(offer.getAdoptation());
             }
         }
 
         for(Adoptation adoptation : all){
-            if(adoptation.getOwner().getUser().getId() == userId){
+            if(adoptation.getOwner().getUser().getId().equals(userId)){
                 all.remove(adoptation);
                 if(all.size() == 0){
                     return new ArrayList<>();
@@ -66,7 +75,7 @@ public class OfferService {
         List<Offer> all = offerRepository.findAll();
         List<Offer> res = new ArrayList<>();
         for(Offer offer : all){
-            if(offer.getOfferingOwner().getUser().getId() == userId){
+            if(offer.getOfferingOwner().getUser().getId().equals(userId)){
                 res.add(offer);
             }
         }
@@ -78,23 +87,30 @@ public class OfferService {
         List<Offer> all = offerRepository.findAll();
         List<Offer> res = new ArrayList<>();
         for(Offer offer : all){
-            if(offer.getAdoptation().getOwner().getUser().getId() == userId && offer.getStatus().equals(AdoptationStatus.PENDING)){
+            if(offer.getAdoptation().getOwner().getUser().getId().equals(userId) && offer.getStatus().equals(AdoptationStatus.PENDING)){
                 res.add(offer);
             }
         }
         return res;
     }
 
-
-    @Transactional
-    public Offer createOffer(OfferDTO offerDTO) throws DataAccessException{
-        Offer offer = new Offer();
-        offer.setOfferingOwner(ownerService.optFindOwnerByUser(offerDTO.getOfferingOwnerUserId()).get());
+    public Offer createOffer(OfferDTO offerDTO) throws DataAccessException {
+    Offer offer = new Offer();
+    Optional<Owner> ownerOptional = ownerService.optFindOwnerByUser(offerDTO.getOfferingOwnerUserId());
+    
+    if (ownerOptional.isPresent()) {
+        offer.setOfferingOwner(ownerOptional.get());
         offer.setStatus(AdoptationStatus.PENDING);
         offer.setDescription(offerDTO.getDescription());
         offer.setAdoptation(adoptationService.findAdoptationById(offerDTO.getAdoptationId()));
         return offerRepository.save(offer);
+    } else {
+        
+        throw new NoSuchElementException("Owner not found for user ID: " + offerDTO.getOfferingOwnerUserId());
     }
+}
+
+
 
 
 
@@ -118,7 +134,7 @@ public class OfferService {
     public void rejectAllOffersExcept1(Offer offer) throws DataAccessException{
         List<Offer> all = offerRepository.findAll();
         for(Offer o : all){
-            if(o.getAdoptation().getId() == offer.getAdoptation().getId() && o.getId() != offer.getId()){
+            if(o.getAdoptation().getId().equals(offer.getAdoptation().getId()) && !o.getId().equals(offer.getId())){
                 o.setStatus(AdoptationStatus.REJECTED);
                 saveOffer(o);
             }
@@ -140,7 +156,7 @@ public class OfferService {
     public void deleteAdoptation(Adoptation adoptation) throws DataAccessException {
         List<Offer> all = offerRepository.findAll();
         for(Offer offer : all){
-            if(offer.getAdoptation().getId() == adoptation.getId()){
+            if(offer.getAdoptation().getId().equals(adoptation.getId())){
                 deleteOffer(offer);
             }
         }
