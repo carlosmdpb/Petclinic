@@ -22,7 +22,7 @@ jobs:
       uses: SonarSource/sonarqube-scan-action@master
       with:
         args: >
-          -Dsonar.projectKey=psg2-2223-G6-64-Petclinic
+          -Dsonar.projectKey=psg2-2223-G5-54-Petclinic
           -Dsonar.sources=./backend/src
           -Dsonar.host.url=YOUR_SONAR_HOST
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
