@@ -1,0 +1,28 @@
+name: SonarQube Backend Analysis
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+
+jobs:
+  sonarqube_backend:
+    name: SonarQube Analysis for Backend
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11 for Backend
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    - name: SonarQube Scan for Backend
+      uses: SonarSource/sonarqube-scan-action@master
+      with:
+        args: >
+          -Dsonar.projectKey=psg2-2223-G6-64-Petclinic
+          -Dsonar.sources=./backend/src
+          -Dsonar.host.url=YOUR_SONAR_HOST
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
