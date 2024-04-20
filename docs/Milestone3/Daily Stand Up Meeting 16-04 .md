@@ -13,7 +13,7 @@ Curso 2023 – 2024
 
 | **Fecha**  | **Versión** |
 |------------|-------------|
-| 09/04/2024 | v1r0        |
+| 16/04/2024 | v1r0        |
 
 | **Grupo de prácticas: G5-54**    |               |                        |
 |----------------------------------|---------------|------------------------|
@@ -48,18 +48,20 @@ reunión debe estar gestionada y controlada por el Scrum Master.
 # 2. Contenido
 Se han discutido, en general, los siguientes puntos respecto al Sprint 3:
 
-\- Division de tarea.
+\- Realización estimacion poker.
 
-\- Dudas sobre realización estimacion poker.
-
-\- Dudas sobre reparto tarea.
+\- Reparto tarea.
 
 # 3. Asistentes a la reunión
 
-\- Juan Núñez Sánchez (Desarrollador): Ha realizado division de tarea y actulizado el dashboard de zenhub.
+\- Juan Núñez Sánchez (Desarrollador): Ha llevado junto a los compañeros la estimación poker.
 
-\- Jun Yao (Desarrollador): Ha realizado division de tarea y actulizado el dashboard de zenhub.
+\- Jun Yao (Desarrollador): Ha llevado junto a los compañeros la estimación poker.
+
+\- Carlos Martin de Prado Barragan (Desarrollador): Ha llevado junto a los compañeros la estimación poker.
+
+\- David Blanco Mora (Desarrollador): Ha llevado junto a los compañeros la estimación poker.
 
 
 # 4. Conclusión
-Tras la primera  reunión del grupo se ha realizado y actualizado el dashboard de zenhub, creando un nuevo milestone.Por otro lado no ha sido posible llevar a cabo el reparto de tareas debido a los pocos integrantes a la reunión de hoy. Para solucionarlo, el grupo realizará otro daily meeting externo al horario de clase para realizar dichas tareas.
+Tras la segunda  reunión del grupo se ha actualizado el dashboard de zenhub. Debido a la falta de integrantes de grupo no fue posible hacer la estimación poker, es por ello el motivo de esta reunión, en la cual se ha realizado dicha tarea.
