@@ -13,7 +13,7 @@ Curso 2023 – 2024
 
 | **Fecha**  | **Versión** |
 |------------|-------------|
-| 16/04/2024 | v1r0        |
+| 23/04/2024 | v1r0        |
 
 | **Grupo de prácticas: G5-54**    |               |                        |
 |----------------------------------|---------------|------------------------|
@@ -48,20 +48,22 @@ reunión debe estar gestionada y controlada por el Scrum Master.
 # 2. Contenido
 Se han discutido, en general, los siguientes puntos respecto al Sprint 3:
 
-\- Realización estimacion poker.
+\- Resolución de dudas entre compañeros
 
-\- Reparto tarea.
+\- Seguimiento del trabajo con el profesor
+
+\- Organización del trabajo para la semana
 
 # 3. Asistentes a la reunión
 
-\- Juan Núñez Sánchez (Desarrollador): Ha llevado junto a los compañeros la estimación poker.
+\- Gonzalo García Lama (Scrum Master): Tras la resolución de dudas, ha organizado el trabajo para la semana
 
-\- Jun Yao (Desarrollador): Ha llevado junto a los compañeros la estimación poker.
+\- Jun Yao (Desarrollador): Ha consultado dudas con sus compañeros.
 
-\- Carlos Martin de Prado Barragan (Desarrollador): Ha llevado junto a los compañeros la estimación poker.
+\- Carlos Martin de Prado Barragan (Desarrollador): Ha consultado dudas con sus compañeros.
 
-\- David Blanco Mora (Desarrollador): Ha llevado junto a los compañeros la estimación poker.
+\- David Blanco Mora (Desarrollador): Tras consultar dudas con sus compañeros, ha consultado también algunas con el profesor.
 
 
 # 4. Conclusión
-Tras la segunda  reunión del grupo se ha actualizado el dashboard de zenhub. Debido a la falta de integrantes de grupo no fue posible hacer la estimación poker, es por ello el motivo de esta reunión, en la cual se ha realizado dicha tarea.
+Tras la tercera reunión del grupo se ha quedado organizado el trabajo a realizar durante la semana. Para ello hizo falta consultar y resolver varias dudas entre los compañeros asistentes a la reunión, a la vez que se consultaron dichas dudas con el profesor mientras se realizaba un seguimiento del trabajo realizado hasta la fecha.

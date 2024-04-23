@@ -1,7 +1,7 @@
 Universidad de Sevilla  
  Escuela Técnica Superior de Ingeniería Informática
 
-**Documentación de la entrega M02**
+**Documentación de la entrega M03**
 
 **Daily Stand Up Meeting**![http://recursoshumanos.us.es/images/marca-dos-tintas_300.gif](media/3490fac9907787381d76ea6e20c541f4.gif)
 
