@@ -22,6 +22,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.clinicowner.ClinicOwner;
 import org.springframework.samples.petclinic.exceptions.ResourceNotFoundException;
 import org.springframework.samples.petclinic.owner.Owner;
 import org.springframework.samples.petclinic.vet.Vet;
@@ -136,5 +137,10 @@ public class UserService {
 		}
 
 	}
+
+	    public ClinicOwner findClinicOwnerByUser(Integer id) {
+		return userRepository.findClinicOwnerByUser(id).orElseThrow(() -> new ResourceNotFoundException("Owner", "ID", id));
+    }
+
 
 }

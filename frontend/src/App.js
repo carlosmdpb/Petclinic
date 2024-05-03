@@ -56,6 +56,9 @@ import AdoptionOffer from "./owner/adoptions/adoptionOffer";
 import ReceivedOffers from "./owner/adoptions/offer/receivedOffers";
 import OffersSent from "./owner/adoptions/offer/offersSent";
 import SLA from "./home/SLA.js";
+import RequestListClinicOwner from "./clinicOwner/requests/requestList";
+import RequestEditClinicOwner from "./clinicOwner/requests/requestEdit";
+import RequestListAdmin from "./admin/requests/requestList";
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
@@ -259,6 +262,7 @@ function App() {
             }
           />
           <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
+          <Route path="/requests" exact={true} element={<PrivateRoute><RequestListAdmin/></PrivateRoute>} />
         </>
       );
     }
@@ -344,6 +348,8 @@ function App() {
           <Route path="/post/booking" exact={true} element={<PrivateRoute><CreateBooking /></PrivateRoute>} />
           <Route path="/bookings" exact={true} element={<PrivateRoute><GetAllBooking /></PrivateRoute>} />
           <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
+          <Route path="/requests" exact={true} element={<PrivateRoute><RequestListClinicOwner/></PrivateRoute>} />
+          <Route path="/requests/:id" exact={true} element={<PrivateRoute><RequestEditClinicOwner/></PrivateRoute>} />
         </>
 
       );

@@ -29,5 +29,20 @@ export const formValidators = {
             return Number.isInteger(numberValue) && numberValue > 0;
         },
         message: "The value must be an Integer greater than 0 and it cannot be decimal"
+    },
+
+    minMaxLengthValidator1: {
+        validate: function(value) {
+            const length = value.length;
+            return length >= 5 && length <= 50;
+        },
+        message: "The length of the text must be between 5 and 50 characters."
+    },
+    minMaxLengthValidator2: {
+        validate: function(value) {
+            const length = value.length;
+            return length >= 10 && length <= 500;
+        },
+        message: "The length of the text must be between 10 and 500 characters."
     }
 }

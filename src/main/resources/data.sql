@@ -123,3 +123,8 @@ INSERT INTO pet_hotel_rooms(id, name, type_id, clinic_id, size) VALUES (6, 'Room
 INSERT INTO booking(id, start_date, end_date, pet_id, room_id) VALUES (1, '2024-03-15', '2024-03-20', 1, 4);
 INSERT INTO booking(id, start_date, end_date, pet_id, room_id) VALUES (2, '2024-03-18', '2024-03-25', 2, 6);
 INSERT INTO booking(id, start_date, end_date, pet_id, room_id) VALUES (3, '2024-03-20', '2024-03-28', 3, 3);
+
+INSERT INTO requests (id, title, description, type, status, creation_date, clinic_owner_id) VALUES 
+    (1, 'Request 1', 'Description for request 1', 0, 0, '2024-01-01 12:00:00', 1),
+    (2, 'Request 2', 'Description for request 2', 1, 0, '2023-01-02 10:00:00', 2),
+    (3, 'Request 3', 'Description for request 3', 2, 2, '2022-01-03 08:00:00', 1);
