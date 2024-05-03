@@ -55,6 +55,7 @@ import AdoptionList from "./owner/adoptions/adoptionList";
 import AdoptionOffer from "./owner/adoptions/adoptionOffer";
 import ReceivedOffers from "./owner/adoptions/offer/receivedOffers";
 import OffersSent from "./owner/adoptions/offer/offersSent";
+import SLA from "./home/SLA.js";
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
@@ -257,6 +258,7 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
         </>
       );
     }
@@ -341,7 +343,7 @@ function App() {
           />
           <Route path="/post/booking" exact={true} element={<PrivateRoute><CreateBooking /></PrivateRoute>} />
           <Route path="/bookings" exact={true} element={<PrivateRoute><GetAllBooking /></PrivateRoute>} />
-          /
+          <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
         </>
 
       );
@@ -377,6 +379,7 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
         </>
       );
     }
@@ -473,6 +476,7 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
         </>
       );
     }

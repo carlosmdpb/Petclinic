@@ -34,3 +34,19 @@
 .hero-div h3{
     text-align: center;
 }
+
+#bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #855a35;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+#bubble a {
+    color: #000;
+    text-decoration: none;
+}
