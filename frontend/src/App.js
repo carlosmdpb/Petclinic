@@ -278,15 +278,6 @@ function App() {
             }
           />
           <Route
-            path="/plan"
-            exact={true}
-            element={
-              <PrivateRoute>
-                <PricingPlan />
-              </PrivateRoute>
-            }
-          />
-          <Route
             path="/myPets"
             exact={true}
             element={
