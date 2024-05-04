@@ -1,7 +1,7 @@
 Universidad de Sevilla  
  Escuela Técnica Superior de Ingeniería Informática
 
-**Documentación de la entrega M02**
+**Documentación de la entrega M03**
 
 **Daily Stand Up Meeting**![http://recursoshumanos.us.es/images/marca-dos-tintas_300.gif](media/3490fac9907787381d76ea6e20c541f4.gif)
 
@@ -68,4 +68,5 @@ Se han discutido, en general, los siguientes puntos respecto al Sprint 3:
 
 
 # 4. Conclusión
-Tras la cuarta reunión del grupo se han resuelto las dudas de comprensión de las tareas y se ha discutido sobre como solucionar los problemas. Además, también hemos fijado las cosas que no hemos hecho bien sobre el antreior entrega, para se puede hacer mejor esta entrega, por ejemplo, cuando empezamos una tarea, tenemos que ir al zenhub mover la tarea al in progress.
+
+Tras la cuarta reunión del grupo se han resuelto las dudas de comprensión de las tareas y se ha discutido sobre como solucionar los problemas. Además, también hemos fijado las cosas que no hemos hecho bien en la anterior entrega, para mejorarlo en esta, por ejemplo, cuando empezamos una tarea, debemos ir a Zenhub y mover la tarea a la columna "In Progress".
