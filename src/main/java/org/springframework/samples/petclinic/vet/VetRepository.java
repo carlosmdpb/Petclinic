@@ -21,6 +21,8 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.samples.petclinic.clinic.PricingPlan;
+import org.springframework.samples.petclinic.owner.Owner;
 
 public interface VetRepository extends CrudRepository<Vet, Integer> {
 
@@ -38,5 +40,8 @@ public interface VetRepository extends CrudRepository<Vet, Integer> {
 	@Query("SELECT NEW MAP(v.vet.firstName as firstName, v.vet.lastName as lastName, cast(COUNT(v) as string) as visits)"
 			+ " FROM Visit v GROUP BY v.vet")
 	public List<Map<String, String>> countVisitsGroupedByVet();
+
+	@Query("SELECT v.clinic.plan FROM Vet v WHERE v= :vet ")
+	public PricingPlan findVetPlan(Vet vet);
 
 }

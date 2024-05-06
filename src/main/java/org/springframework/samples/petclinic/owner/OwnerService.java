@@ -127,4 +127,15 @@ public class OwnerService {
 						LinkedHashMap::new));
 	}
 
+	public Map<String,Object> findOwnerContext(Owner owner, String username){
+		Map<String,Object> context = new HashMap<>();
+		context.put("username", username);
+		context.put("pets", this.ownerRepository.findPetsByOwner(owner.getId()).size());
+		return context;
+	}
+
+	public PricingPlan findOwnerPlan(Owner o){
+		return this.ownerRepository.findOwnerPlan(o);
+	}
+
 }
