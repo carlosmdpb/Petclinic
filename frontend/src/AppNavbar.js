@@ -19,13 +19,15 @@ function AppNavbar() {
             setRoles(userRoles);
             setUsername(jwt_decode(jwt).sub);
             
-            if (userRoles.includes("OWNER") || userRoles.includes("VET")) {
-                fetchPlan();
+            if (userRoles.includes("OWNER")) {
+                fetchPlanOwner();
+            } else if (userRoles.includes("VET")){
+                fetchPlanVet();
             }   
         }
     }, [jwt]);
 
-    const fetchPlan = () => {
+    const fetchPlanOwner = () => {
         const requestOptions = {
             method: 'GET',
             headers: {
@@ -34,6 +36,34 @@ function AppNavbar() {
         };
 
         fetch('/api/v1/plan', requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch pricing plan');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Response data:', data);
+                if (data && data.plan) {
+                    setPricingPlan(data.plan);
+                } else {
+                    throw new Error('Unexpected response format');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching pricing plan:', error);
+            });
+    };
+
+    const fetchPlanVet = () => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        };
+
+        fetch('/api/v2/plan', requestOptions)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch pricing plan');
@@ -205,7 +235,7 @@ function AppNavbar() {
                     <NavLink style={{ color: "white" }} id="plans" tag={Link} to="/plans">Pricing Plans</NavLink>
                 </NavItem>
                 <NavbarText style={{ color: "white" }} className="justify-content-end">{username}</NavbarText>
-                
+                <span style={{ margin: '0 5px' }}></span> {/* Espacio */}
                 <NavbarText style={{ color: "white" }} className="justify-content-end">{pricingPlan}</NavbarText>
                 <NavItem className="d-flex">
                     <NavLink style={{ color: "white" }} id="logout" tag={Link} to="/logout">Logout</NavLink>
