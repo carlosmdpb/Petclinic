@@ -229,9 +229,13 @@ function AppNavbar() {
                 <NavItem>
                     <NavLink style={{ color: "white" }} id="plans" tag={Link} to="/plans">Pricing Plans</NavLink>
                 </NavItem>
+<<<<<<< Updated upstream
                 <NavbarText style={{ color: "white" }} className="justify-content-end">{username}</NavbarText>
                 <span style={{ margin: '0 5px' }}></span> {/* Espacio */}
                 <NavbarText style={{ color: "white" }} className="justify-content-end">{pricingPlan}</NavbarText>
+=======
+                <NavbarText style={{ color: "white" }} className="justify-content-end">{username}, {pricingPlan}</NavbarText>
+>>>>>>> Stashed changes
                 <NavItem className="d-flex">
                     <NavLink style={{ color: "white" }} id="logout" tag={Link} to="/logout">Logout</NavLink>
                 </NavItem>
