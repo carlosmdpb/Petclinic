@@ -158,7 +158,7 @@ public class UserService {
 		User user = null;
 		String s="";
 		try{
-			user = findCurrentUser();
+			user = this.findCurrentUser();
 		}catch(ResourceNotFoundException e){
 			System.out.println("User not found");
 			return null;
@@ -166,10 +166,10 @@ public class UserService {
 		switch (user.getAuthority().getAuthority()) {
 			case "OWNER":
 				Owner owner = findOwnerByUser(user.getId());
-				s= owner.getClinic().getPlan().toString();	
+				s= owner.getClinic().getPlan().name();	
 			case "VET":
 				Vet vet = findVetByUser(user.getId());
-				s = vet.getClinic().getPlan().toString();
+				s = vet.getClinic().getPlan().name();
 
 		}
 		return s;

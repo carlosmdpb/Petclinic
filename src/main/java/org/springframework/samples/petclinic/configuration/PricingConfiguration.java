@@ -22,7 +22,7 @@ public class PricingConfiguration extends PricingContext {
     @Autowired
     private UserService userService;
 
-    Logger logger = Logger.getLogger(ClassName.class.getName());
+    Logger logger = Logger.getLogger(PricingConfiguration.class.getName());
 
     @Override public String getJwtSecret(){ return "mySecret"; }
     @Override public String getConfigFilePath(){ return "pricing/pricing.yml"; }
@@ -42,8 +42,8 @@ public class PricingConfiguration extends PricingContext {
     }
     @Override public String getUserPlan() {
         try{
-            String userPlan = userService.findUserPlan();
-            return userPlan;
+            return userService.findUserPlan();
+            
         }catch(Exception e){
             e.printStackTrace();
             return "BASIC";
