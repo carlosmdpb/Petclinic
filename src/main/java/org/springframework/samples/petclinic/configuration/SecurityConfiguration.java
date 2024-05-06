@@ -28,6 +28,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import io.github.isagroup.filters.RenewTokenFilter;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
@@ -43,6 +45,11 @@ public class SecurityConfiguration {
 
 	private static final String ADMIN = "ADMIN";
 	private static final String CLINIC_OWNER = "CLINIC_OWNER";
+
+	@Bean
+	public RenewTokenFilter renewTokenFilter() {
+		return new RenewTokenFilter();
+	}
 	
 
 	@Bean

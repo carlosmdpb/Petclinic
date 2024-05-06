@@ -4,6 +4,7 @@ import FormGenerator from "../../components/formGenerator/formGenerator";
 import tokenService from "../../services/token.service";
 import "../../static/css/auth/authButton.css";
 import { loginFormInputs } from "./form/loginFormInputs";
+import { fetchWithPricingInterceptor } from "pricing4react";
 
 export default function Login() {
   const [message, setMessage] = useState(null)
@@ -14,7 +15,7 @@ export default function Login() {
 
     const reqBody = values;
     setMessage(null);
-    await fetch("/api/v1/auth/signin", {
+    await fetchWithPricingInterceptor("/api/v1/auth/signin", {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify(reqBody),
