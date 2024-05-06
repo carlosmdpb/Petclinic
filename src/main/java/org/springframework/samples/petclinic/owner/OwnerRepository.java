@@ -62,4 +62,7 @@ public interface OwnerRepository extends CrudRepository<Owner, Integer> {
 	@Query("SELECT NEW MAP(v.pet.owner.id as userId, cast(COUNT(v) as integer) as visits) FROM  Visit v GROUP BY v.pet.owner")
 	public List<Map<String, Integer>> getOwnersWithMostVisits();
 
+	@Query("SELECT o.clinic.plan FROM Owner o WHERE o= :owner ")
+	public PricingPlan findOwnerPlan(Owner owner);
+
 }

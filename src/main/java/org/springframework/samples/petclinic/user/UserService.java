@@ -15,15 +15,20 @@
  */
 package org.springframework.samples.petclinic.user;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
+import jakarta.security.auth.message.AuthException;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.clinicowner.ClinicOwner;
 import org.springframework.samples.petclinic.exceptions.ResourceNotFoundException;
 import org.springframework.samples.petclinic.owner.Owner;
+import org.springframework.samples.petclinic.owner.OwnerService;
 import org.springframework.samples.petclinic.vet.Vet;
 import org.springframework.samples.petclinic.vet.VetService;
 import org.springframework.security.core.Authentication;
@@ -36,8 +41,9 @@ public class UserService {
 
 	private UserRepository userRepository;
 
-
 	private VetService vetService;
+
+	private OwnerService ownerService;
 
 	@Autowired
 	public UserService(UserRepository userRepository, VetService vetService) {
@@ -136,5 +142,38 @@ public class UserService {
 		}
 
 	}
+
+	    public ClinicOwner findClinicOwnerByUser(Integer id) {
+		return userRepository.findClinicOwnerByUser(id).orElseThrow(() -> new ResourceNotFoundException("Owner", "ID", id));
+    }
+
+	public Map<String,Object> findUserContext(){
+		User user = this.findCurrentUser();
+		Owner owner = this.findOwnerByUser(user.getId());
+		return ownerService.findOwnerContext(owner, user.getUsername());
+
+	}
+
+	public String findUserPlan() throws AuthException{
+		User user = null;
+		String s="";
+		try{
+			user = this.findCurrentUser();
+		}catch(ResourceNotFoundException e){
+			System.out.println("User not found");
+			return null;
+		}
+		switch (user.getAuthority().getAuthority()) {
+			case "OWNER":
+				Owner owner = findOwnerByUser(user.getId());
+				s= owner.getClinic().getPlan().name();	
+			case "VET":
+				Vet vet = findVetByUser(user.getId());
+				s = vet.getClinic().getPlan().name();
+
+		}
+		return s;
+	}
+
 
 }

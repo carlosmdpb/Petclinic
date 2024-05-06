@@ -10,6 +10,10 @@ export default function Home(){
                 <h3>.===.</h3>
                 <h3>Welcome to the PSG2-2324-G5-54 Petclinic</h3>                
             </div>
+
+            <div id="bubble">
+                <a href="/sla">Acuerdo del servicio</a>
+            </div>
         </div>
     );
 }

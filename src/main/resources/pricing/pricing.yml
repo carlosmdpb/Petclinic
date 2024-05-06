@@ -1,0 +1,51 @@
+saasName: My First Pricing Driven SaaS
+day: 10
+month: 03
+year: 2024
+currency: EUR
+features:
+  haveCalendar:
+    description: A fancy calendar with the upcoming visits
+    valueType: BOOLEAN
+    defaultValue: false
+    expression: planContext['features']['haveCalendar']
+    type: DOMAIN
+  pets:
+    description: Either you meet your limit in number of pets per owner or not
+    valueType: BOOLEAN
+    defaultValue: true
+    expression: userContext['pets'] < planContext['usageLimits']['maxPets']
+    type: DOMAIN
+usageLimits:
+  maxPets:
+    description: Max pet per owner treshold
+    valueType: NUMERIC
+    defaultValue: 2
+    unit: pet
+    type: NON_RENEWABLE
+    linkedFeatures:
+      -pets
+plans:
+  BASIC:
+    description: Basic plan
+    monthlyPrice: 0.0
+    annualPrice: 0.0
+    unit: user/month
+    features:
+      haveCalendar:
+        value: false
+    usageLimits:
+      maxPets:
+        value: 2
+  GOLD:
+    description: Gold plan
+    monthlyPrice: 5.0
+    annualPrice: 5.0
+    unit: user/month
+    features:
+      haveCalendar:
+        value: true
+    usageLimits:
+      maxPets:
+        value: 4
+    
