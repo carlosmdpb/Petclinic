@@ -12,7 +12,7 @@ INSERT INTO clinic_owners(id,first_name,last_name,user_id) VALUES (2, 'Jane', 'D
 
 INSERT INTO clinics(id, name, address, telephone, plan, clinic_owner) VALUES (1, 'Clinic 1', 'Av. Palmera, 26', '955684230', 'PLATINUM', 1);
 INSERT INTO clinics(id, name, address, telephone, plan, clinic_owner) VALUES (2, 'Clinic 2', 'Av. Torneo, 52', '955634232', 'GOLD', 2);
-INSERT INTO clinics(id, name, address, telephone, plan, clinic_owner) VALUES (3, 'Clinic 3', 'Av. Reina Mercedes, 70', '955382238', 'BASIC', 2);
+INSERT INTO clinics(id, name, address, telephone, plan, clinic_owner) VALUES (3, 'Clinic 3', 'Av. Reina Mercedes, 70', '955382238', 'GOLD', 2);
 
 -- Ten owner user, named owner1 with passwor 0wn3r
 INSERT INTO authorities(id,authority) VALUES (3,'OWNER');
