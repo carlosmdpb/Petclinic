@@ -158,18 +158,18 @@ public class UserService {
 		User user = null;
 		String s="";
 		try{
-			user = findCurrentUser();
+			user = this.findCurrentUser();
 		}catch(ResourceNotFoundException e){
 			System.out.println("User not found");
 			return null;
 		}
 		switch (user.getAuthority().getAuthority()) {
 			case "OWNER":
-				Owner owner = findOwnerByUser(user.getId());
-				s= owner.getClinic().getPlan().toString();	
+				Owner owner = this.findOwnerByUser(user.getId());
+				s= owner.getClinic().getPlan().name();	
 			case "VET":
-				Vet vet = findVetByUser(user.getId());
-				s = vet.getClinic().getPlan().toString();
+				Vet vet = this.findVetByUser(user.getId());
+				s = vet.getClinic().getPlan().name();
 
 		}
 		return s;
