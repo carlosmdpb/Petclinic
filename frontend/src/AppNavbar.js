@@ -226,9 +226,10 @@ function AppNavbar() {
                 <NavItem>
                     <NavLink style={{ color: "white" }} id="docs" tag={Link} to="/docs">Docs</NavLink>
                 </NavItem>
-                <NavItem>
+                
+                {roles.includes("OWNER") || <NavItem>
                     <NavLink style={{ color: "white" }} id="plans" tag={Link} to="/plans">Pricing Plans</NavLink>
-                </NavItem>
+                </NavItem>}
                 <NavbarText style={{ color: "white" }} className="justify-content-end">{username}</NavbarText>
                 <span style={{ margin: '0 5px' }}></span> {/* Espacio */}
                 <NavbarText style={{ color: "white" }} className="justify-content-end">{pricingPlan}</NavbarText>
