@@ -13,7 +13,7 @@ Curso 2023 – 2024
 
 | **Fecha**  | **Versión** |
 |------------|-------------|
-| 06/05/2024 | v1r1        |
+| 07/05/2024 | v1r2        |
 
 | **Grupo de prácticas: G5-54**    |               |                        |
 |----------------------------------|---------------|------------------------|
@@ -54,7 +54,8 @@ En el presente documento, se detallan las tareas programadas para este sprint, a
 | **Fecha**  | **Versión** | **Descripción**                           |
 |------------|-------------|-------------------------------------------|
 | 04/05/2024 | v1r0        | Primera versión del documento             |
-| 06/05/2024 | v1r1        | Reunión con el cliente                    |
+| 06/05/2024 | v1r1        | Modificacion punto 3                      |
+| 07/05/2024 | v1r2        | Reunión y Conclusiones                    |
 
 # 
 
@@ -93,19 +94,20 @@ Hemos conseguido mejorar bastante la organización y el trabajo con Zenhub, movi
 
 # 5. Reunión con el Cliente
 
-Durante la reunión con el cliente el día 06/05/2024, se enseñaron las funcionalidades implementadas al cliente y se mostró la documentación referente a la aplicación de la metodología (con sus pautas de codificación, versionado y desarrollo de ramas de feature, entre otros temas), la historia del proyecto y la definición de hecho.
+Durante la reunión con el cliente el día 07/05/2024, se enseñaron las funcionalidades implementadas al cliente y se mostró la documentación referente a la aplicación de la metodología (con sus pautas de codificación, versionado y desarrollo de ramas de feature, entre otros temas), la historia del proyecto y la definición de hecho.
 
 Se recibió el siguiente feedback por parte del cliente:
 
-\- .
+\- La organización no ha sido buena.
 
-\- .
+\- Faltan varias tareas relacionadas con código (estarán listas en la fecha de entrega).
 
-\- Las funcionalidaes han recibido el visto bueno.
+\- La Retrospectiva debe reflejar adecuadamente lo sucedido durante este Sprint.
 
 #
 
 # 6. Conclusiones
 
-En conclusión, .
-En cuanto a las funcionalidades, no ha habido ningún problema, pues el cliente ha resultado satisfecho ya que no echó cosas en falta y le pareció todo correcto.
+En conclusión, el equipo de trabajo debe mejorar bastante la organización, ya que aunque se pensaba que se trabajaba adecuadamente durante el Sprint, los resultados durante la reunión con el cliente no fueron los esperados. 
+Todo aparecera reflejado de manera adecuada en la Retrospectiva del Sprint 3.
+Cabe destacar que todas las funcionalidades estrán listas para el día de la entrega.
