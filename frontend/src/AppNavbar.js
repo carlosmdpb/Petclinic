@@ -205,6 +205,9 @@ function AppNavbar() {
                     <NavLink style={{ color: "white" }} id="docs" tag={Link} to="/docs">Docs</NavLink>
                 </NavItem>
                 <NavItem>
+                    <NavLink style={{ color: "white" }} id="sla" tag={Link} to="/sla">CA</NavLink>
+                </NavItem>
+                <NavItem>
                     <NavLink style={{ color: "white" }} id="plans" tag={Link} to="/plans">Pricing Plans</NavLink>
                 </NavItem>
                 <NavItem>
@@ -212,7 +215,9 @@ function AppNavbar() {
               <DropdownToggle caret style={{ color: "white" }}>
                 APIs
               </DropdownToggle>
-              <DropdownMenu>
+              <DropdownMenu>    
+                <DropdownItem tag={Link} to="/gonzalo/PokemonAPI">PokemonAPI</DropdownItem>
+                <DropdownItem tag={Link} to="/gonzalo/RickAndMortyAPI">RickAndMortyAPI</DropdownItem>
                 <DropdownItem tag={Link} to="/lidia/DogFacts">DogFacts</DropdownItem>
                 <DropdownItem tag={Link} to="/lidia/DogAPI">DogAPI</DropdownItem>
                 <DropdownItem tag={Link} to="/carlos/RandomUserApi">RandomUserAPI</DropdownItem>
@@ -224,13 +229,6 @@ function AppNavbar() {
               </DropdownMenu>
             </Dropdown>
             </NavItem>
-
-    
-
-
-
-
-
                 <NavItem>
                     <NavLink style={{ color: "white" }} id="register" tag={Link} to="/register">Register</NavLink>
                 </NavItem>

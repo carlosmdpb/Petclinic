@@ -69,6 +69,9 @@ import CatAPI from "./apis/yao/CatAPI.js";
 import CatFacts from "./apis/yao/CatFacts.js";
 import AdviceAPI from "./apis/juan/AdviceAPI.js";
 import JokerAPI from "./apis/david/JokerAPI.js";
+import PokemonAPI from "./apis/gonzalo/PokemonAPI.js";
+import RickAndMortyAPI from "./apis/gonzalo/RickAndMortyAPI.js";
+
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
@@ -493,6 +496,8 @@ function App() {
       <>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/gonzalo/PokemonAPI" element={<PokemonAPI />} />
+        <Route path="/gonzalo/RickAndMortyAPI" element={<RickAndMortyAPI />} />
         <Route path="/lidia/DogAPI" element={<DogAPI />} />
         <Route path="/lidia/DogFacts" element={<DogFacts />} />
         <Route path="/carlos/RandomUserApi" element={<RandomUserAPI/>}/>
