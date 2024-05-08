@@ -92,8 +92,6 @@ function AppNavbar() {
       });
   };
 
-        
- 
   let adminLinks = <></>;
   let ownerLinks = <></>;
   let userLinks = <></>;
@@ -102,31 +100,45 @@ function AppNavbar() {
 
   roles.forEach((role) => {
     if (role === "CLINIC_OWNER") {
-        ownerLinks = (
-            <>
-                <NavItem>
-                    <NavLink style={{ color: "white" }} tag={Link} to="/clinics">Clinics</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink style={{ color: "white" }} tag={Link} to="/owners">Owners</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink style={{ color: "white" }} tag={Link} to="/consultations">Consultations</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink style={{ color: "white" }} tag={Link} to="/vets">Vets</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink style={{ color: "white" }} tag={Link} to="/petHotelRoom">PetHotel Rooms</NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink style={{ color: "white" }} tag={Link} to="/pricingPlans">Plan </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink style={{ color: "white" }} tag={Link} to="/requests">Help</NavLink>
-                </NavItem>
-            </>
-        )
+      ownerLinks = (
+        <>
+          <NavItem>
+            <NavLink style={{ color: "white" }} tag={Link} to="/clinics">
+              Clinics
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink style={{ color: "white" }} tag={Link} to="/owners">
+              Owners
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink style={{ color: "white" }} tag={Link} to="/consultations">
+              Consultations
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink style={{ color: "white" }} tag={Link} to="/vets">
+              Vets
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink style={{ color: "white" }} tag={Link} to="/petHotelRoom">
+              PetHotel Rooms
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink style={{ color: "white" }} tag={Link} to="/pricingPlans">
+              Plan{" "}
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink style={{ color: "white" }} tag={Link} to="/requests">
+              Help
+            </NavLink>
+          </NavItem>
+        </>
+      );
     }
     if (role === "ADMIN") {
       adminLinks = (
@@ -281,11 +293,55 @@ function AppNavbar() {
           <NavLink style={{ color: "white" }} id="docs" tag={Link} to="/docs">
             Docs
           </NavLink>
+          <NavItem>
+            <NavLink style={{ color: "white" }} id="sla" tag={Link} to="/sla">
+              CA
+            </NavLink>
+          </NavItem>
         </NavItem>
         <NavItem>
           <NavLink style={{ color: "white" }} id="plans" tag={Link} to="/plans">
             Pricing Plans
           </NavLink>
+        </NavItem>
+        <NavItem>
+          <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+            <DropdownToggle caret style={{ color: "white" }}>
+              APIs
+            </DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem tag={Link} to="/gonzalo/PokemonAPI">
+                PokemonAPI
+              </DropdownItem>
+              <DropdownItem tag={Link} to="/gonzalo/RickAndMortyAPI">
+                RickAndMortyAPI
+              </DropdownItem>
+              <DropdownItem tag={Link} to="/lidia/DogFacts">
+                DogFacts
+              </DropdownItem>
+              <DropdownItem tag={Link} to="/lidia/DogAPI">
+                DogAPI
+              </DropdownItem>
+              <DropdownItem tag={Link} to="/carlos/RandomUserApi">
+                RandomUserAPI
+              </DropdownItem>
+              <DropdownItem tag={Link} to="/carlos/FrankfurterApi">
+                FrankfurterApi
+              </DropdownItem>
+              <DropdownItem tag={Link} to="/yao/CatFacts">
+                CatFacts
+              </DropdownItem>
+              <DropdownItem tag={Link} to="/yao/CatAPI">
+                CatAPI
+              </DropdownItem>
+              <DropdownItem tag={Link} to="/juan/AdviceAPI">
+                AdviceAPI
+              </DropdownItem>
+              <DropdownItem tag={Link} to="/david/JokerAPI">
+                JokerAPI
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         </NavItem>
         <NavItem>
           <NavLink

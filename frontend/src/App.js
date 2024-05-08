@@ -59,6 +59,16 @@ import PricingPlan from "./clinicOwner/plan";
 import RequestListClinicOwner from "./clinicOwner/requests/requestList";
 import RequestEditClinicOwner from "./clinicOwner/requests/requestEdit";
 import RequestListAdmin from "./admin/requests/requestList";
+import  DogAPI  from "./apis/lidia/DogAPI.js";
+import DogFacts from "./apis/lidia/DogFacts.js"; 
+import RandomUserAPI from "./apis/carlos/RandomUserApi.js";
+import FrankfurterApi from "./apis/carlos/FrankfurterApi.js";
+import CatAPI from "./apis/yao/CatAPI.js";
+import CatFacts from "./apis/yao/CatFacts.js";
+import AdviceAPI from "./apis/juan/AdviceAPI.js";
+import JokerAPI from "./apis/david/JokerAPI.js";
+import PokemonAPI from "./apis/gonzalo/PokemonAPI.js";
+import RickAndMortyAPI from "./apis/gonzalo/RickAndMortyAPI.js";
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
@@ -688,6 +698,18 @@ function App() {
       <>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/gonzalo/PokemonAPI" element={<PokemonAPI />} />
+        <Route path="/gonzalo/RickAndMortyAPI" element={<RickAndMortyAPI />} />
+        <Route path="/lidia/DogAPI" element={<DogAPI />} />
+        <Route path="/lidia/DogFacts" element={<DogFacts />} />
+        <Route path="/carlos/RandomUserApi" element={<RandomUserAPI/>}/>
+        <Route path="/carlos/FrankfurterApi" element={<FrankfurterApi/>}/>
+        <Route path="/yao/CatAPI" element={<CatAPI />} />
+        <Route path="/yao/CatFacts" element={<CatFacts />} />
+        <Route path="/juan/AdviceAPI" element={<AdviceAPI />} />
+        <Route path="/david/JokerAPI" element={<JokerAPI />} />
         <Route path="/sla" element={<SLA />} />
       </>
     );
