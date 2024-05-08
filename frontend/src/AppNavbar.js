@@ -217,10 +217,43 @@ function AppNavbar() {
                 <DropdownItem tag={Link} to="/lidia/DogAPI">DogAPI</DropdownItem>
               </DropdownMenu>
             </Dropdown>
+            </NavItem>
+
             <NavItem>
-                    <NavLink style={{ color: "white" }} tag={Link} to="/catDailyFacts">catDailyFacts</NavLink>
-                </NavItem> 
-          </NavItem>
+            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+              <DropdownToggle caret style={{ color: "white" }}>
+                yao
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem tag={Link} to="/yao/CatFacts">CatFacts</DropdownItem>
+                <DropdownItem tag={Link} to="/yao/CatAPI">CatAPI</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+            </NavItem>
+
+            <NavItem>
+            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+              <DropdownToggle caret style={{ color: "white" }}>
+                juan
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem tag={Link} to="/juan/AdviceAPI">AdviceAPI</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+            </NavItem>
+
+            <NavItem>
+            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+              <DropdownToggle caret style={{ color: "white" }}>
+                david
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem tag={Link} to="/david/JokerAPI">JokerAPI</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+            </NavItem>
+
+
                 <NavItem>
                     <NavLink style={{ color: "white" }} id="register" tag={Link} to="/register">Register</NavLink>
                 </NavItem>

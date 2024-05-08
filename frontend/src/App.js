@@ -61,7 +61,10 @@ import RequestEditClinicOwner from "./clinicOwner/requests/requestEdit";
 import RequestListAdmin from "./admin/requests/requestList";
 import  DogAPI  from "./apis/lidia/DogAPI.js";
 import DogFacts from "./apis/lidia/DogFacts.js"; 
-import GetCatDailyFacts from "./apis/yao/catDailyFacts/index.js";
+import CatAPI from "./apis/yao/CatAPI.js";
+import CatFacts from "./apis/yao/CatFacts.js";
+import AdviceAPI from "./apis/juan/AdviceAPI.js";
+import JokerAPI from "./apis/david/JokerAPI.js";
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
@@ -488,7 +491,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/lidia/DogAPI" element={<DogAPI />} />
         <Route path="/lidia/DogFacts" element={<DogFacts />} />
-        <Route path="/catDailyFacts" element={<GetCatDailyFacts />} />
+        <Route path="/yao/CatAPI" element={<CatAPI />} />
+        <Route path="/yao/CatFacts" element={<CatFacts />} />
+        <Route path="/juan/AdviceAPI" element={<AdviceAPI />} />
+        <Route path="/david/JokerAPI" element={<JokerAPI />} />
+
+
       </>
     );
   } else {
