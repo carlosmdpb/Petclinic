@@ -92,6 +92,8 @@ function AppNavbar() {
       });
   };
 
+        
+ 
   let adminLinks = <></>;
   let ownerLinks = <></>;
   let userLinks = <></>;
@@ -99,6 +101,33 @@ function AppNavbar() {
   let publicLinks = <></>;
 
   roles.forEach((role) => {
+    if (role === "CLINIC_OWNER") {
+        ownerLinks = (
+            <>
+                <NavItem>
+                    <NavLink style={{ color: "white" }} tag={Link} to="/clinics">Clinics</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink style={{ color: "white" }} tag={Link} to="/owners">Owners</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink style={{ color: "white" }} tag={Link} to="/consultations">Consultations</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink style={{ color: "white" }} tag={Link} to="/vets">Vets</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink style={{ color: "white" }} tag={Link} to="/petHotelRoom">PetHotel Rooms</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink style={{ color: "white" }} tag={Link} to="/pricingPlans">Plan </NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink style={{ color: "white" }} tag={Link} to="/requests">Help</NavLink>
+                </NavItem>
+            </>
+        )
+    }
     if (role === "ADMIN") {
       adminLinks = (
         <>

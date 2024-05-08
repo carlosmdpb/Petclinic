@@ -1,46 +1,63 @@
 import React, { useEffect, useState } from "react";
-import { FaCheck, FaPaperPlane, FaTimes, FaCarrot } from "react-icons/fa";
-import { GiOrangeSlice } from "react-icons/gi";
-import { BsFillRocketTakeoffFill, BsDot } from "react-icons/bs";
-import tokenService from "../../services/token.service";
-import useFetchState from "../../util/useFetchState";
+import { BsDot, BsFillRocketTakeoffFill } from "react-icons/bs";
+import { FaCheck, FaPaperPlane, FaTimes } from "react-icons/fa";
+import { ImAirplane } from "react-icons/im";
+import jwt_decode from "jwt-decode";
 import "../../static/css/pricing/pricingPage.css";
-import { CiApple } from "react-icons/ci";
 
-const user = tokenService.getUser();
+export default function PricingPlan () {
+  const [roles, setRoles] = useState([]);
+  const [username, setUsername] = useState("");
+  const [pricingPlan, setPricingPlan] = useState(null);
 
-export default function PricingPlan() {
-  const [plan, setPlan] = useState(null);
-  const [clinicOwner, setClinicOwner] = useState({});
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState(null);  
   const jwt = JSON.parse(window.localStorage.getItem("jwt"));
-  const [visible, setVisible] = useState(false);
-  const [clinics, setClinics] = useFetchState(
-    [],
-    `/api/v1/clinics?userId=${user.id}`,
-    jwt,
-    setMessage,
-    setVisible
-  );
-  const [selectedClinic, setSelectedClinic] = useState(null);
+
 
   useEffect(() => {
-    setUp();
-  }, []);
+    if (jwt) {
+        const userRoles = jwt_decode(jwt).authorities;
+        setRoles(userRoles);
+        setUsername(jwt_decode(jwt).sub);  
+        fetchPlan(); 
+    }
+}, [jwt]);
 
-  async function setUp() {
-    const myClinicOwner = await (
-      await fetch(`/api/v3/plan`, {
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-        },
-      })
-    ).json();
-    if (myClinicOwner.message) setMessage(myClinicOwner.message);
-  }
+  const fetchPlan = () => {
+      const requestOptions = {
+          method: 'GET',
+          headers: {
+              'Authorization': `Bearer ${jwt}`
+          }
+      };
 
-  async function changePlan(event, plan) {
+      fetch('/api/v3/plan', requestOptions)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Failed to fetch pricing plan');
+              }
+              return response.json();
+          })
+          .then(data => {
+              console.log('Response data:', data);
+              if (data && data.plan) {
+                  setPricingPlan(data.plan);
+              } else {
+                  throw new Error('Unexpected response format');
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching pricing plan:', error);
+          });
+  };
+
+ 
+
+
+
+  async function changePlan(event, pricingPlan) {
     event.preventDefault();
+
     await fetch("/api/v3/plan", {
       method: "PUT",
       headers: {
@@ -48,158 +65,225 @@ export default function PricingPlan() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(plan),
+      body: JSON.stringify(pricingPlan),
     });
-    window.location.href = "/plan";
+    window.location.href = "/pricingPlans";
   }
 
-  function handleClinicChange(event) {
-    const selectedClinicId = event.target.value;
-    setSelectedClinic(selectedClinicId);
-    // Aquí puedes hacer algo con el ID de la clínica seleccionada, como cargar su plan
-  }
+  
+    
+    if (message) {
+      return <h2 className="text-center">{message}</h2>;
+    }
 
-  if (message) {
-    return <h2 className="text-center">{message}</h2>;
-  }
+    return (
+      <div className="pricing-page-container">
+        <div>
+          <h1 className="pricing-title">My Plan - {pricingPlan}</h1>
+        </div>
+        <div className="section-pricing">
+          <div className="pricing-container">
+            <div className="pricing-card text-center">
+              <div className="title">
+                <div className="icon">
+                  <FaPaperPlane color="white" />
+                </div>
+                <h2>BASIC</h2>
+              </div>
+              <div className="plan-price">
+                <h4>18€</h4>
+              </div>
+              <div className="option">
+                <ul>
+                  <li>
+                    <BsDot color="white" /> 2 pets
+                  </li>
+                  <li>
+                    <BsDot color="white" /> 1 visit per month and pet
+                  </li>
+                  <li>
+                    <BsDot color="white" /> Low support priority
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Visit service access
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Adoptions service
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Pet Hotel service
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Making change requests
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Priority phone and mail support
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> SLA guaranteed
+                  </li>
+                  <li>
+                    <FaTimes color="red" /> Vet Selection for Visits
+                  </li>
+                  <li>
+                    <FaTimes color="red" /> Calendar with Upcoming Visits
+                  </li>
+                  <li>
+                    <FaTimes color="red" /> Dashboard of your Pets
+                  </li>
+                  <li>
+                    <FaTimes color="red" /> Online Consultation
+                  </li>
+                </ul>
+              </div>
+              {pricingPlan === "BASIC" ? (
+                <button disabled> ACTIVE </button>
+                ) : (
+                <button onClick={(e) => changePlan(e, "BASIC")}> CHANGE </button>
+                )}
+            </div>
+            {/* END Col one */}
+            <div className="pricing-card text-center">
+              <div className="title">
+                <div className="icon">
+                  <ImAirplane color="white" />
+                </div>
+                <h2>GOLD</h2>
+              </div>
+              <div className="plan-price">
+                <h4>47€</h4>
+              </div>
+              <div className="option">
+                <ul>
+                  <li>
+                    <BsDot color="white" /> 4 pets
+                  </li>
+                  <li>
+                    <BsDot color="white" /> 3 visit per month and pet
+                  </li>
+                  <li>
+                    <BsDot color="white" /> Medium support priority
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Visit service access
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Adoptions service
+                  </li>
+                  <li>
+                    <BsDot color="white" /> 210 adoptions
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Pet Hotel service
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Making change requests
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Priority phone and mail support
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> SLA guaranteed
+                  </li>
+                  <li>
+                    <FaCheck color="green" /> Vet Selection for Visits
+                  </li>
+                  <li>
+                    <FaCheck color="green" /> Calendar with Upcoming Visits
+                  </li>
+                  <li>
+                    <FaTimes color="red" /> Dashboard of your Pets
+                  </li>
+                  <li>
+                    <FaTimes color="red" /> Online Consultation
+                  </li>
+                </ul>
+              </div>
+              {pricingPlan === "GOLD" ? (
+                <button disabled> ACTIVE </button>
+                ) : (
+                <button onClick={(e) => changePlan(e, "GOLD")}> CHANGE </button>
+                )}
+            
+            </div>
+            {/* END Col two */}
+            <div className="pricing-card text-center">
+              <div
+                className="title"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <div className="icon">
+                  <BsFillRocketTakeoffFill color="white" />
+                </div>
+                <h2>PLATINUM</h2>
+              </div>
+              <div className="plan-price">
+                <h4>94</h4>
 
-  return (
-    <div className="pricing-page-container">
-      <div>
-        <h1 className="pricing-title">My Plan {selectedClinic.PricingPlan}</h1>
-      </div>
-      <div>
-        <label>Select Clinic:</label>
-        <select onChange={handleClinicChange}>
-          <option value="">Select Clinic</option>
-          {clinics.map((clinic) => (
-            <option key={clinic.id} value={clinic.id}>
-              {clinic.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="section-pricing">
-        <div className="pricing-container">
-          <div className="pricing-card text-center">
-            <div className="title">
-              <div className="icon">
-                <FaCarrot color="white" />
+                <h5>€</h5>
               </div>
-              <h2>BASIC</h2>
-            </div>
-            <div className="plan-price">
-              <h4>10.00</h4>
-              <h5>€</h5>
-            </div>
-            <div className="option">
-              <ul>
-                <li>
-                  <BsDot color="white" /> 2 pets
-                </li>
-                <li>
-                  <BsDot color="white" /> 1 visit per month and pet
-                </li>
-                <li>
-                  <BsDot color="white" /> Low support priority
-                </li>
-                <li>
-                  <FaTimes color="red" /> Vet Selection for Visits
-                </li>
-                <li>
-                  <FaTimes color="red" /> Calendar with Upcoming Visits
-                </li>
-                <li>
-                  <FaTimes color="red" /> Dashboard of your Pets
-                </li>
-                <li>
-                  <FaTimes color="red" /> Online Consultation
-                </li>
-              </ul>
-            </div>
-          </div>
-          {/* END Col one */}
-          <div className="pricing-card text-center">
-            <div className="title">
-              <div className="icon">
-                <GiOrangeSlice color="white" />
+              <div className="option">
+                <ul>
+                  <li>
+                    <BsDot color="white" /> 7 pets
+                  </li>
+                  <li>
+                    <BsDot color="white" /> 6 visit per month and pet
+                  </li>
+                  <li>
+                    <BsDot color="white" /> High support priority
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Visit service access
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Adoptions service
+                  </li>
+                  <li>
+                    <BsDot color="white" /> 420 adoptions
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Pet Hotel service
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Making change requests
+                  </li>
+                  <li>
+                    <BsDot color="white" /> 450 bookings
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Priority phone and mail support
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> SLA guaranteed
+                  </li>
+                  <li>
+                    <FaCheck color="green" /> Vet Selection for Visits
+                  </li>
+                  <li>
+                    <FaCheck color="green" /> Calendar with Upcoming Visits
+                  </li>
+                  <li>
+                    <FaCheck color="green" /> Dashboard of your Pets
+                  </li>
+                  <li>
+                    <FaCheck color="green" /> Online Consultation
+                  </li>
+                </ul>
               </div>
-              <h2>GOLD</h2>
+            {pricingPlan === "PLATINUM" ? (
+                <button disabled> ACTIVE </button>
+                ) : (
+                <button onClick={(e) => changePlan(e, "PLATINUM")}> CHANGE </button>
+                )}
             </div>
-            <div className="plan-price">
-              <h4>30.00</h4>
-              <h5>€</h5>
-            </div>
-            <div className="option">
-              <ul>
-                <li>
-                  <BsDot color="white" /> 4 pets
-                </li>
-                <li>
-                  <BsDot color="white" /> 3 visit per month and pet
-                </li>
-                <li>
-                  <BsDot color="white" /> Medium support priority
-                </li>
-                <li>
-                  <FaCheck color="green" /> Vet Selection for Visits
-                </li>
-                <li>
-                  <FaCheck color="green" /> Calendar with Upcoming Visits
-                </li>
-                <li>
-                  <FaTimes color="red" /> Dashboard of your Pets
-                </li>
-                <li>
-                  <FaTimes color="red" /> Online Consultation
-                </li>
-              </ul>
-            </div>
+            {/* END Col three */}
           </div>
-          {/* END Col two */}
-          <div className="pricing-card text-center">
-            <div
-              className="title"
-              style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-            >
-              <div className="icon">
-                <CiApple color="white" />
-              </div>
-              <h2>PLATINUM</h2>
-            </div>
-            <div className="plan-price">
-              <h4>50.00</h4>
-              <h5>€</h5>
-            </div>
-            <div className="option">
-              <ul>
-                <li>
-                  <BsDot color="white" /> 7 pets
-                </li>
-                <li>
-                  <BsDot color="white" /> 6 visit per month and pet
-                </li>
-                <li>
-                  <BsDot color="white" /> High support priority
-                </li>
-                <li>
-                  <FaCheck color="green" /> Vet Selection for Visits
-                </li>
-                <li>
-                  <FaCheck color="green" /> Calendar with Upcoming Visits
-                </li>
-                <li>
-                  <FaCheck color="green" /> Dashboard of your Pets
-                </li>
-                <li>
-                  <FaCheck color="green" /> Online Consultation
-                </li>
-              </ul>
-            </div>
-          </div>
-          {/* END Col three */}
         </div>
       </div>
-    </div>
-  );
+    );
 }
