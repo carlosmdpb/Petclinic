@@ -56,6 +56,7 @@ import AdoptionOffer from "./owner/adoptions/adoptionOffer";
 import ReceivedOffers from "./owner/adoptions/offer/receivedOffers";
 import OffersSent from "./owner/adoptions/offer/offersSent";
 import SLA from "./home/SLA.js";
+import PricingPlan from "./owner/plan";
 import RequestListClinicOwner from "./clinicOwner/requests/requestList";
 import RequestEditClinicOwner from "./clinicOwner/requests/requestEdit";
 import RequestListAdmin from "./admin/requests/requestList";
@@ -501,7 +502,7 @@ function App() {
         <AppNavbar />
         <Routes>
           <Route path="/" exact={true} element={<Home />} />
-          <Route path="/plans" element={<PlanList />} />
+          <Route path="/plans" element={<PricingPlan />} />
           <Route path="/docs" element={<SwaggerDocs />} />
           {publicRoutes}
           {userRoutes}
