@@ -15,6 +15,9 @@
  */
 package org.springframework.samples.petclinic.owner;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,12 +45,24 @@ public class OwnerPlanController {
 		this.userService = userService;
 	}
 
-	
+/* 	
 	@GetMapping
-    public ResponseEntity<Owner> getPlan() {
+    public ResponseEntity<String> getPlan() {
 		User user = userService.findCurrentUser();
-		return new ResponseEntity<>(userService.findOwnerByUser(user.getId()),HttpStatus.OK);
-    }
+		String plan = userService.findOwnerByUser(user.getId()).getClinic().getPlan().name();
+		return new ResponseEntity<>(plan,HttpStatus.OK);
+    }*/
+
+	@GetMapping
+	public ResponseEntity<Map<String, String>> getPlan() {
+    	User user = userService.findCurrentUser();
+    	String plan = userService.findOwnerByUser(user.getId()).getClinic().getPlan().name();
+    
+    	Map<String, String> response = new HashMap<>();
+    	response.put("plan", plan);
+
+    	return new ResponseEntity<>(response, HttpStatus.OK);
+}
 
 	// @PutMapping
 	// @ResponseStatus(HttpStatus.OK)

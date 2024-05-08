@@ -165,10 +165,10 @@ public class UserService {
 		}
 		switch (user.getAuthority().getAuthority()) {
 			case "OWNER":
-				Owner owner = this.findOwnerByUser(user.getId());
+				Owner owner = findOwnerByUser(user.getId());
 				s= owner.getClinic().getPlan().name();	
 			case "VET":
-				Vet vet = this.findVetByUser(user.getId());
+				Vet vet = findVetByUser(user.getId());
 				s = vet.getClinic().getPlan().name();
 
 		}

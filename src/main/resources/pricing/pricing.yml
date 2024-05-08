@@ -28,8 +28,8 @@ usageLimits:
 plans:
   BASIC:
     description: Basic plan
-    monthlyPrice: 0.0
-    annualPrice: 0.0
+    monthlyPrice: 10.0
+    annualPrice: 60.0
     unit: user/month
     features:
       haveCalendar:
@@ -39,8 +39,8 @@ plans:
         value: 2
   GOLD:
     description: Gold plan
-    monthlyPrice: 5.0
-    annualPrice: 5.0
+    monthlyPrice: 30.0
+    annualPrice: 150.0
     unit: user/month
     features:
       haveCalendar:
@@ -48,4 +48,15 @@ plans:
     usageLimits:
       maxPets:
         value: 4
+  PLATINUM:
+    description: Platinum plan
+    monthlyPrice: 50.0
+    annualPrice: 500.0
+    unit: user/month
+    features:
+      haveCalendar:
+        value: true
+    usageLimits:
+      maxPets:
+        value: 7
     
