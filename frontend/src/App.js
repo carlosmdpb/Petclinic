@@ -495,7 +495,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/lidia/DogAPI" element={<DogAPI />} />
         <Route path="/lidia/DogFacts" element={<DogFacts />} />
-        <Route path="/catDailyFacts" element={<GetCatDailyFacts />} />
         <Route path="/carlos/RandomUserApi" element={<RandomUserAPI/>}/>
         <Route path="/carlos/FrankfurterApi" element={<FrankfurterApi/>}/>
         <Route path="/yao/CatAPI" element={<CatAPI />} />

@@ -217,43 +217,18 @@ function AppNavbar() {
                 <DropdownItem tag={Link} to="/lidia/DogAPI">DogAPI</DropdownItem>
                 <DropdownItem tag={Link} to="/carlos/RandomUserApi">RandomUserAPI</DropdownItem>
                 <DropdownItem tag={Link} to="/carlos/FrankfurterApi">FrankfurterApi</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-            </NavItem>
-
-            <NavItem>
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-              <DropdownToggle caret style={{ color: "white" }}>
-                yao
-              </DropdownToggle>
-              <DropdownMenu>
                 <DropdownItem tag={Link} to="/yao/CatFacts">CatFacts</DropdownItem>
                 <DropdownItem tag={Link} to="/yao/CatAPI">CatAPI</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-            </NavItem>
-
-            <NavItem>
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-              <DropdownToggle caret style={{ color: "white" }}>
-                juan
-              </DropdownToggle>
-              <DropdownMenu>
                 <DropdownItem tag={Link} to="/juan/AdviceAPI">AdviceAPI</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-            </NavItem>
-
-            <NavItem>
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-              <DropdownToggle caret style={{ color: "white" }}>
-                david
-              </DropdownToggle>
-              <DropdownMenu>
                 <DropdownItem tag={Link} to="/david/JokerAPI">JokerAPI</DropdownItem>
               </DropdownMenu>
             </Dropdown>
             </NavItem>
+
+    
+
+
+
 
 
                 <NavItem>
