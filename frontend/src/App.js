@@ -59,6 +59,7 @@ import SLA from "./home/SLA.js";
 import RequestListClinicOwner from "./clinicOwner/requests/requestList";
 import RequestEditClinicOwner from "./clinicOwner/requests/requestEdit";
 import RequestListAdmin from "./admin/requests/requestList";
+import PricingPlan from "./clinicOwner/plan";
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
@@ -521,6 +522,16 @@ function App() {
                 <ConsultationEditClinicOwner />
               </PrivateRoute>
             }
+
+            />  
+            <Route
+              path="/plan"
+              exact={true}
+              element={
+                <PrivateRoute>
+                  <PricingPlan />
+                </PrivateRoute>
+              }
           />
           <Route
             path="/consultations/:id/tickets"
@@ -559,6 +570,7 @@ function App() {
       <>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/sla" element={<SLA />} />
       </>
     );
   } else {
