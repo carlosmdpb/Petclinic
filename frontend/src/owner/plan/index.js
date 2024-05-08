@@ -2,33 +2,91 @@ import React, { useEffect, useState } from "react";
 import { BsDot, BsFillRocketTakeoffFill } from "react-icons/bs";
 import { FaCheck, FaPaperPlane, FaTimes } from "react-icons/fa";
 import { ImAirplane } from "react-icons/im";
+import jwt_decode from "jwt-decode";
 import "../../static/css/pricing/pricingPage.css";
 
 export default function PricingPlan () {
+  const [roles, setRoles] = useState([]);
+  const [username, setUsername] = useState("");
+  const [pricingPlan, setPricingPlan] = useState(null);
 
-  const [plan, setPlan] = useState(null);
-  const [owner, setOwner] = useState({});
   const [message, setMessage] = useState(null);  
   const jwt = JSON.parse(window.localStorage.getItem("jwt"));
-  
-  useEffect(()=>{ setUp();},[]);
-  
-  async function setUp(){
-    const myowner = await (
-      await fetch(`/api/v1/plan`, {
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-        },
-      })
-    ).json();
-    if (myowner.message) setMessage(myowner.message);
-    else{
-      setPlan(myowner.clinic.plan);
-      setOwner(myowner);
-    } 
-  }
 
-  async function changePlan(event, plan) {
+
+  useEffect(() => {
+    if (jwt) {
+        const userRoles = jwt_decode(jwt).authorities;
+        setRoles(userRoles);
+        setUsername(jwt_decode(jwt).sub);
+        
+        if (userRoles.includes("OWNER")) {
+            fetchPlanOwner();
+        } else if (userRoles.includes("VET")){
+            fetchPlanVet();
+        }   
+    }
+}, [jwt]);
+
+  const fetchPlanOwner = () => {
+      const requestOptions = {
+          method: 'GET',
+          headers: {
+              'Authorization': `Bearer ${jwt}`
+          }
+      };
+
+      fetch('/api/v1/plan', requestOptions)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Failed to fetch pricing plan');
+              }
+              return response.json();
+          })
+          .then(data => {
+              console.log('Response data:', data);
+              if (data && data.plan) {
+                  setPricingPlan(data.plan);
+              } else {
+                  throw new Error('Unexpected response format');
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching pricing plan:', error);
+          });
+  };
+
+  const fetchPlanVet = () => {
+      const requestOptions = {
+          method: 'GET',
+          headers: {
+              'Authorization': `Bearer ${jwt}`
+          }
+      };
+
+      fetch('/api/v2/plan', requestOptions)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Failed to fetch pricing plan');
+              }
+              return response.json();
+          })
+          .then(data => {
+              console.log('Response data:', data);
+              if (data && data.plan) {
+                  setPricingPlan(data.plan);
+              } else {
+                  throw new Error('Unexpected response format');
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching pricing plan:', error);
+          });
+  };
+
+
+
+  async function changePlan(event, pricingPlan) {
     event.preventDefault();
 
     await fetch("/api/v1/plan", {
@@ -38,9 +96,9 @@ export default function PricingPlan () {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(plan),
+      body: JSON.stringify(pricingPlan),
     });
-    window.location.href = "/plan";
+    window.location.href = "/plans";
   }
 
   
@@ -52,7 +110,7 @@ export default function PricingPlan () {
     return (
       <div className="pricing-page-container">
         <div>
-          <h1 className="pricing-title">My Plan - {plan}</h1>
+          <h1 className="pricing-title">My Plan - {pricingPlan}</h1>
         </div>
         <div className="section-pricing">
           <div className="pricing-container">
@@ -64,7 +122,7 @@ export default function PricingPlan () {
                 <h2>BASIC</h2>
               </div>
               <div className="plan-price">
-                <h4>FREE</h4>
+                <h4>18€</h4>
               </div>
               <div className="option">
                 <ul>
@@ -76,6 +134,24 @@ export default function PricingPlan () {
                   </li>
                   <li>
                     <BsDot color="white" /> Low support priority
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Visit service access
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Adoptions service
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Pet Hotel service
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Making change requests
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Priority phone and mail support
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> SLA guaranteed
                   </li>
                   <li>
                     <FaTimes color="red" /> Vet Selection for Visits
@@ -91,7 +167,7 @@ export default function PricingPlan () {
                   </li>
                 </ul>
               </div>
-              {plan === "BASIC" ? (
+              {pricingPlan === "BASIC" ? (
                 <button disabled> ACTIVE </button>
                 ) : (
                 <button onClick={(e) => changePlan(e, "BASIC")}> CHANGE </button>
@@ -106,9 +182,7 @@ export default function PricingPlan () {
                 <h2>GOLD</h2>
               </div>
               <div className="plan-price">
-                <h4>5</h4>
-
-                <h5>€</h5>
+                <h4>47€</h4>
               </div>
               <div className="option">
                 <ul>
@@ -120,6 +194,27 @@ export default function PricingPlan () {
                   </li>
                   <li>
                     <BsDot color="white" /> Medium support priority
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Visit service access
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Adoptions service
+                  </li>
+                  <li>
+                    <BsDot color="white" /> 210 adoptions
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Pet Hotel service
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Making change requests
+                  </li>
+                  <li>
+                    <FaTimes color="red"/> Priority phone and mail support
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> SLA guaranteed
                   </li>
                   <li>
                     <FaCheck color="green" /> Vet Selection for Visits
@@ -135,7 +230,7 @@ export default function PricingPlan () {
                   </li>
                 </ul>
               </div>
-              {plan === "GOLD" ? (
+              {pricingPlan === "GOLD" ? (
                 <button disabled> ACTIVE </button>
                 ) : (
                 <button onClick={(e) => changePlan(e, "GOLD")}> CHANGE </button>
@@ -158,7 +253,7 @@ export default function PricingPlan () {
                 <h2>PLATINUM</h2>
               </div>
               <div className="plan-price">
-                <h4>12</h4>
+                <h4>94</h4>
 
                 <h5>€</h5>
               </div>
@@ -174,6 +269,30 @@ export default function PricingPlan () {
                     <BsDot color="white" /> High support priority
                   </li>
                   <li>
+                    <FaCheck color="green"/> Visit service access
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Adoptions service
+                  </li>
+                  <li>
+                    <BsDot color="white" /> 420 adoptions
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Pet Hotel service
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Making change requests
+                  </li>
+                  <li>
+                    <BsDot color="white" /> 450 bookings
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> Priority phone and mail support
+                  </li>
+                  <li>
+                    <FaCheck color="green"/> SLA guaranteed
+                  </li>
+                  <li>
                     <FaCheck color="green" /> Vet Selection for Visits
                   </li>
                   <li>
@@ -187,7 +306,7 @@ export default function PricingPlan () {
                   </li>
                 </ul>
               </div>
-            {plan === "PLATINUM" ? (
+            {pricingPlan === "PLATINUM" ? (
                 <button disabled> ACTIVE </button>
                 ) : (
                 <button onClick={(e) => changePlan(e, "PLATINUM")}> CHANGE </button>
