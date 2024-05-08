@@ -23,7 +23,7 @@ function AppNavbar() {
                 fetchPlanOwner();
             } else if (userRoles.includes("VET")){
                 fetchPlanVet();
-            }   
+            }
         }
     }, [jwt]);
 
@@ -64,6 +64,34 @@ function AppNavbar() {
         };
 
         fetch('/api/v2/plan', requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch pricing plan');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Response data:', data);
+                if (data && data.plan) {
+                    setPricingPlan(data.plan);
+                } else {
+                    throw new Error('Unexpected response format');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching pricing plan:', error);
+            });
+    };
+
+    const fetchPlanClinicOwner = () => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        };
+
+        fetch('/api/v3/plan', requestOptions)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch pricing plan');
@@ -178,6 +206,9 @@ function AppNavbar() {
                     </NavItem>
                     <NavItem>
                         <NavLink style={{ color: "white" }} tag={Link} to="/owners">Owners</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/plan">Plan</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink style={{ color: "white" }} tag={Link} to="/consultations">Consultations</NavLink>

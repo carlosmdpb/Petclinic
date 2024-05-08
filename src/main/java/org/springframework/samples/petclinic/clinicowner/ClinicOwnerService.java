@@ -1,9 +1,12 @@
 package org.springframework.samples.petclinic.clinicowner;
 
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.clinic.PricingPlan;
+import org.springframework.samples.petclinic.vet.Vet;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,5 +50,9 @@ public class ClinicOwnerService {
 	@Transactional
 	public void deleteById(int clinicOwnerId) throws DataAccessException {
 		clinicOwnerRepository.deleteById(clinicOwnerId);
+	}
+
+	public Set<PricingPlan> findClinicOwnerPlan(ClinicOwner cO){
+		return this.clinicOwnerRepository.findClinicOwnerPlans(cO);
 	}
 }

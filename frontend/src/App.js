@@ -5,7 +5,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import AppNavbar from "./AppNavbar";
 import Home from "./home";
 import PrivateRoute from "./privateRoute";
-//import PricingPlan from "./owner/plan";
+import PricingPlan from "./clinicOwner/plan";
 import Register from "./auth/register";
 import Login from "./auth/login";
 import Logout from "./auth/logout";
@@ -434,6 +434,15 @@ function App() {
             element={
               <PrivateRoute>
                 <ConsultationListClinicOwner />
+              </PrivateRoute>
+            }
+          />  
+          <Route
+            path="/plan"
+            exact={true}
+            element={
+              <PrivateRoute>
+                <PricingPlan />
               </PrivateRoute>
             }
           />
