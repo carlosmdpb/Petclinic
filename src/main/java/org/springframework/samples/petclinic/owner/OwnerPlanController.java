@@ -51,7 +51,7 @@ public class OwnerPlanController {
 		this.userService = userService;
 	}
 
-/* 	
+	/* 	
 	@GetMapping
     public ResponseEntity<String> getPlan() {
 		User user = userService.findCurrentUser();

@@ -5,7 +5,6 @@ import { ErrorBoundary } from "react-error-boundary";
 import AppNavbar from "./AppNavbar";
 import Home from "./home";
 import PrivateRoute from "./privateRoute";
-//import PricingPlan from "./owner/plan";
 import Register from "./auth/register";
 import Login from "./auth/login";
 import Logout from "./auth/logout";
@@ -56,7 +55,7 @@ import AdoptionOffer from "./owner/adoptions/adoptionOffer";
 import ReceivedOffers from "./owner/adoptions/offer/receivedOffers";
 import OffersSent from "./owner/adoptions/offer/offersSent";
 import SLA from "./home/SLA.js";
-import PricingPlan from "./owner/plan";
+import PricingPlan from "./clinicOwner/plan";
 import RequestListClinicOwner from "./clinicOwner/requests/requestList";
 import RequestEditClinicOwner from "./clinicOwner/requests/requestEdit";
 import RequestListAdmin from "./admin/requests/requestList";
@@ -473,6 +472,18 @@ function App() {
                 <VetEditClinicOwner />
               </PrivateRoute>
             }
+
+          />
+          <Route
+            path="/pricingPlans"
+            exact={true}
+            element={
+              <PrivateRoute>
+                <PricingPlan />
+              </PrivateRoute>
+            }
+
+
           />
           <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
         </>
@@ -502,7 +513,7 @@ function App() {
         <AppNavbar />
         <Routes>
           <Route path="/" exact={true} element={<Home />} />
-          <Route path="/plans" element={<PricingPlan />} />
+          <Route path="/plans" element={<PlanList />} />
           <Route path="/docs" element={<SwaggerDocs />} />
           {publicRoutes}
           {userRoutes}
