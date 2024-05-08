@@ -21,7 +21,7 @@ export default function PlanList() {
               <h2>BASIC</h2>
             </div>
             <div className="plan-price">
-              <h4>18€</h4>
+              <h4>10€</h4>
             </div>
             <div className="option">
               <ul>
@@ -76,7 +76,7 @@ export default function PlanList() {
               <h2>GOLD</h2>
             </div>
             <div className="plan-price">
-              <h4>47€</h4>
+              <h4>30€</h4>
             </div>
             <div className="option">
               <ul>
@@ -142,7 +142,7 @@ export default function PlanList() {
               <h2>PLATINUM</h2>
             </div>
             <div className="plan-price">
-              <h4>94</h4>
+              <h4>50</h4>
 
               <h5>€</h5>
             </div>
