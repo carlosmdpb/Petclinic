@@ -217,6 +217,9 @@ function AppNavbar() {
                 <DropdownItem tag={Link} to="/lidia/DogAPI">DogAPI</DropdownItem>
               </DropdownMenu>
             </Dropdown>
+            <NavItem>
+                    <NavLink style={{ color: "white" }} tag={Link} to="/catDailyFacts">catDailyFacts</NavLink>
+                </NavItem> 
           </NavItem>
                 <NavItem>
                     <NavLink style={{ color: "white" }} id="register" tag={Link} to="/register">Register</NavLink>
@@ -233,6 +236,7 @@ function AppNavbar() {
                 <NavItem>
                     <NavLink style={{ color: "white" }} tag={Link} to="/dashboard">Dashboard</NavLink>
                 </NavItem>
+
             </>
         )
         userLogout = (
