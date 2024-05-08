@@ -86,77 +86,6 @@ function AppNavbar() {
         } else {
           throw new Error("Unexpected response format");
         }
-
-        if (role === "OWNER") {
-            ownerLinks = (
-                <>
-                    <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/myPets">
-                            My Pets
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink
-                            style={{ color: "white" }} tag={Link} to="/consultations">
-                            Consultations
-                        </NavLink>
-                    </NavItem>
-                    <>
-                    {(pricingPlan == "PLATINUM" ) && 
-                    <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/bookings">
-                    Bookings
-                        </NavLink>
-                    </NavItem>
-                    }
-                    {(pricingPlan == "PLATINUM" || pricingPlan == "GOLD") && 
-                    <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/offer">
-                    Adoptions
-                        </NavLink>
-                    </NavItem> }
-                    {(pricingPlan == "PLATINUM" || pricingPlan == "GOLD") && 
-                    <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/offer/sent">
-                    Offer Sent
-                        </NavLink>
-                    </NavItem> }
-                    {(pricingPlan == "PLATINUM" || pricingPlan == "GOLD") && 
-                    <NavItem>
-                        <NavLink style={{ color: "white" }} tag={Link} to="/offer/received">
-                    Offer Received
-                        </NavLink>
-                    </NavItem> }
-                </>
-
-      })
-      .catch((error) => {
-        console.error("Error fetching pricing plan:", error);
-      });
-  };
-
-  const fetchPlanClinicOwner = () => {
-    const requestOptions = {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-      },
-    };
-
-    fetch("/api/v3/plan", requestOptions)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch pricing plan");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Response data:", data);
-        if (data && data.plan) {
-          setPricingPlan(data.plan);
-        } else {
-          throw new Error("Unexpected response format");
-        }
       })
       .catch((error) => {
         console.error("Error fetching pricing plan:", error);
@@ -230,30 +159,38 @@ function AppNavbar() {
             </NavLink>
           </NavItem>
           <>
-            <NavItem>
-              <NavLink style={{ color: "white" }} tag={Link} to="/bookings">
-                Bookings
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink style={{ color: "white" }} tag={Link} to="/offer">
-                Adoptions
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink style={{ color: "white" }} tag={Link} to="/offer/sent">
-                Offer Sent
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                style={{ color: "white" }}
-                tag={Link}
-                to="/offer/received"
-              >
-                Offer Received
-              </NavLink>
-            </NavItem>
+            {pricingPlan == "PLATINUM" && (
+              <NavItem>
+                <NavLink style={{ color: "white" }} tag={Link} to="/bookings">
+                  Bookings
+                </NavLink>
+              </NavItem>
+            )}
+            {(pricingPlan == "PLATINUM" || pricingPlan == "GOLD") && (
+              <NavItem>
+                <NavLink style={{ color: "white" }} tag={Link} to="/offer">
+                  Adoptions
+                </NavLink>
+              </NavItem>
+            )}
+            {(pricingPlan == "PLATINUM" || pricingPlan == "GOLD") && (
+              <NavItem>
+                <NavLink style={{ color: "white" }} tag={Link} to="/offer/sent">
+                  Offer Sent
+                </NavLink>
+              </NavItem>
+            )}
+            {(pricingPlan == "PLATINUM" || pricingPlan == "GOLD") && (
+              <NavItem>
+                <NavLink
+                  style={{ color: "white" }}
+                  tag={Link}
+                  to="/offer/received"
+                >
+                  Offer Received
+                </NavLink>
+              </NavItem>
+            )}
           </>
         </>
       );

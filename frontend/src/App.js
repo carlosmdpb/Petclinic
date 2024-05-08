@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { ErrorBoundary } from "react-error-boundary";
@@ -59,7 +59,6 @@ import SLA from "./home/SLA.js";
 import RequestListClinicOwner from "./clinicOwner/requests/requestList";
 import RequestEditClinicOwner from "./clinicOwner/requests/requestEdit";
 import RequestListAdmin from "./admin/requests/requestList";
-import PricingPlan from "./clinicOwner/plan";
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
@@ -88,74 +87,73 @@ function App() {
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   useEffect(() => {
-      if (jwt) {
-          const userRoles = jwt_decode(jwt).authorities;
-          setUsername(jwt_decode(jwt).sub);
-          
-          if (userRoles.includes("OWNER")) {
-              fetchPlanOwner();
-          } else if (userRoles.includes("VET")){
-              fetchPlanVet();
-          }   
+    if (jwt) {
+      const userRoles = jwt_decode(jwt).authorities;
+      setUsername(jwt_decode(jwt).sub);
+
+      if (userRoles.includes("OWNER")) {
+        fetchPlanOwner();
+      } else if (userRoles.includes("VET")) {
+        fetchPlanVet();
       }
+    }
   }, [jwt]);
 
   const fetchPlanOwner = () => {
-      const requestOptions = {
-          method: 'GET',
-          headers: {
-              'Authorization': `Bearer ${jwt}`
-          }
-      };
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    };
 
-      fetch('/api/v1/plan', requestOptions)
-          .then(response => {
-              if (!response.ok) {
-                  throw new Error('Failed to fetch pricing plan');
-              }
-              return response.json();
-          })
-          .then(data => {
-              console.log('Response data:', data);
-              if (data && data.plan) {
-                  setPricingPlan(data.plan);
-              } else {
-                  throw new Error('Unexpected response format');
-              }
-          })
-          .catch(error => {
-              console.error('Error fetching pricing plan:', error);
-          });
+    fetch("/api/v1/plan", requestOptions)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch pricing plan");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Response data:", data);
+        if (data && data.plan) {
+          setPricingPlan(data.plan);
+        } else {
+          throw new Error("Unexpected response format");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching pricing plan:", error);
+      });
   };
 
   const fetchPlanVet = () => {
-      const requestOptions = {
-          method: 'GET',
-          headers: {
-              'Authorization': `Bearer ${jwt}`
-          }
-      };
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    };
 
-      fetch('/api/v2/plan', requestOptions)
-          .then(response => {
-              if (!response.ok) {
-                  throw new Error('Failed to fetch pricing plan');
-              }
-              return response.json();
-          })
-          .then(data => {
-              console.log('Response data:', data);
-              if (data && data.plan) {
-                  setPricingPlan(data.plan);
-              } else {
-                  throw new Error('Unexpected response format');
-              }
-          })
-          .catch(error => {
-              console.error('Error fetching pricing plan:', error);
-          });
+    fetch("/api/v2/plan", requestOptions)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch pricing plan");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Response data:", data);
+        if (data && data.plan) {
+          setPricingPlan(data.plan);
+        } else {
+          throw new Error("Unexpected response format");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching pricing plan:", error);
+      });
   };
-
 
   let adminRoutes = <></>;
   let ownerRoutes = <></>;
@@ -338,8 +336,24 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
-          <Route path="/requests" exact={true} element={<PrivateRoute><RequestListAdmin/></PrivateRoute>} />
+          <Route
+            path="/sla"
+            exact={true}
+            element={
+              <PrivateRoute>
+                <SLA />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/requests"
+            exact={true}
+            element={
+              <PrivateRoute>
+                <RequestListAdmin />
+              </PrivateRoute>
+            }
+          />
         </>
       );
     }
@@ -380,7 +394,6 @@ function App() {
                 <OwnerVisitEdit />
               </PrivateRoute>
             }
-
           />
           <Route
             path="/consultations"
@@ -400,10 +413,54 @@ function App() {
               </PrivateRoute>
             }
           />
-          { (pricingPlan == "GOLD" || pricingPlan == "PLATINUM") && <Route path="/offer" exact={true} element={ <PrivateRoute> <AdoptionList /> </PrivateRoute>} /> }
-          {(pricingPlan == "GOLD" || pricingPlan == "PLATINUM") && <Route path="/offer/:id" exact={true} element={ <PrivateRoute> <AdoptionOffer /> </PrivateRoute>} /> }
-          {(pricingPlan == "GOLD" || pricingPlan == "PLATINUM") && <Route path="/offer/received" exact={true} element={ <PrivateRoute> <ReceivedOffers /> </PrivateRoute> } /> }
-          {(pricingPlan == "GOLD" || pricingPlan == "PLATINUM") && <Route path="/offer/sent" exact={true} element={ <PrivateRoute> <OffersSent /> </PrivateRoute> } /> }
+          {(pricingPlan == "GOLD" || pricingPlan == "PLATINUM") && (
+            <Route
+              path="/offer"
+              exact={true}
+              element={
+                <PrivateRoute>
+                  {" "}
+                  <AdoptionList />{" "}
+                </PrivateRoute>
+              }
+            />
+          )}
+          {(pricingPlan == "GOLD" || pricingPlan == "PLATINUM") && (
+            <Route
+              path="/offer/:id"
+              exact={true}
+              element={
+                <PrivateRoute>
+                  {" "}
+                  <AdoptionOffer />{" "}
+                </PrivateRoute>
+              }
+            />
+          )}
+          {(pricingPlan == "GOLD" || pricingPlan == "PLATINUM") && (
+            <Route
+              path="/offer/received"
+              exact={true}
+              element={
+                <PrivateRoute>
+                  {" "}
+                  <ReceivedOffers />{" "}
+                </PrivateRoute>
+              }
+            />
+          )}
+          {(pricingPlan == "GOLD" || pricingPlan == "PLATINUM") && (
+            <Route
+              path="/offer/sent"
+              exact={true}
+              element={
+                <PrivateRoute>
+                  {" "}
+                  <OffersSent />{" "}
+                </PrivateRoute>
+              }
+            />
+          )}
           <Route
             path="/consultations/:consultationId/tickets"
             exact={true}
@@ -413,13 +470,56 @@ function App() {
               </PrivateRoute>
             }
           />
-          { (pricingPlan == "PLATINUM") && <Route path="/post/booking" exact={true} element={<PrivateRoute><CreateBooking /></PrivateRoute>} />}
-          { ( pricingPlan == "PLATINUM") && <Route path="/bookings" exact={true} element={<PrivateRoute><GetAllBooking /></PrivateRoute>} />}
-          <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
-          <Route path="/requests" exact={true} element={<PrivateRoute><RequestListClinicOwner/></PrivateRoute>} />
-          <Route path="/requests/:id" exact={true} element={<PrivateRoute><RequestEditClinicOwner/></PrivateRoute>} />
+          {pricingPlan == "PLATINUM" && (
+            <Route
+              path="/post/booking"
+              exact={true}
+              element={
+                <PrivateRoute>
+                  <CreateBooking />
+                </PrivateRoute>
+              }
+            />
+          )}
+          {pricingPlan == "PLATINUM" && (
+            <Route
+              path="/bookings"
+              exact={true}
+              element={
+                <PrivateRoute>
+                  <GetAllBooking />
+                </PrivateRoute>
+              }
+            />
+          )}
+          <Route
+            path="/sla"
+            exact={true}
+            element={
+              <PrivateRoute>
+                <SLA />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/requests"
+            exact={true}
+            element={
+              <PrivateRoute>
+                <RequestListClinicOwner />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/requests/:id"
+            exact={true}
+            element={
+              <PrivateRoute>
+                <RequestEditClinicOwner />
+              </PrivateRoute>
+            }
+          />
         </>
-
       );
     }
     if (role === "VET") {
@@ -453,7 +553,15 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
+          <Route
+            path="/sla"
+            exact={true}
+            element={
+              <PrivateRoute>
+                <SLA />
+              </PrivateRoute>
+            }
+          />
         </>
       );
     }
@@ -522,16 +630,6 @@ function App() {
                 <ConsultationEditClinicOwner />
               </PrivateRoute>
             }
-
-            />  
-            <Route
-              path="/plan"
-              exact={true}
-              element={
-                <PrivateRoute>
-                  <PricingPlan />
-                </PrivateRoute>
-              }
           />
           <Route
             path="/consultations/:id/tickets"
@@ -560,7 +658,15 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="/sla" exact={true} element={<PrivateRoute><SLA/></PrivateRoute>} />
+          <Route
+            path="/sla"
+            exact={true}
+            element={
+              <PrivateRoute>
+                <SLA />
+              </PrivateRoute>
+            }
+          />
         </>
       );
     }
@@ -579,6 +685,7 @@ function App() {
         {/* <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} /> */}
         <Route path="/logout" element={<Logout />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/sla" element={<SLA />} />
       </>
     );
   }
