@@ -86,6 +86,49 @@ function AppNavbar() {
         } else {
           throw new Error("Unexpected response format");
         }
+
+        if (role === "OWNER") {
+            ownerLinks = (
+                <>
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/myPets">
+                            My Pets
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink
+                            style={{ color: "white" }} tag={Link} to="/consultations">
+                            Consultations
+                        </NavLink>
+                    </NavItem>
+                    <>
+                    {(pricingPlan == "PLATINUM" ) && 
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/bookings">
+                    Bookings
+                        </NavLink>
+                    </NavItem>
+                    }
+                    {(pricingPlan == "PLATINUM" || pricingPlan == "GOLD") && 
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/offer">
+                    Adoptions
+                        </NavLink>
+                    </NavItem> }
+                    {(pricingPlan == "PLATINUM" || pricingPlan == "GOLD") && 
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/offer/sent">
+                    Offer Sent
+                        </NavLink>
+                    </NavItem> }
+                    {(pricingPlan == "PLATINUM" || pricingPlan == "GOLD") && 
+                    <NavItem>
+                        <NavLink style={{ color: "white" }} tag={Link} to="/offer/received">
+                    Offer Received
+                        </NavLink>
+                    </NavItem> }
+                </>
+
       })
       .catch((error) => {
         console.error("Error fetching pricing plan:", error);
