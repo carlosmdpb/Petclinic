@@ -57,9 +57,6 @@ export default function OwnerDashboard() {
       })
     ).json();
     if (owner.message) setMessage(owner.message);
-    else {
-      setPlan(owner.clinic.plan);
-    }
   }
 
   useEffect(() => {

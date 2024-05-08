@@ -1,0 +1,27 @@
+name: SonarQube Frontend Analysis
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**'
+
+jobs:
+  sonarqube_frontend:
+    name: SonarQube Analysis for Frontend
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: SonarQube Scan for Frontend
+      uses: SonarSource/sonarqube-scan-action@master
+      with:
+        args: >
+          -Dsonar.projectKey=psg2-2223-G5-54-frontend
+          -Dsonar.sources=./frontend/src
+          -Dsonar.host.url=YOUR_SONAR_HOST
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
