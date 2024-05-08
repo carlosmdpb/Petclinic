@@ -210,11 +210,12 @@ function AppNavbar() {
                 <NavItem>
             <Dropdown isOpen={dropdownOpen} toggle={toggle}>
               <DropdownToggle caret style={{ color: "white" }}>
-                lidia
+                APIs
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem tag={Link} to="/lidia/DogFacts">DogFacts</DropdownItem>
                 <DropdownItem tag={Link} to="/lidia/DogAPI">DogAPI</DropdownItem>
+                <DropdownItem tag={Link} to="/carlos/RandomUserApi">RandomUserAPI</DropdownItem>
               </DropdownMenu>
             </Dropdown>
             <NavItem>
