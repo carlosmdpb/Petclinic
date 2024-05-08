@@ -216,6 +216,7 @@ function AppNavbar() {
                 <DropdownItem tag={Link} to="/lidia/DogFacts">DogFacts</DropdownItem>
                 <DropdownItem tag={Link} to="/lidia/DogAPI">DogAPI</DropdownItem>
                 <DropdownItem tag={Link} to="/carlos/RandomUserApi">RandomUserAPI</DropdownItem>
+                <DropdownItem tag={Link} to="/carlos/FrankfurterApi">FrankfurterApi</DropdownItem>
               </DropdownMenu>
             </Dropdown>
             <NavItem>

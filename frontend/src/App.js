@@ -63,6 +63,7 @@ import  DogAPI  from "./apis/lidia/DogAPI.js";
 import DogFacts from "./apis/lidia/DogFacts.js"; 
 import GetCatDailyFacts from "./apis/yao/catDailyFacts/index.js";
 import RandomUserAPI from "./apis/carlos/RandomUserApi.js";
+import FrankfurterApi from "./apis/carlos/FrankfurterApi.js";
 
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
@@ -492,6 +493,7 @@ function App() {
         <Route path="/lidia/DogFacts" element={<DogFacts />} />
         <Route path="/catDailyFacts" element={<GetCatDailyFacts />} />
         <Route path="/carlos/RandomUserApi" element={<RandomUserAPI/>}/>
+        <Route path="/carlos/FrankfurterApi" element={<FrankfurterApi/>}/>
       </>
     );
   } else {
