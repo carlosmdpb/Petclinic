@@ -59,6 +59,8 @@ import SLA from "./home/SLA.js";
 import RequestListClinicOwner from "./clinicOwner/requests/requestList";
 import RequestEditClinicOwner from "./clinicOwner/requests/requestEdit";
 import RequestListAdmin from "./admin/requests/requestList";
+import  DogAPI  from "./apis/lidia/DogAPI.js";
+import DogFacts from "./apis/lidia/DogFacts.js";
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
@@ -483,6 +485,8 @@ function App() {
       <>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/lidia/DogAPI" element={<DogAPI />} />
+        <Route path="/lidia/DogFacts" element={<DogFacts />} />
       </>
     );
   } else {

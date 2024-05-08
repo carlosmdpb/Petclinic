@@ -14,7 +14,7 @@ export function PokemonAPI() {
     <div className="home-page-container">
       <div className="hero-div">
         <h1>PokemonApi</h1>
-        <h3>Cada vez que entras aqui hay un Pokemon diferente :) </h3>
+        <h3>Cada vez que entras aqui hay un Pokemon diferente : </h3>
         <Suspense fallback={<div>Loading...</div>} />
         <ul>
           <h2 style={{ textAlign: "center" }} key={data.id}>
