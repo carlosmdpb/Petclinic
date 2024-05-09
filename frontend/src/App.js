@@ -631,6 +631,15 @@ function App() {
                 <ConsultationListClinicOwner />
               </PrivateRoute>
             }
+          />  
+          <Route
+            path="/plan"
+            exact={true}
+            element={
+              <PrivateRoute>
+                <PricingPlan />
+              </PrivateRoute>
+            }
           />
           <Route
             path="/consultations/:id"

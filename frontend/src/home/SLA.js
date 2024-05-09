@@ -44,12 +44,20 @@ export default function SLA(){
               <th>Platinum</th>
             </tr>
             <tr>
-              <td>Precio</td>
               <td>10€</td>
               <td>30€</td>
               <td>50€</td>
             </tr>
           </table>
+        <p>El plan Basic permite 2 mascotas, 1 visita mensual, 2 veterinarios y acceso a servicio de visitas</p>
+        <p>El plan Gold permite 4 mascotas, 3 visitas mensuales, 4 veterinarios, acceso a servicio de visitas,
+          acceso al servicio de adopciones con 210 adopciones/mes, SLA garantizado, selección de veterinarios y
+          calendario de visitas
+        </p>
+        <p>El plan Platinum permite 7 mascotas, 6 visitas mensuales, 8 veterinarios, acceso a servicio de visitas,
+          acceso al servicio de adopciones con 420 adopciones/mes, acceso al servicio de Pet Hotel, realización de
+          peticiones de cambio, 450 reservas/mes, soporte prioritario telefónico y por correo, SLA garantizado,
+          selección de veterinarios y calendario de visitas, panel de control de mascotas y consultas en línea</p>
 
 
         <br></br>
