@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Navbar,
-  NavbarBrand,
-  NavLink,
-  NavItem,
-  Nav,
-  NavbarText,
-  NavbarToggler,
-  Collapse,
-} from "reactstrap";
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Nav,Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, NavLink, NavbarText } from 'reactstrap';
 import { Link } from "react-router-dom";
 import tokenService from "./services/token.service";
 import jwt_decode from "jwt-decode";
@@ -285,7 +276,8 @@ function AppNavbar() {
       );
     }
   });
-
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const toggle = () => setDropdownOpen(prevState => !prevState);
   if (!jwt) {
     publicLinks = (
       <>
@@ -303,6 +295,7 @@ function AppNavbar() {
           <NavLink style={{ color: "white" }} id="plans" tag={Link} to="/plans">
             Pricing Plans
           </NavLink>
+
         </NavItem>
         <NavItem>
           <Dropdown isOpen={dropdownOpen} toggle={toggle}>

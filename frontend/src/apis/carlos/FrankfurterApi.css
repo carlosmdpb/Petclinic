@@ -1,0 +1,16 @@
+.frankfurter-container {
+    text-align: center;
+}
+
+.exchange-rates {
+    margin-top: 20px;
+}
+
+.exchange-rates ul {
+    list-style: none;
+    padding: 0;
+}
+
+.exchange-rates li {
+    margin-bottom: 5px;
+}
