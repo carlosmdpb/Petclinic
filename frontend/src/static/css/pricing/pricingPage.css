@@ -61,8 +61,8 @@
   }
   
   .pricing-container .pricing-card:nth-child(2) {
-    height: 650px;
-    max-width: 350px;
+    height: 800px;
+    max-width: 500px;
   }
   
   .pricing-container .pricing-card:nth-child(2) .icon {
