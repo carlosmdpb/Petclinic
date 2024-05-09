@@ -67,3 +67,6 @@ la columna Review).
 cuando sea revisada por todo el grupo y en consenso se tome como terminada. Esta
 definición solamente aplica a las tareas de documentación realizadas en grupo. Las tareas
 de documentación individuales seguirán la definición de hecho del redactor.
+
+\-El conjunto de tareas se considerará hecho cuando todas hayan recibido el visto bueno y
+hayan sido cerradas en iTop.
