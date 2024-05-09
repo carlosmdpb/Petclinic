@@ -85,9 +85,15 @@ Las notas han sido elaboradas en función al nivel de compromiso y trabajo de ca
 
 Al principio del sprint se consiguió equilibrar las cargas de trabajo de todos los integrantes, aunque el tiempo pasaba y las tareas no salían adelante.
 Aunque cada vez el grupo se entiende mejor, creemos que nuestro fallo ha estado sobre todo en las primeras semanas, ya que vimos la entrega lejos y dejamos el tiempo pasar, sin avanzar lo que deberiamos en las tareas correspondientes. Esto ha hecho que se nos junte todo al final, incluidos otros trabajos de otras asignaturas, aunque no es motivo de excusa, ya que la responsabilidad es nuestra por no haber empezado a trabajar desde el principio del sprint.
-Todo esto se va a mejorar para proximas entregas, pero en esta debemos agachar la cabeza, asumir nuestras responsabilidades y pedir perdón.
+Todo esto se va a mejorar para proximas entregas, asumir nuestras responsabilidades y pedir perdón.
 
 A parte de todo esto, creemos que el equipo deberia haberse reunido más a menudo para trabajar colectivamente, pues habría favorecido aún más la comunicación y habría facilitado bastante el trabajo de todos.
+
+## 4.2 Aspecto a mencionar
+
+Si bien se ha trabajado de manera demasiado individual, no hay que olvidar el hecho de que las tareas han sido entregadas y realizadas, aunque no de una manera seria y eficaz. Se han tomado una serie de decisiones que para el grupo han sido acertadas, por ejemplo, decisiones que se han comentado en la conclusion del documento de Monitorización del CA. Si bien este sprint destaca la poca organización por parte del grupo, en ninguna de las entregas se considera que se haya dejado nada por hacer y en mayor o menor medidas de seriedad, todos los objetivos de entrega marcados se han logrado. 
+
+Por tanto, si debemos buscar algo por lo que sentir orgullo durante esta entrega es que el grupo consigue sacar adelante las entregas aunque no de una manera ejemplar
 
 
 
