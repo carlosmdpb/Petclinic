@@ -2,6 +2,13 @@
 
 Aplicación web de gestión de clínicas veterinarias. Reúne la información de propietarios, mascotas, veterinarios y visitas, y amplía ese flujo con adopciones, reservas de hotel para mascotas y consultas mediante tickets.
 
+![Java](https://img.shields.io/badge/Java-17-ED8B00?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1.1-6DB33F?logo=springboot&logoColor=white)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![H2](https://img.shields.io/badge/H2-Database-09476B)
+![Spring Security](https://img.shields.io/badge/Spring%20Security-Auth-6DB33F?logo=springsecurity&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-Build-C71A36?logo=apachemaven&logoColor=white)
+
 Proyecto académico desarrollado en equipo para Procesos de Software y Gestión 2 (PSG2), Universidad de Sevilla, curso 2023/24. Utiliza la base docente React Petclinic, derivada de Spring Petclinic.
 
 ## Funcionalidades
