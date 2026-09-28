@@ -1,96 +1,109 @@
-# React Petclinic
-Small project based on spring-petclinic for teaching SPA architectures with React, Java and Spring. Originally developed for DP1 and adapted for the PSG2 course at the Software Engineering degree of University of Sevilla.
+# Petclinic
 
-This is a fork of https://github.com/spring-projects/spring-petclinic  The main changes that have been performed were:
-- Trimming several parts of the application to keep the example low
-- Reorganize some parts of the code according to best practices introduced in the course
-- Modifying the Controllers to work as RestControllers creating several API endpoings
-- Modifying the security configuration to use JWT
-- Creating a React frontend.
+Aplicación web de gestión de clínicas veterinarias. Reúne la información de propietarios, mascotas, veterinarios y visitas, y amplía ese flujo con adopciones, reservas de hotel para mascotas y consultas mediante tickets.
 
-## Understanding the Spring Petclinic application  backend with a few diagrams
-<a href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">See the presentation here</a>
+Proyecto académico desarrollado en equipo para Procesos de Software y Gestión 2 (PSG2), Universidad de Sevilla, curso 2023/24. Utiliza la base docente React Petclinic, derivada de Spring Petclinic.
 
-## Running petclinic backend locally
-Petclinic is a [Spring Boot](https://spring.io/guides/gs/spring-boot) application built using [Maven](https://spring.io/guides/gs/maven/). You can build a jar file and run it from the command line:
+## Funcionalidades
 
+- Registro, inicio de sesión y acceso según roles: administrador, propietario de mascota, veterinario y propietario de clínica.
+- Gestión de clínicas, propietarios, mascotas, veterinarios, especialidades y visitas.
+- Publicación de ofertas de adopción y gestión de adopciones.
+- Habitaciones de hotel para mascotas y reservas con fechas de entrada y salida.
+- Consultas y tickets para el seguimiento de solicitudes.
+- Pantallas de planes de servicio y documentación de acuerdos de servicio.
+- Ejemplos de consumo de APIs externas desde React, separados del flujo veterinario principal.
 
+La carpeta `frontend/src/paymentAPI/` contiene una simulación de pago; no constituye una integración de cobros reales.
+
+## Tecnologías y arquitectura
+
+| Capa | Tecnologías |
+| --- | --- |
+| Interfaz | React 18, React Router, Bootstrap y Reactstrap |
+| Backend | Java 17 y Spring Boot 3.1.1 |
+| Seguridad | Spring Security y JWT |
+| Persistencia | Spring Data JPA y H2 en memoria por defecto |
+| Documentación de API | Springdoc / Swagger UI |
+| Pruebas | Spring Boot Test, Spring Security Test, Jest y Testing Library |
+| Construcción y cobertura | Maven Wrapper, npm y JaCoCo |
+
+React consume una API REST. Los controladores delegan la lógica en servicios y el acceso a datos en repositorios. Las entidades representan las relaciones entre clínicas, usuarios, mascotas, reservas y consultas.
+
+## Ejecutar en local
+
+Requisitos: JDK 17, Node.js y npm. El entorno original toma Node 18.12.1 como referencia en `pom.xml`. Se incluye Maven Wrapper.
+
+```sh
+git clone https://github.com/carlosmdpb/Petclinic.git
+cd Petclinic
 ```
-git clone https://github.com/gii-is-psg2/react-petclinic.git
-cd spring-petclinic
-./mvnw package
-java -jar target/*.jar
+
+Iniciar el backend desde la raíz:
+
+```powershell
+# Windows / PowerShell
+.\mvnw.cmd spring-boot:run
 ```
 
-You can then access petclinic backend here: [http://localhost:8080/](http://localhost:8080/swagger-ui/index.html)
-
-
-
-Or you can run it from Maven directly using the Spring Boot Maven plugin. If you do this it will pick up changes that you make in the project immediately (changes to Java source files require a compile as well - most people use an IDE for this):
-
-```
+```sh
+# Linux / macOS
 ./mvnw spring-boot:run
 ```
-## Database configuration
 
-In its default configuration, Petclinic uses an in-memory database (H2) which
-gets populated at startup with data. The INSERTs are specified in the file data.sql.
+En otra terminal, desde la raíz:
 
-## Working with React Petclinic in your IDE
-
-### Prerequisites
-The following items should be installed in your system:
-* Java 17 or newer.
-* Node.js 18 or newer.
-* git command line tool (https://help.github.com/articles/set-up-git)
-* Your preferred IDE 
-  * Eclipse with the m2e plugin. Note: when m2e is available, there is an m2 icon in `Help -> About` dialog. If m2e is
-  not there, just follow the install process here: https://www.eclipse.org/m2e/
-  * [Spring Tools Suite](https://spring.io/tools) (STS)
-  * IntelliJ IDEA
-  * [VS Code](https://code.visualstudio.com)
-
-### Steps:
-
-1) On the command line
-```
-git clone https://github.com/gii-is-psg2/react-petclinic.git
-```
-2) Inside Eclipse or STS
-```
-File -> Import -> Maven -> Existing Maven project
-```
-
-Then either build on the command line `./mvnw generate-resources` or using the Eclipse launcher (right click on project and `Run As -> Maven install`) to generate the css. Run the application main method by right clicking on it and choosing `Run As -> Java Application`.
-
-3) Inside IntelliJ IDEA
-
-In the main menu, choose `File -> Open` and select the Petclinic [pom.xml](pom.xml). Click on the `Open` button.
-
-CSS files are generated from the Maven build. You can either build them on the command line `./mvnw generate-resources`
-or right click on the `spring-petclinic` project then `Maven -> Generates sources and Update Folders`.
-
-A run configuration named `PetClinicApplication` should have been created for you if you're using a recent Ultimate
-version. Otherwise, run the application by right clicking on the `PetClinicApplication` main class and choosing
-`Run 'PetClinicApplication'`.
-
-4) Navigate to Petclinic
-Visit [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html) in your browser.
-
-
-## Looking for something in particular?
-
-|Spring Boot Configuration | Class or Java property files  |
-|--------------------------|---|
-|The Main Class | [PetClinicApplication](https://github.com/gii-is-psg2/react-petclinic/blob/main/src/main/java/org/springframework/samples/petclinic/PetclinicApplication.java) |
-|Properties Files | [application.properties](https://github.com/gii-is-psg2/react-petclinic/blob/main/src/main/resources/application.properties) |
-
-
-## Starting the frontend
-
-The Spring Petclinic is implemented with a React frontend in the folder named "frontend".
-You can start the development server to see frontend using the command (maybe you should use the command npm insall prior to this):
-```
+```sh
+cd frontend
+npm install
 npm start
 ```
-You can then access the PetClinic frontend at [http://localhost:3000](http://localhost:3000)
+
+- Interfaz: [http://localhost:3000](http://localhost:3000).
+- API: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html).
+
+El proxy de React dirige las llamadas al backend del puerto 8080. La configuración local utiliza H2, inicialización SQL y `create-drop`; los datos no se conservan entre reinicios.
+
+### Recorrido de prueba
+
+Consultar las mascotas y visitas con los datos iniciales, recorrer las ofertas de adopción y las reservas de hotel, y explorar los endpoints en Swagger. Las pantallas disponibles dependen del rol de la cuenta.
+
+## Estructura y documentación
+
+```text
+frontend/src/        Pantallas por rol, componentes y acceso a la API
+src/main/java/       Dominio, servicios, repositorios y seguridad
+src/main/resources/  Configuración y datos iniciales
+src/test/            Pruebas Java y plan JMeter
+docs/                Documentación académica por hitos
+info.yml             Identificación del proyecto y equipo
+```
+
+- [Rutas y pantallas](frontend/src/App.js).
+- [Reservas de hotel](src/main/java/org/springframework/samples/petclinic/booking/Booking.java).
+- [Consultas](src/main/java/org/springframework/samples/petclinic/consultation/Consultation.java).
+- [Documentación del proceso y entregas](docs/).
+
+## Pruebas y construcción
+
+Desde la raíz:
+
+```sh
+./mvnw test
+./mvnw package
+```
+
+En Windows, sustituir `./mvnw` por `.\mvnw.cmd`. Desde `frontend/`:
+
+```sh
+npm test -- --watchAll=false
+npm run build
+```
+
+Las ejecuciones de Maven que instalan y construyen React están comentadas. Ejecutar primero `npm run build` en `frontend/` si se quiere incluir la interfaz al empaquetar. Consultar `pom.xml` para las tareas de cobertura. La existencia de pruebas y configuración de cobertura no acredita su resultado: hay que ejecutarlas en el entorno de desarrollo.
+
+## Contexto y alcance
+
+Esta versión es una evolución académica de React Petclinic, con trabajo de desarrollo y gestión en equipo. Los miembros están recogidos en [info.yml](info.yml). Conserva configuración de desarrollo y no incluye un proveedor de pagos real conectado.
+
+Se mantiene la atribución a [Spring Petclinic](https://github.com/spring-projects/spring-petclinic) y a su adaptación docente para la Universidad de Sevilla. El `pom.xml` conserva la referencia a Apache License 2.0 de la base.
