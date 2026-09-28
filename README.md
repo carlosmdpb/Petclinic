@@ -14,8 +14,6 @@ Proyecto académico desarrollado en equipo para Procesos de Software y Gestión 
 - Pantallas de planes de servicio y documentación de acuerdos de servicio.
 - Ejemplos de consumo de APIs externas desde React, separados del flujo veterinario principal.
 
-La carpeta `frontend/src/paymentAPI/` contiene una simulación de pago; no constituye una integración de cobros reales.
-
 ## Tecnologías y arquitectura
 
 | Capa | Tecnologías |
@@ -62,9 +60,9 @@ npm start
 - Interfaz: [http://localhost:3000](http://localhost:3000).
 - API: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html).
 
-El proxy de React dirige las llamadas al backend del puerto 8080. La configuración local utiliza H2, inicialización SQL y `create-drop`; los datos no se conservan entre reinicios.
+El proxy de React dirige las llamadas al backend del puerto 8080. H2 se inicializa al arrancar con los datos definidos en el proyecto.
 
-### Recorrido de prueba
+### Uso de la aplicación
 
 Consultar las mascotas y visitas con los datos iniciales, recorrer las ofertas de adopción y las reservas de hotel, y explorar los endpoints en Swagger. Las pantallas disponibles dependen del rol de la cuenta.
 
@@ -100,10 +98,10 @@ npm test -- --watchAll=false
 npm run build
 ```
 
-Las ejecuciones de Maven que instalan y construyen React están comentadas. Ejecutar primero `npm run build` en `frontend/` si se quiere incluir la interfaz al empaquetar. Consultar `pom.xml` para las tareas de cobertura. La existencia de pruebas y configuración de cobertura no acredita su resultado: hay que ejecutarlas en el entorno de desarrollo.
+Para incluir la interfaz en el paquete, ejecutar primero `npm run build` en `frontend/` y después el empaquetado con Maven. JaCoCo genera los informes de cobertura del backend.
 
-## Contexto y alcance
+## Origen del proyecto
 
-Esta versión es una evolución académica de React Petclinic, con trabajo de desarrollo y gestión en equipo. Los miembros están recogidos en [info.yml](info.yml). Conserva configuración de desarrollo y no incluye un proveedor de pagos real conectado.
+Esta versión es una evolución académica de React Petclinic, desarrollada en equipo. Los integrantes están recogidos en [info.yml](info.yml).
 
 Se mantiene la atribución a [Spring Petclinic](https://github.com/spring-projects/spring-petclinic) y a su adaptación docente para la Universidad de Sevilla. El `pom.xml` conserva la referencia a Apache License 2.0 de la base.
